@@ -1,0 +1,36 @@
+// https://bootswatch.com/help/
+@import 'bootswatch/dist/united/variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootswatch/dist/united/bootswatch';
+
+//.btn-warning {
+//    --bs-btn-bg: #d39e00;
+//    --bs-btn-border-color: #c69500;
+//
+//    --bs-btn-hover-bg: #e0a800;
+//    --bs-btn-hover-border-color: #d39e00;
+//
+//    --bs-btn-color: #fff;
+//    --bs-btn-hover-color: #fff;
+//    --bs-btn-active-color: #fff;
+//}
+
+.text-ellipsis {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-6px);
+}

@@ -1,0 +1,123 @@
+import { getOptions } from '@/utils/options.ts'
+
+export type ClearCacheType = 'site' | 'siteAll' | 'browser' | 'browserAll'
+
+export async function clearCache(type: ClearCacheType) {
+  const isAll = type.endsWith('All')
+  console.log('%c clearCache:', 'color: OrangeRed', type, isAll)
+  if (type.startsWith('site')) {
+    await clearSiteCache(isAll)
+  } else {
+    await clearBrowserCache(isAll)
+  }
+}
+
+async function clearBrowserCache(all = false) {
+  console.log('%cCleaning Browser Cache:', 'color: OrangeRed', all)
+
+  const options = await getOptions()
+
+  let cleanOptions: chrome.browsingData.DataTypeSet
+  if (!all) {
+    cleanOptions = options.browser
+  } else {
+    cleanOptions = {
+      cacheStorage: true,
+      cookies: true,
+      indexedDB: true,
+      localStorage: true,
+      serviceWorkers: true,
+      cache: true,
+      downloads: true,
+      formData: true,
+      history: true,
+      passwords: true,
+      pluginData: true,
+    }
+  }
+
+  if (isFirefox) {
+    delete cleanOptions.cacheStorage
+    delete cleanOptions.fileSystems
+    delete cleanOptions.webSQL
+    delete cleanOptions.appcache
+  }
+
+  console.debug('cleanOptions:', cleanOptions)
+  await chrome.browsingData.remove({}, cleanOptions)
+}
+
+async function clearSiteCache(all = false) {
+  console.log('%cClear Site Cache:', 'color: Yellow', all)
+
+  const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
+  console.debug('tab:', tab)
+  if (!tab.url) return console.warn('no tab.url')
+
+  const url = new URL(tab.url)
+  console.debug('url:', url)
+  console.debug('hostname:', url.hostname)
+  console.debug('origin:', url.origin)
+
+  const options = await getOptions()
+
+  const removalOptions:
+    | chrome.browsingData.RemovalOptions
+    | browser.browsingData.RemovalOptions = isFirefox
+    ? { hostnames: [url.hostname] }
+    : { origins: [url.origin] }
+
+  const cleanOptions: chrome.browsingData.DataTypeSet = all
+    ? {
+        cacheStorage: true,
+        cookies: true,
+        indexedDB: true,
+        localStorage: true,
+        serviceWorkers: true,
+      }
+    : options.site
+
+  if (isFirefox) {
+    if (cleanOptions.cacheStorage) await clearCacheStorage()
+
+    delete cleanOptions.cacheStorage
+    delete cleanOptions.fileSystems
+    delete cleanOptions.webSQL
+  }
+
+  console.debug('removalOptions:', removalOptions)
+  console.debug('cleanOptions:', cleanOptions)
+
+  await chrome.browsingData.remove(
+    removalOptions as chrome.browsingData.RemovalOptions,
+    cleanOptions,
+  )
+
+  if (options.autoReload) await injectFunction(() => window.location.reload())
+}
+
+async function clearCacheStorage() {
+  async function cacheStorage() {
+    const keys = await caches.keys()
+    console.log(`%cCache Keys Found: ${keys.length}`, 'color: Yellow')
+    for (const key of keys) {
+      console.log(`%cDeleting Cache: ${key}`, 'color: DeepSkyBlue')
+      await caches.delete(key)
+    }
+  }
+  const results = await injectFunction(cacheStorage)
+  console.debug('results:', results)
+}
+
+async function injectFunction<Args extends unknown[], R>(
+  func: (...args: Args) => R,
+  args: Args = [] as unknown as Args,
+) {
+  const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
+  if (!tab.id) return console.warn('no tab.id')
+  return await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func,
+    args,
+  })
+}
