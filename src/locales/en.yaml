@@ -118,18 +118,21 @@ cmd:
 
 option:
   toggle:
+    autoReload:
+      label: Auto Reload Site
+      tip: Refresh the site after clearing cache.
+    showAllButtons:
+      label: Show All Buttons
+      tip: Show all clear cache buttons on popup.
+    showConfirmation:
+      label: Show Confirmation
+      tip: Show confirmation before clearing cache.
     contextMenu:
       label: Context Menu
       tip: Show context menu on right click.
     showUpdate:
       label: Show Update
       tip: Show update notifications.
-    autoReload:
-      label: Auto Reload Site
-      tip: Refresh the site after clearing cache.
-    showConfirmation:
-      label: Show Confirmation
-      tip: Show confirmation before clearing cache.
 
   site:
     cacheStorage:

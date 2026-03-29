@@ -12,6 +12,8 @@ export async function clearCache(type: ClearCacheType) {
   }
 }
 
+// NOTE: Below functions refactored from VanillaJS
+
 async function clearBrowserCache(all = false) {
   console.log('%cCleaning Browser Cache:', 'color: OrangeRed', all)
 
@@ -98,6 +100,10 @@ async function clearSiteCache(all = false) {
 
 async function clearCacheStorage() {
   async function cacheStorage() {
+    console.log('cacheStorage: isSecureContext:', self.isSecureContext)
+    if (!self.isSecureContext) {
+      throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
+    }
     const keys = await caches.keys()
     console.log(`%cCache Keys Found: ${keys.length}`, 'color: Yellow')
     for (const key of keys) {
@@ -107,6 +113,7 @@ async function clearCacheStorage() {
   }
   const results = await injectFunction(cacheStorage)
   console.debug('results:', results)
+  if (results?.[0]?.error) console.log(results[0].error)
 }
 
 async function injectFunction<Args extends unknown[], R>(

@@ -26,7 +26,7 @@ withDefaults(
 
 const options = useOptions()
 
-const switches = ['autoReload', 'showConfirmation', 'contextMenu', 'showUpdate']
+const switches = ['autoReload', 'showAllButtons', 'showConfirmation', 'contextMenu', 'showUpdate']
 
 // const siteKeys = computed(() => Object.keys(options.value?.site))
 // const browserKeys = computed(() => Object.keys(options.value?.browser))
