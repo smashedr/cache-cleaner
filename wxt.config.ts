@@ -38,7 +38,7 @@ export default defineConfig({
       // icons,
       default_locale: 'en',
       name: '__MSG_name__',
-      // short_name: '__MSG_short_name__',
+      short_name: '__MSG_short_name__',
       description: '__MSG_description__',
 
       homepage_url: 'https://github.com/cssnr/cache-cleaner',
@@ -77,11 +77,11 @@ export default defineConfig({
         },
         openSidePanel: {
           description: '__MSG_cmd_openSidePanel__',
-          ...(!isDev && { suggested_key: { default: 'Alt+Shift+P' } }),
+          // ...(!isDev && { suggested_key: { default: 'Alt+Shift+P' } }),
         },
         openExtPanel: {
           description: '__MSG_cmd_openExtPanel__',
-          ...(!isDev && { suggested_key: { default: 'Alt+Shift+W' } }),
+          // ...(!isDev && { suggested_key: { default: 'Alt+Shift+W' } }),
         },
         openOptions: {
           description: '__MSG_cmd_openOptions__',

@@ -12,6 +12,7 @@ withDefaults(
     popupButton?: boolean
     optionsButton?: boolean
     closeWindow?: boolean
+    icon?: boolean
   }>(),
   {
     panelButton: true,
@@ -20,6 +21,7 @@ withDefaults(
     popupButton: true,
     optionsButton: true,
     closeWindow: false,
+    icon: true,
   },
 )
 
@@ -40,8 +42,8 @@ console.log('manifest:', manifest)
           target="_blank"
           @click.prevent="clickOpen($event, closeWindow)"
         >
-          <img :src="'/icons/32.png'" alt="L" class="mb-1" style="height: 1.1em" />
-          {{ manifest.name }}</a
+          <img v-if="icon" :src="'/icons/32.png'" alt="L" class="mb-1" style="height: 1.1em" />
+          {{ manifest.short_name }}</a
         >
         <a
           :title="i18n.t('ui.releaseNotes')"

@@ -44,12 +44,12 @@ const siteKeys = [
   'webSQL',
 ] as const
 const allSiteKeys = [
-  'cacheStorage',
   'cookies',
   'fileSystems',
   'indexedDB',
   'localStorage',
   'serviceWorkers',
+  'cacheStorage',
   'webSQL',
 ] as const
 const allBrowserKeys = ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'] as const

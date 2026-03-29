@@ -31,9 +31,7 @@
 - [Contributing](#contributing)
 
 > [!CAUTION]  
-> Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).  
-> For more details, join the [Discussion](https://github.com/cssnr/cache-cleaner/discussions/134).  
-> For progress, see the [Tracking Issue](https://github.com/cssnr/cache-cleaner/issues/135).
+> Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).
 
 ## Development
 

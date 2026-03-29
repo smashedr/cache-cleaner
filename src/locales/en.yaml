@@ -50,6 +50,8 @@ cache:
   cache: Cache
   clear: Clear
   cleared: Cleared
+  all: Clear All
+  selected: Clear Selected
   type:
     site: Selected Site
     siteAll: All Site
