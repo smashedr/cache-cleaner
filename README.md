@@ -36,7 +36,7 @@
 ## Development
 
 [![Framework](https://img.shields.io/badge/framework-wxt-darkgreen?style=for-the-badge&logo=wxt)](https://github.com/wxt-dev/wxt)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/link-extractor?style=for-the-badge&logo=devbox)](https://github.com/smashedr/link-extractor/tree/master/src)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/cache-cleaner?style=for-the-badge&logo=devbox)](https://github.com/smashedr/cache-cleaner/tree/master/src)
 
 To get started, see the [CONTRIBUTING.md](#contributing-ov-file).
 
