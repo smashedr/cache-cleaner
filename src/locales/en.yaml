@@ -62,6 +62,8 @@ options:
   # options/App.vue
   title: Options
   extension: Extension Options
+  moreOptions: More Options
+  quickOptions: Quick Options
   copySupport: Copy Support Information
   copySupportTip: For issue reporting.
   copySupportMsg: Support Information Copied.

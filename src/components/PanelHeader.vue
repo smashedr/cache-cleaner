@@ -3,6 +3,7 @@ import { i18n } from '#imports'
 import { clickOpen, openExtPanel, openOptions, openPage, openPopup, openSidePanel } from '@/utils/extension.ts'
 import { isMobile } from '@/utils/system.ts'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
+import OptionsModal from '@/components/OptionsModal.vue'
 
 withDefaults(
   defineProps<{
@@ -104,6 +105,10 @@ console.log('manifest:', manifest)
           <i class="fa-solid fa-gears"></i
         ></a>
       </div>
+
+      <OptionsModal class="btn btn-sm btn-outline-success ms-1">
+        <i class="fa-solid fa-sliders"></i>
+      </OptionsModal>
     </div>
   </div>
   <!-- container-fluid -->

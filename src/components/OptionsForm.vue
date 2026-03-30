@@ -14,6 +14,7 @@ withDefaults(
     ms?: '0' | '1' | '2' | '3' | '4' | '5' // TODO: Fix this logic
     subheading?: 'short' | 'full'
     show?: string[]
+    extension?: string[]
   }>(),
   {
     compact: false,
@@ -117,48 +118,50 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="row m-0">
         <template v-for="key in switches" :key="key">
-          <FormSwitch
-            :pk="key"
-            :value="!!options[key]"
-            :label="i18n.t(`option.toggle.${key}.label` as any)"
-            :tooltip="i18n.t(`option.toggle.${key}.tip` as any)"
-            :class="{ 'col-12': true }"
-            @change="saveKeyValue"
-          />
+          <template v-if="!extension || extension.includes(key)">
+            <FormSwitch
+              :pk="key"
+              :value="!!options[key]"
+              :label="i18n.t(`option.toggle.${key}.label` as any)"
+              :tooltip="i18n.t(`option.toggle.${key}.tip` as any)"
+              :class="{ 'col-12': true }"
+              @change="saveKeyValue"
+            />
 
-          <Transition name="fade">
-            <div v-if="key === 'contextMenu' && options['contextMenu']">
-              <!--TODO: Loop through a consistent list and not options keys-->
-              <FormSwitch
-                v-for="(_, key) in options.ctx"
-                :key="key"
-                subkey="ctx"
-                :pk="key"
-                :value="options.ctx[key] as boolean"
-                :label="i18n.t(`ctx.${key}.tip` as any)"
-                :tooltip="i18n.t(`ctx.${key}.label` as any)"
-                :class="{ 'col-12': true, 'ms-2': true }"
-                @change="saveKeyValue"
-              />
-            </div>
-          </Transition>
+            <Transition name="fade">
+              <div v-if="key === 'contextMenu' && options['contextMenu']">
+                <!--TODO: Loop through a consistent list and not options keys-->
+                <FormSwitch
+                  v-for="(_, key) in options.ctx"
+                  :key="key"
+                  subkey="ctx"
+                  :pk="key"
+                  :value="options.ctx[key] as boolean"
+                  :label="i18n.t(`ctx.${key}.tip` as any)"
+                  :tooltip="i18n.t(`ctx.${key}.label` as any)"
+                  :class="{ 'col-12': true, 'ms-2': true }"
+                  @change="saveKeyValue"
+                />
+              </div>
+            </Transition>
 
-          <Transition name="fade">
-            <div v-if="key === 'showConfirmation' && options['showConfirmation']">
-              <!--TODO: Loop through a consistent list and not options keys-->
-              <FormSwitch
-                v-for="(_, key) in options.confirm"
-                :key="key"
-                subkey="confirm"
-                :pk="key"
-                :value="options.confirm[key] as boolean"
-                :label="i18n.t(`confirm.${key}.label` as any)"
-                :tooltip="i18n.t(`confirm.${key}.tip` as any)"
-                :class="{ 'col-12': true, 'ms-2': true }"
-                @change="saveKeyValue"
-              />
-            </div>
-          </Transition>
+            <Transition name="fade">
+              <div v-if="key === 'showConfirmation' && options['showConfirmation']">
+                <!--TODO: Loop through a consistent list and not options keys-->
+                <FormSwitch
+                  v-for="(_, key) in options.confirm"
+                  :key="key"
+                  subkey="confirm"
+                  :pk="key"
+                  :value="options.confirm[key] as boolean"
+                  :label="i18n.t(`confirm.${key}.label` as any)"
+                  :tooltip="i18n.t(`confirm.${key}.tip` as any)"
+                  :class="{ 'col-12': true, 'ms-2': true }"
+                  @change="saveKeyValue"
+                />
+              </div>
+            </Transition>
+          </template>
         </template>
       </div>
     </template>
