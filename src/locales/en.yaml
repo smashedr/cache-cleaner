@@ -129,6 +129,9 @@ option:
     showConfirmation:
       label: Show Confirmation
       tip: Show confirmation before clearing cache.
+    showDeprecated:
+      label: Show Deprecated Options
+      tip: Display options that are deprecated.
     contextMenu:
       label: Context Menu
       tip: Show context menu on right click.

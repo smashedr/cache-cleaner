@@ -4,7 +4,7 @@ import BackToTop from '@/components/BackToTop.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
 import PanelFooter from '@/components/PanelFooter.vue'
 import PermsCheck from '@/components/PermsCheck.vue'
-import OptionsForm from '@/components/OptionsForm.vue'
+import FlushView from '@/components/FlushView.vue'
 
 console.debug('%c sidepanel/App.vue', 'color: Lime')
 </script>
@@ -17,8 +17,10 @@ console.debug('%c sidepanel/App.vue', 'color: Lime')
   <main class="flex-grow-1 overflow-auto p-1">
     <div class="d-grid gap-2">
       <PermsCheck />
-      <OptionsForm :compact="true" class="p-1" />
+      <!--<OptionsForm :compact="true" class="p-1" />-->
     </div>
+
+    <FlushView />
   </main>
 
   <footer class="flex-shrink-0">

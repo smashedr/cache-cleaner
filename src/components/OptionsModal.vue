@@ -30,7 +30,7 @@ defineOptions({
 
         <div class="modal-body py-2">
           <OptionsForm
-            :extension="['autoReload', 'showAllButtons', 'showConfirmation']"
+            :extension="['autoReload', 'showAllButtons', 'showDeprecated', 'showConfirmation']"
             :compact="true"
             :show="['extension']"
             :heading="false"

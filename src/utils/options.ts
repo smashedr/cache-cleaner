@@ -2,6 +2,7 @@ export const defaultOptions = {
   autoReload: true,
   showAllButtons: false,
   showConfirmation: true,
+  showDeprecated: false,
   contextMenu: true,
   showUpdate: false,
 

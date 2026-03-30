@@ -22,12 +22,18 @@ withDefaults(
     ms: '0',
     subheading: 'short',
     show: () => ['site', 'browser', 'extension'],
+    extension: () => [
+      'autoReload',
+      'showAllButtons',
+      'showConfirmation',
+      'contextMenu',
+      'showDeprecated',
+      'showUpdate',
+    ],
   },
 )
 
 const options = useOptions()
-
-const switches = ['autoReload', 'showAllButtons', 'showConfirmation', 'contextMenu', 'showUpdate']
 
 // const siteKeys = computed(() => Object.keys(options.value?.site))
 // const browserKeys = computed(() => Object.keys(options.value?.browser))
@@ -55,6 +61,7 @@ const allSiteKeys = [
 ] as const
 const allBrowserKeys = ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'] as const
 
+const deprecated = ['passwords', 'pluginData']
 const ffExcludes = ['fileSystems', 'webSQL']
 const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 </script>
@@ -101,67 +108,66 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <div v-if="subheading === 'short'">Browser:</div>
       <HorizontalRule v-if="subheading === 'full'">Browser</HorizontalRule>
 
-      <FormSwitch
-        v-for="key in allBrowserKeys"
-        :key="key"
-        :pk="key"
-        subkey="browser"
-        :value="options?.browser[key]"
-        :label="i18n.t(`option.browser.${key}.label` as any)"
-        :tooltip="i18n.t(`option.browser.${key}.label` as any)"
-        :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
-        @change="saveKeyValue"
-      />
+      <template v-for="key in allBrowserKeys" :key="key">
+        <FormSwitch
+          v-if="!deprecated.includes(key) || options.showDeprecated"
+          :pk="key"
+          subkey="browser"
+          :value="options?.browser[key]"
+          :label="i18n.t(`option.browser.${key}.label` as any)"
+          :tooltip="i18n.t(`option.browser.${key}.label` as any)"
+          :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
+          @change="saveKeyValue"
+        />
+      </template>
     </template>
 
     <template v-if="show.includes('extension')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="row m-0">
-        <template v-for="key in switches" :key="key">
-          <template v-if="!extension || extension.includes(key)">
-            <FormSwitch
-              :pk="key"
-              :value="!!options[key]"
-              :label="i18n.t(`option.toggle.${key}.label` as any)"
-              :tooltip="i18n.t(`option.toggle.${key}.tip` as any)"
-              :class="{ 'col-12': true }"
-              @change="saveKeyValue"
-            />
+        <template v-for="key in extension" :key="key">
+          <FormSwitch
+            :pk="key"
+            :value="!!options[key]"
+            :label="i18n.t(`option.toggle.${key}.label` as any)"
+            :tooltip="i18n.t(`option.toggle.${key}.tip` as any)"
+            :class="{ 'col-12': true }"
+            @change="saveKeyValue"
+          />
 
-            <Transition name="fade">
-              <div v-if="key === 'contextMenu' && options['contextMenu']">
-                <!--TODO: Loop through a consistent list and not options keys-->
-                <FormSwitch
-                  v-for="(_, key) in options.ctx"
-                  :key="key"
-                  subkey="ctx"
-                  :pk="key"
-                  :value="options.ctx[key] as boolean"
-                  :label="i18n.t(`ctx.${key}.tip` as any)"
-                  :tooltip="i18n.t(`ctx.${key}.label` as any)"
-                  :class="{ 'col-12': true, 'ms-2': true }"
-                  @change="saveKeyValue"
-                />
-              </div>
-            </Transition>
+          <Transition name="fade">
+            <div v-if="key === 'contextMenu' && options['contextMenu']">
+              <!--TODO: Loop through a consistent list and not options keys-->
+              <FormSwitch
+                v-for="(_, key) in options.ctx"
+                :key="key"
+                subkey="ctx"
+                :pk="key"
+                :value="options.ctx[key] as boolean"
+                :label="i18n.t(`ctx.${key}.tip` as any)"
+                :tooltip="i18n.t(`ctx.${key}.label` as any)"
+                :class="{ 'col-12': true, 'ms-2': true }"
+                @change="saveKeyValue"
+              />
+            </div>
+          </Transition>
 
-            <Transition name="fade">
-              <div v-if="key === 'showConfirmation' && options['showConfirmation']">
-                <!--TODO: Loop through a consistent list and not options keys-->
-                <FormSwitch
-                  v-for="(_, key) in options.confirm"
-                  :key="key"
-                  subkey="confirm"
-                  :pk="key"
-                  :value="options.confirm[key] as boolean"
-                  :label="i18n.t(`confirm.${key}.label` as any)"
-                  :tooltip="i18n.t(`confirm.${key}.tip` as any)"
-                  :class="{ 'col-12': true, 'ms-2': true }"
-                  @change="saveKeyValue"
-                />
-              </div>
-            </Transition>
-          </template>
+          <Transition name="fade">
+            <div v-if="key === 'showConfirmation' && options['showConfirmation']">
+              <!--TODO: Loop through a consistent list and not options keys-->
+              <FormSwitch
+                v-for="(_, key) in options.confirm"
+                :key="key"
+                subkey="confirm"
+                :pk="key"
+                :value="options.confirm[key] as boolean"
+                :label="i18n.t(`confirm.${key}.label` as any)"
+                :tooltip="i18n.t(`confirm.${key}.tip` as any)"
+                :class="{ 'col-12': true, 'ms-2': true }"
+                @change="saveKeyValue"
+              />
+            </div>
+          </Transition>
         </template>
       </div>
     </template>

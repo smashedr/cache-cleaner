@@ -124,6 +124,17 @@ function clearCacheClick(type: ClearCacheType) {
   </div>
 
   <OptionsForm
+    v-if="cacheType === 'site'"
+    :show="['extension']"
+    :extension="['autoReload']"
+    subheading="full"
+    :heading="false"
+    :close-window="true"
+    :compact="true"
+    class="ms-2"
+  />
+
+  <OptionsForm
     :show="[cacheType]"
     subheading="full"
     :heading="false"

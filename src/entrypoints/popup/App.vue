@@ -4,7 +4,7 @@ import { isMobile } from '@/utils/system.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
 import PermsCheck from '@/components/PermsCheck.vue'
-import PopupView from '@/components/PopupView.vue'
+import FlushView from '@/components/FlushView.vue'
 
 console.debug('%c popup/App.vue', 'color: Lime')
 
@@ -20,7 +20,7 @@ console.log('width:', width.value)
 
     <PermsCheck :close-window="true" />
 
-    <PopupView />
+    <FlushView />
 
     <ToastAlerts />
   </div>
