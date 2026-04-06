@@ -2,10 +2,9 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
 import { isFirefox } from '@/utils/system.ts'
-import { saveKeyValue } from '@/utils/options.ts'
 import { useOptions } from '@/composables/useOptions.ts'
-import FormSwitch from '@/components/FormSwitch.vue'
 import HorizontalRule from '@/components/HorizontalRule.vue'
+import FormSwitch from '@/components/FormSwitch.vue'
 
 withDefaults(
   defineProps<{
@@ -70,17 +69,14 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
   <form v-if="options">
     <template v-if="options?.site && show.includes('site')">
       <HorizontalRule v-if="heading">Site Specific Settings</HorizontalRule>
-      <template v-for="key in siteKeys" :key="key">
+      <template v-for="id in siteKeys" :key="id">
         <!--<p v-for="key in siteKeys">{{ key }}</p>-->
         <FormSwitch
-          v-if="!(isFirefox && ffExcludes.includes(key))"
-          :pk="key"
+          v-if="!(isFirefox && ffExcludes.includes(id))"
+          v-model="options['site'][id]"
+          :id="id"
           subkey="site"
-          :value="options?.site[key]"
-          :label="i18n.t(`option.site.${key}.label` as any)"
-          :tooltip="i18n.t(`option.site.${key}.label` as any)"
           :class="`ms-${ms}`"
-          @change="saveKeyValue"
         />
       </template>
     </template>
@@ -91,33 +87,27 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <div v-if="subheading === 'short'">All Sites:</div>
       <HorizontalRule v-if="subheading === 'full'">All Sites</HorizontalRule>
 
-      <template v-for="key in allSiteKeys" :key="key">
+      <template v-for="id in allSiteKeys" :key="id">
         <!--<p v-for="key in allSiteKeys">{{ key }}</p>-->
         <FormSwitch
-          v-if="!(isFirefox && ffExcludesAll.includes(key))"
-          :pk="key"
-          subkey="browser"
-          :value="options?.browser[key]"
-          :label="i18n.t(`option.browser.${key}.label` as any)"
-          :tooltip="i18n.t(`option.browser.${key}.label` as any)"
+          v-if="!(isFirefox && ffExcludesAll.includes(id))"
+          v-model="options['site'][id]"
+          :id="id"
+          subkey="site"
           :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
-          @change="saveKeyValue"
         />
       </template>
 
       <div v-if="subheading === 'short'">Browser:</div>
       <HorizontalRule v-if="subheading === 'full'">Browser</HorizontalRule>
 
-      <template v-for="key in allBrowserKeys" :key="key">
+      <template v-for="id in allBrowserKeys" :key="id">
         <FormSwitch
-          v-if="!deprecated.includes(key) || options.showDeprecated"
-          :pk="key"
+          v-if="!deprecated.includes(id) || options.showDeprecated"
+          v-model="options['browser'][id]"
+          :id="id"
           subkey="browser"
-          :value="options?.browser[key]"
-          :label="i18n.t(`option.browser.${key}.label` as any)"
-          :tooltip="i18n.t(`option.browser.${key}.label` as any)"
           :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
-          @change="saveKeyValue"
         />
       </template>
     </template>
@@ -125,46 +115,37 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     <template v-if="show.includes('extension')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="row m-0">
-        <template v-for="key in extension" :key="key">
-          <FormSwitch
-            :pk="key"
-            :value="!!options[key]"
-            :label="i18n.t(`option.toggle.${key}.label` as any)"
-            :tooltip="i18n.t(`option.toggle.${key}.tip` as any)"
-            :class="{ 'col-12': true }"
-            @change="saveKeyValue"
-          />
+        <template v-for="id in extension" :key="id">
+          <FormSwitch v-model="options[id]" :id="id" :class="{ 'col-12': true }" />
 
           <Transition name="fade">
-            <div v-if="key === 'contextMenu' && options['contextMenu']">
+            <div v-if="id === 'contextMenu' && options['contextMenu']">
               <!--TODO: Loop through a consistent list and not options keys-->
               <FormSwitch
-                v-for="(_, key) in options.ctx"
-                :key="key"
+                v-for="(_, id) in options.ctx"
+                :key="id"
+                v-model="options['ctx'][id]"
+                :id="id"
                 subkey="ctx"
-                :pk="key"
-                :value="options.ctx[key] as boolean"
-                :label="i18n.t(`ctx.${key}.tip` as any)"
-                :tooltip="i18n.t(`ctx.${key}.label` as any)"
+                :label="i18n.t(`ctx.${id}.label` as any)"
+                :tooltip="i18n.t(`ctx.${id}.tip` as any)"
                 :class="{ 'col-12': true, 'ms-2': true }"
-                @change="saveKeyValue"
               />
             </div>
           </Transition>
 
           <Transition name="fade">
-            <div v-if="key === 'showConfirmation' && options['showConfirmation']">
+            <div v-if="id === 'showConfirmation' && options['showConfirmation']">
               <!--TODO: Loop through a consistent list and not options keys-->
               <FormSwitch
-                v-for="(_, key) in options.confirm"
-                :key="key"
+                v-for="(_, id) in options.confirm"
+                :key="id"
+                v-model="options['confirm'][id]"
+                :id="id"
                 subkey="confirm"
-                :pk="key"
-                :value="options.confirm[key] as boolean"
-                :label="i18n.t(`confirm.${key}.label` as any)"
-                :tooltip="i18n.t(`confirm.${key}.tip` as any)"
+                :label="i18n.t(`confirm.${id}.label` as any)"
+                :tooltip="i18n.t(`confirm.${id}.tip` as any)"
                 :class="{ 'col-12': true, 'ms-2': true }"
-                @change="saveKeyValue"
               />
             </div>
           </Transition>

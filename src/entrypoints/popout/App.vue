@@ -11,6 +11,8 @@ import OptionsForm from '@/components/OptionsForm.vue'
 
 console.debug('%c popout/App.vue', 'color: Lime')
 
+useTitle(i18n.t('popout.title'))
+
 async function windowResize() {
   const size = { panelWidth: window.outerWidth, panelHeight: window.outerHeight }
   console.debug('windowResize:', size)
@@ -26,8 +28,6 @@ onMounted(() => {
     })
   })
 })
-
-useTitle(i18n.t('popout.title'))
 </script>
 
 <template>

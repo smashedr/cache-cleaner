@@ -113,8 +113,6 @@ export default defineConfig({
                 data_collection_permissions: {
                   required: ['none'],
                 },
-                update_url:
-                  'https://raw.githubusercontent.com/smashedr/wxt-extension/master/update.json',
               },
               gecko_android: {
                 strict_min_version: '120.0',

@@ -22,15 +22,21 @@
     text-overflow: ellipsis;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+.transparent-table {
+    --bs-table-bg: rgba(var(--bs-emphasis-bg-rgb), 0.3);
+    --bs-table-striped-bg: rgba(var(--bs-emphasis-bg-rgb), 0.5);
+    --bs-table-hover-bg: rgba(var(--bs-emphasis-bg-rgb), 0.6);
 }
 
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-    transform: translateY(-6px);
-}
+//.fade-enter-active,
+//.fade-leave-active {
+//    transition:
+//        opacity 0.3s ease,
+//        transform 0.3s ease;
+//}
+//
+//.fade-enter-from,
+//.fade-leave-to {
+//    opacity: 0;
+//    transform: translateY(-6px);
+//}
