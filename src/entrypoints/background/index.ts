@@ -46,18 +46,15 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
   console.log('onInstalled:', details)
 
   const options = await setDefaultOptions(defaultOptions)
+  // NOTE: DUPLICATION in onStartup
   console.debug('options:', options)
-
-  if (options.contextMenu) createContextMenus(options.ctx)
-
+  if (options.contextMenu) createContextMenus(options.ctx).catch(console.warn)
   const manifest = chrome.runtime.getManifest()
   console.debug('manifest:', manifest)
-
-  await chrome.runtime.setUninstallURL(`${manifest.homepage_url}/issues`)
+  chrome.runtime.setUninstallURL(`${manifest.homepage_url}/issues`).catch(console.warn)
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
-    // await chrome.runtime.openOptionsPage()
-    // const hasPerms = await checkPerms(manifest)
+    // NOTE: origins are also defined in components/PermsCheck.vue
     const hasPerms = await chrome.permissions.contains({
       origins: manifest.host_permissions,
     })
@@ -85,11 +82,10 @@ async function onStartup() {
     // NOTE: Confirm these checks are still necessary...
     const options = await getOptions()
     console.debug('options:', options)
-    if (options.contextMenu) createContextMenus(options.ctx)
-
+    if (options.contextMenu) createContextMenus(options.ctx).catch(console.warn)
     const manifest = chrome.runtime.getManifest()
     console.debug('manifest:', manifest)
-    await chrome.runtime.setUninstallURL(`${manifest.homepage_url}/issues`)
+    chrome.runtime.setUninstallURL(`${manifest.homepage_url}/issues`).catch(console.warn)
   }
 }
 
@@ -106,7 +102,7 @@ function processOptions(oldValue: Options, newValue: Options) {
   if (oldValue.contextMenu !== newValue.contextMenu) {
     if (newValue.contextMenu) {
       console.log('%c Enabled contextMenu...', 'color: Lime')
-      createContextMenus(newValue.ctx)
+      createContextMenus(newValue.ctx).catch(console.warn)
     } else {
       console.log('%c Disabled contextMenu...', 'color: OrangeRed')
       chrome.contextMenus?.removeAll().catch(console.warn)
@@ -115,7 +111,7 @@ function processOptions(oldValue: Options, newValue: Options) {
 
   if (JSON.stringify(oldValue.ctx) !== JSON.stringify(newValue.ctx)) {
     console.log('%c Updating contextMenu...', 'color: Yellow')
-    if (newValue.contextMenu) createContextMenus(newValue.ctx)
+    if (newValue.contextMenu) createContextMenus(newValue.ctx).catch(console.warn)
   }
 }
 

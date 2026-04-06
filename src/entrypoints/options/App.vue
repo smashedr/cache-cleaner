@@ -49,7 +49,7 @@ useTitle(i18n.t('options.title'))
           </div>
         </div>
 
-        <HorizontalRule>{{ i18n.t('ui.keyboard.shortcut') }}</HorizontalRule>
+        <HorizontalRule>{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
         <KeyboardShortcuts />
 
         <OptionsForm />
@@ -63,7 +63,7 @@ useTitle(i18n.t('options.title'))
           >{{ i18n.t('options.copySupport') }}</CopySupport
         >
 
-        <hr class="mt-0" />
+        <hr />
 
         <PageFooter />
       </div>

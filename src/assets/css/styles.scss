@@ -22,6 +22,12 @@
     text-overflow: ellipsis;
 }
 
+.transparent-table {
+    --bs-table-bg: rgba(var(--bs-emphasis-bg-rgb), 0.3);
+    --bs-table-striped-bg: rgba(var(--bs-emphasis-bg-rgb), 0.5);
+    --bs-table-hover-bg: rgba(var(--bs-emphasis-bg-rgb), 0.6);
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition:
