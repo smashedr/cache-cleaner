@@ -12,11 +12,6 @@ ui:
   openIssue: Open Issue
   noTabAccess: No Access to the Current Tab.
 
-  theme:
-    dark: Dark
-    light: Light
-    auto: Auto
-
   action:
     cancel: Cancel
     close: Close
@@ -45,6 +40,12 @@ ui:
       text: Remove Host Permissions
       tip: You will no longer be able to analyze new images
     info: More Information on Permissions
+
+  theme:
+    title: Theme Switcher
+    dark: Dark
+    light: Light
+    auto: Auto
 
 cache:
   cache: Cache
@@ -125,7 +126,7 @@ option:
       tip: Refresh the site after clearing cache.
     showAllButtons:
       label: Show All Buttons
-      tip: Show all clear cache buttons on popup.
+      tip: Show both site and browser buttons on popup.
     showConfirmation:
       label: Show Confirmation
       tip: Show confirmation before clearing cache.
@@ -133,79 +134,79 @@ option:
       label: Show Deprecated Options
       tip: Display options that are deprecated.
     contextMenu:
-      label: Context Menu
-      tip: Show context menu on right click.
+      label: Show Context Menu
+      tip: Show right-click context menu.
     showUpdate:
-      label: Show Update
+      label: Show Release Notes on Update
       tip: Show update notifications.
 
   site:
     cacheStorage:
       label: Cache Storage
-      tip: Cache Storage
+      tip: Site Cache Storage
     cookies:
       label: Cookies
-      tip: Cookies
+      tip: Site Cookies
     fileSystems:
       label: File Systems
-      tip: File Systems
+      tip: Site File Systems
     indexedDB:
       label: Index DB
-      tip: Index DB
+      tip: Site Index DB
     localStorage:
       label: Local Storage
-      tip: Local Storage
+      tip: Site Local Storage
     serviceWorkers:
       label: Service Workers
-      tip: Service Workers
+      tip: Site Service Workers
     webSQL:
       label: Web SQL
-      tip: Web SQL
+      tip: Site Web SQL
 
   browser:
     cacheStorage:
       label: Cache Storage
-      tip: Cache Storage
+      tip: All Sites Cache Storage
     cookies:
       label: Cookies
-      tip: Cookies
+      tip: All Sites Cookies
     fileSystems:
       label: File Systems
-      tip: File Systems
+      tip: All Sites File Systems
     indexedDB:
       label: Index DB
-      tip: Index DB
+      tip: All Sites Index DB
     localStorage:
       label: Local Storage
-      tip: Local Storage
+      tip: All Sites Local Storage
     serviceWorkers:
       label: Service Workers
-      tip: Service Workers
+      tip: All Sites Service Workers
     webSQL:
       label: Web SQL
-      tip: Web SQL
+      tip: All Sites Web SQL
 
     appcache:
       label: App Cache
-      tip: App Cache
+      tip: Browser App Cache
     cache:
       label: Browser Cache
       tip: Browser Cache
     downloads:
       label: Downloads
-      tip: Downloads
+      tip: Browser Downloads
     formData:
       label: Form Data
-      tip: Form Data
+      tip: Browser Form Data
     history:
       label: History
-      tip: History
+      tip: Browser History
     passwords:
       label: Passwords
-      tip: Passwords
+      tip: Browser Passwords (Deprecated)
     pluginData:
       label: Plugin Data
-      tip: Plugin Data
+      tip: Browser Plugin Data (Deprecated)
 
 content:
   press: Press the
