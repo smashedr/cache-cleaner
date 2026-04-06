@@ -9,6 +9,10 @@ import PageFooter from '@/components/PageFooter.vue'
 
 console.debug('%cLOADED permissions/App.vue', 'color: Orange')
 
+useTitle(i18n.t('permissions.title'))
+
+const manifest = chrome.runtime.getManifest()
+
 chrome.permissions.onAdded.addListener(onAdded)
 
 async function onAdded(permissions: chrome.permissions.Permissions) {
@@ -18,10 +22,6 @@ async function onAdded(permissions: chrome.permissions.Permissions) {
     window.close()
   }
 }
-
-const manifest = chrome.runtime.getManifest()
-
-useTitle(i18n.t('permissions.title'))
 </script>
 
 <template>
