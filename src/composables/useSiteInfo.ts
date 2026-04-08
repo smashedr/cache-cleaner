@@ -1,11 +1,6 @@
 // useSiteInfo.ts
 import { ref, onMounted } from 'vue'
 
-interface SiteInfo {
-  hostname: string
-  estimate?: StorageEstimate
-}
-
 export function useSiteInfo(enabled = true) {
   const tabAccess = ref<SiteInfo | undefined>(undefined)
 
@@ -37,7 +32,7 @@ export function useSiteInfo(enabled = true) {
     console.log('window.location.href:', window.location.href)
     if (!enabled) return
     const result = await checkTab()
-    console.log(`%c checkTab: ${result}`, `color: ${result ? 'Lime' : 'Red'}`)
+    console.log('%c checkTab:', `color: ${result ? 'Lime' : 'Red'}`, result)
     tabAccess.value = result
   })
 
