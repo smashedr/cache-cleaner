@@ -34,31 +34,11 @@ withDefaults(
 
 const options = useOptions()
 
-// const siteKeys = computed(() => Object.keys(options.value?.site))
-// const browserKeys = computed(() => Object.keys(options.value?.browser))
-// const allSiteKeys = computed(() => browserKeys.value.slice(0, 7))
-// const allBrowserKeys = computed(() => browserKeys.value.slice(-7))
+const siteKeys = computed(() => Object.keys(options.value?.site)) // Site
 
-// The reason I dont like typescript...
-const siteKeys = [
-  'cookies',
-  'indexedDB',
-  'localStorage',
-  'serviceWorkers',
-  'cacheStorage',
-  'fileSystems',
-  'webSQL',
-] as const
-const allSiteKeys = [
-  'cookies',
-  'fileSystems',
-  'indexedDB',
-  'localStorage',
-  'serviceWorkers',
-  'cacheStorage',
-  'webSQL',
-] as const
-const allBrowserKeys = ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'] as const
+const browserKeys = computed(() => Object.keys(options.value?.browser))
+const allSiteKeys = computed(() => browserKeys.value.slice(0, 7)) // Browser - Site
+const allBrowserKeys = computed(() => browserKeys.value.slice(-7)) // Browser - Browser
 
 const deprecated = ['passwords', 'pluginData']
 const ffExcludes = ['fileSystems', 'webSQL']
@@ -73,7 +53,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
         <!--<p v-for="key in siteKeys">{{ key }}</p>-->
         <FormSwitch
           v-if="!(isFirefox && ffExcludes.includes(id))"
-          v-model="options['site'][id]"
+          v-model="(options['site'] as Record<string, boolean>)[id]"
           :id="id"
           subkey="site"
           :class="`ms-${ms}`"
@@ -91,7 +71,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
         <!--<p v-for="key in allSiteKeys">{{ key }}</p>-->
         <FormSwitch
           v-if="!(isFirefox && ffExcludesAll.includes(id))"
-          v-model="options['site'][id]"
+          v-model="(options['site'] as Record<string, boolean>)[id]"
           :id="id"
           subkey="site"
           :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
@@ -104,7 +84,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <template v-for="id in allBrowserKeys" :key="id">
         <FormSwitch
           v-if="!deprecated.includes(id) || options.showDeprecated"
-          v-model="options['browser'][id]"
+          v-model="(options['browser'] as Record<string, boolean>)[id]"
           :id="id"
           subkey="browser"
           :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"

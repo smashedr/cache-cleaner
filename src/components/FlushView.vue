@@ -8,9 +8,18 @@ import OptionsForm from '@/components/OptionsForm.vue'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 
+const props = withDefaults(
+  defineProps<{
+    showSite?: boolean
+  }>(),
+  {
+    showSite: true,
+  },
+)
+
 const options = useOptions()
-const siteInfo = useSiteInfo()
-const cacheType = ref('site')
+const siteInfo = useSiteInfo(props.showSite)
+const cacheType = ref(props.showSite ? 'site' : 'browser')
 const confirmModal = ref<InstanceType<typeof ConfirmModal> | null>(null)
 
 function setCacheType(type: 'site' | 'browser') {
@@ -49,7 +58,7 @@ async function onConfirm(type: ClearCacheType) {
 function clearCacheClick(type: ClearCacheType) {
   console.log('siteCache:', type)
   console.log('confirm:', options.value?.confirm[type])
-  if (options.value?.confirm[type]) {
+  if (options.value.showConfirmation && options.value?.confirm[type]) {
     confirmModal.value?.show(type)
   } else {
     onConfirm(type)
@@ -59,13 +68,13 @@ function clearCacheClick(type: ClearCacheType) {
 
 <template>
   <div v-if="cacheType === 'browser' || options.showAllButtons" class="row m-0 my-1">
-    <div class="col-6 px-1">
-      <button class="btn btn-warning w-100 px-0" @click="clearCacheClick('browser')">
+    <div class="px-1" :class="showSite ? 'col-6' : 'col-12 my-1'">
+      <button class="btn btn-warning text-truncate w-100 px-1" @click="clearCacheClick('browser')">
         <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
       </button>
     </div>
-    <div class="col-6 px-1">
-      <button class="btn btn-danger w-100 px-0" @click="clearCacheClick('browserAll')">
+    <div class="px-1" :class="showSite ? 'col-6' : 'col-12 my-1'">
+      <button class="btn btn-danger text-truncate w-100 px-1" @click="clearCacheClick('browserAll')">
         <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
       </button>
     </div>
@@ -73,7 +82,7 @@ function clearCacheClick(type: ClearCacheType) {
 
   <div v-if="cacheType === 'site' || options.showAllButtons">
     <div
-      v-if="!siteInfo"
+      v-if="!siteInfo && showSite"
       class="text-center text-ellipsis border border-danger border-2 rounded p-1"
       style="margin-top: 5px; margin-bottom: 5px"
     >
@@ -82,12 +91,12 @@ function clearCacheClick(type: ClearCacheType) {
     <div v-if="siteInfo">
       <div class="row m-0 g-0 my-1">
         <div class="col-6 px-1">
-          <button class="btn btn-success w-100" @click="clearCacheClick('site')">
+          <button class="btn btn-success text-truncate w-100 px-1" @click="clearCacheClick('site')">
             <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.site') }}
           </button>
         </div>
         <div class="col-6 px-1">
-          <button class="btn btn-info w-100" @click="clearCacheClick('siteAll')">
+          <button class="btn btn-info text-truncate w-100 px-1" @click="clearCacheClick('siteAll')">
             <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('ui.cache.type.siteAll') }}
           </button>
         </div>

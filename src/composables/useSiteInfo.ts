@@ -6,7 +6,7 @@ interface SiteInfo {
   estimate?: StorageEstimate
 }
 
-export function useSiteInfo() {
+export function useSiteInfo(enabled = true) {
   const tabAccess = ref<SiteInfo | undefined>(undefined)
 
   async function getInfo(): Promise<SiteInfo> {
@@ -35,6 +35,7 @@ export function useSiteInfo() {
 
   onMounted(async () => {
     console.log('window.location.href:', window.location.href)
+    if (!enabled) return
     const result = await checkTab()
     console.log(`%c checkTab: ${result}`, `color: ${result ? 'Lime' : 'Red'}`)
     tabAccess.value = result

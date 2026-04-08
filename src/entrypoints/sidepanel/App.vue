@@ -20,7 +20,7 @@ console.debug('%c sidepanel/App.vue', 'color: Lime')
       <!--<OptionsForm :compact="true" class="p-1" />-->
     </div>
 
-    <FlushView />
+    <FlushView :show-site="false" />
   </main>
 
   <footer class="flex-shrink-0">
