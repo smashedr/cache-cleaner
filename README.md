@@ -1,14 +1,13 @@
-[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white&label=users)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white&label=users)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/cache-cleaner-addon?logo=mozilla&label=users)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/cache-cleaner-addon?logo=mozilla&logoColor=white)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/nbkhplnnajkikghffmincdbipjalpobi?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/nbkhplnnajkikghffmincdbipjalpobi?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github&logoColor=white)](https://github.com/cssnr/cache-cleaner/releases/latest)
-[![GitHub Languages](https://img.shields.io/github/directory-file-count/cssnr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=languages)](https://github.com/cssnr/cache-cleaner/tree/master/src/locales)
+[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github)](https://github.com/cssnr/cache-cleaner/releases/latest)
+[![GitHub Locales](https://img.shields.io/github/directory-file-count/smashedr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/smashedr/cache-cleaner/tree/master/src/locales)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/cssnr/cache-cleaner/actions/workflows/build.yaml)
-[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/test.yaml?logo=norton&logoColor=white&label=test)](https://github.com/cssnr/cache-cleaner/actions/workflows/test.yaml)
 [![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/lint.yaml?logo=norton&logoColor=white&label=lint)](https://github.com/cssnr/cache-cleaner/actions/workflows/lint.yaml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/cache-cleaner?logo=listenhub&label=updated)](https://github.com/cssnr/cache-cleaner/pulse)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/cache-cleaner?logo=buffer&label=repo%20size)](https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme)
@@ -27,11 +26,26 @@
 <a title="Cache Cleaner" href="https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme" target="_blank">
 <img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/cache-cleaner/refs/heads/master/src/images/logo128.png"></a>
 
+- [Install](#install)
 - [Development](#development)
 - [Contributing](#contributing)
 
 > [!CAUTION]  
 > Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).
+
+This is almost complete and ready for testing.
+
+[![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
+
+## Install
+
+First, Download a [GitHub release](https://github.com/smashedr/cache-cleaner/releases) for your browser.
+
+Then, Install it locally by completing these additional steps.
+
+- [Mozilla Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+- [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
+- [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions/getting-started/extension-sideloading#locally-installing-and-running-an-extension)
 
 ## Development
 
