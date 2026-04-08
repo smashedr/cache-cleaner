@@ -23,6 +23,7 @@ ui:
     showOptions: Show Options
     showToast: Show Factual Toast
 
+# move to ui
 cache:
   cache: Cache
   clear: Clear
@@ -35,6 +36,7 @@ cache:
     browser: Selected Browser
     browserAll: All Browser
 
+# move to ui
 confirm:
   site:
     label: Site Cache
@@ -48,6 +50,17 @@ confirm:
   browserAll:
     label: All Browser Cache
     tip: All Browser Cache
+
+cmd:
+  # wxt.config.ts
+  executeAction: Open Popup
+  openSidePanel: Open Side Panel
+  openExtPanel: Open Extension Panel
+  openOptions: Open Options
+  clearSiteCache: Clear Site Cache
+  clearAllSiteCache: Clear All Site Cache
+  clearBrowserCache: Clear Browser Cache
+  clearAllBrowserCache: Clear All Browser Cache
 
 ctx:
   # background/menus.ts
@@ -74,16 +87,65 @@ ctx:
     label: Open Side Panel
     tip: Open Side Panel
 
-cmd:
-  # wxt.config.ts
-  executeAction: Open Popup
-  openSidePanel: Open Side Panel
-  openExtPanel: Open Extension Panel
-  openOptions: Open Options
-  clearSiteCache: Clear Site Cache
-  clearAllSiteCache: Clear All Site Cache
-  clearBrowserCache: Clear Browser Cache
-  clearAllBrowserCache: Clear All Browser Cache
+# Entrypoints
+
+options:
+  # options/App.vue
+  title: Options
+  extension: Extension Options
+  moreOptions: More Options
+  quickOptions: Quick Options
+  copySupport: Copy Support Information
+  copySupportTip: For issue reporting.
+  copySupportMsg: Support Information Copied.
+
+popup:
+  # popout/App.vue
+  title: Panel
+
+popout:
+  # popout/App.vue
+  title: Panel
+
+page:
+  # page/App.vue
+  title: Page
+
+permissions:
+  # permissions/App.vue
+  title: Permissions
+  reason: To intercept authentication requests, hosts permissions are required.
+
+# Components
+
+keyboard:
+  # components/KeyboardShortcuts.vue
+  description: Description
+  manage: Manage Keyboard Shortcuts
+  notSet: Not Set
+  shortcut: Shortcut
+  shortcuts: Keyboard Shortcuts
+  unknown: Unknown
+
+perms:
+  # components/PermsCheck.vue
+  granted: Permissions Granted.
+  grant:
+    text: Grant Host Permissions
+    tip: This Extension Requires Host Permissions to Function
+  remove:
+    text: Remove Host Permissions
+    tip: You will no longer be able to analyze new images
+  info: More Information on Permissions
+
+theme:
+  # components/ThemeSwitch.vue
+  title: Theme Switcher
+  dark: Dark
+  light: Light
+  auto: Auto
+
+# Options
 
 option:
   toggle:
@@ -173,60 +235,3 @@ option:
     pluginData:
       label: Plugin Data
       tip: Browser Plugin Data (Deprecated)
-
-options:
-  # options/App.vue
-  title: Options
-  extension: Extension Options
-  moreOptions: More Options
-  quickOptions: Quick Options
-  copySupport: Copy Support Information
-  copySupportTip: For issue reporting.
-  copySupportMsg: Support Information Copied.
-
-page:
-  # page/App.vue
-  title: Page
-
-popout:
-  # popout/App.vue
-  title: Panel
-
-permissions:
-  # permissions/App.vue
-  title: Permissions
-  reason: To intercept authentication requests, hosts permissions are required.
-
-content:
-  # content/index.ts
-  press: Press the
-  toggle: key to toggle the icon.
-  key:
-    toggle: T
-
-keyboard:
-  # components/KeyboardShortcuts.vue
-  description: Description
-  manage: Manage Keyboard Shortcuts
-  notSet: Not Set
-  shortcut: Shortcut
-  shortcuts: Keyboard Shortcuts
-  unknown: Unknown
-
-perms:
-  # components/PermsCheck.vue
-  granted: Permissions Granted.
-  grant:
-    text: Grant Host Permissions
-    tip: This Extension Requires Host Permissions to Function
-  remove:
-    text: Remove Host Permissions
-    tip: You will no longer be able to analyze new images
-  info: More Information on Permissions
-
-theme:
-  # components/ThemeSwitch.vue
-  title: Theme Switcher
-  dark: Dark
-  light: Light
-  auto: Auto

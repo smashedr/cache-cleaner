@@ -1,22 +1,13 @@
 import { defineConfig } from 'wxt'
 
-// NOTE: Icons are also defined in <mata> tags for:
-//    popup/index.html
-//    sidepanel/index.html
-// const icons = {
-//   16: 'icons/logo16.png',
-//   24: 'icons/logo24.png',
-//   32: 'icons/logo32.png',
-//   48: 'icons/logo48.png',
-//   96: 'icons/logo96.png',
-//   128: 'icons/logo128.png',
-// }
-
 // See https://wxt.dev/api/config.html
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-vue', '@wxt-dev/i18n/module', '@wxt-dev/auto-icons'],
+
+  // https://wxt.dev/guide/essentials/config/auto-imports.html#disabling-auto-imports
+  // imports: false,
 
   autoIcons: {
     enabled: true,
@@ -24,9 +15,6 @@ export default defineConfig({
     developmentIndicator: 'overlay',
     sizes: [96, 24], // Dfault: 128, 48, 32, 16
   },
-
-  // https://wxt.dev/guide/essentials/config/auto-imports.html#disabling-auto-imports
-  // imports: false,
 
   // https://wxt.dev/guide/essentials/config/manifest.html
   manifest: ({ browser, mode }) => {
@@ -44,31 +32,6 @@ export default defineConfig({
       homepage_url: 'https://github.com/cssnr/cache-cleaner',
       permissions: ['activeTab', 'browsingData', 'contextMenus', 'scripting', 'storage'],
       host_permissions: ['*://*/*'],
-
-      // // NOTE: This is set in options/index.html <meta>
-      // options_ui: {
-      //   page: 'options.html',
-      //   open_in_tab: true,
-      // },
-
-      // // NOTE: This is set in popup/index.html <meta>
-      // action: {
-      //   default_icon: {
-      //     16: 'icons/16.png',
-      //     24: 'icons/24.png',
-      //     32: 'icons/32.png',
-      //     48: 'icons/48.png',
-      //     96: 'icons/96.png',
-      //     128: 'icons/128.png',
-      //   },
-      // },
-
-      // // NOTE: This will not be stripped in future WXT versions...
-      // page_action: {
-      //   default_popup: 'popup.html',
-      //   default_icon: icons,
-      //   show_matches: ['*://*/*'],
-      // },
 
       commands: {
         _execute_action: {
@@ -109,19 +72,13 @@ export default defineConfig({
             browser_specific_settings: {
               gecko: {
                 id: 'cache-cleaner-dev@cssnr.com',
-                strict_min_version: '112.0',
-                data_collection_permissions: {
-                  required: ['none'],
-                },
+                strict_min_version: '112.0', // manifest - background.type
+                data_collection_permissions: { required: ['none'] },
               },
-              gecko_android: {
-                strict_min_version: '120.0',
-              },
+              gecko_android: { strict_min_version: '120.0' }, // permissions.request
             },
           }
-        : {
-            minimum_chrome_version: '127',
-          }),
+        : { minimum_chrome_version: '127' }), // chrome.action.openPopup
     }
   },
 
@@ -131,18 +88,14 @@ export default defineConfig({
     disabled: true,
   },
 
-  // hooks: {
-  //   'build:manifestGenerated': (wxt, manifest) => {
-  //     console.log('wxt.config.browser', wxt.config.browser)
-  //     if (wxt.config.browser === 'firefox') {
-  //       manifest.page_action = {
-  //         default_popup: 'popup.html',
-  //         default_icon: icons,
-  //         show_matches: ['*://*/*'],
-  //       }
-  //     }
-  //   },
-  // },
+  // https://wxt.dev/guide/essentials/config/hooks
+  hooks: {
+    'build:manifestGenerated': (wxt, manifest) => {
+      // console.log('build:manifestGenerated:', wxt.config.browser)
+      if (manifest.action) manifest.action.default_icon = manifest.icons
+      if (manifest.sidebar_action) manifest.sidebar_action.default_icon = manifest.icons
+    },
+  },
 
   // https://wxt.dev/guide/essentials/config/vite.html
   vite: () => ({
