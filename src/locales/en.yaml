@@ -3,15 +3,6 @@ short_name: CCleaner
 description: Easily clear selected cache items for the current site or whole browser with a single key press, right-click menu, or popup icon.
 
 ui:
-  siteCache: Site Cache
-  browserCache: Browser Cache
-  options: Options
-  homePage: Home Page
-  releaseNotes: Release Notes
-  requestFeature: Request Feature
-  openIssue: Open Issue
-  noTabAccess: No Access to the Current Tab.
-
   action:
     cancel: Cancel
     close: Close
@@ -23,33 +14,27 @@ ui:
     showOptions: Show Options
     showToast: Show Factual Toast
 
-# move to ui
-cache:
-  cache: Cache
-  clear: Clear
-  cleared: Cleared
-  all: Clear All
-  selected: Clear Selected
-  type:
-    site: Selected Site
-    siteAll: All Site
-    browser: Selected Browser
-    browserAll: All Browser
+  text:
+    siteCache: Site Cache
+    browserCache: Browser Cache
+    options: Options
+    homePage: Home Page
+    releaseNotes: Release Notes
+    requestFeature: Request Feature
+    openIssue: Open Issue
+    noTabAccess: No Access to the Current Tab.
 
-# move to ui
-confirm:
-  site:
-    label: Site Cache
-    tip: Site Cache
-  siteAll:
-    label: All Site Cache
-    tip: All Site Cache
-  browser:
-    label: Browser Cache
-    tip: Browser Cache
-  browserAll:
-    label: All Browser Cache
-    tip: All Browser Cache
+  cache:
+    cache: Cache
+    clear: Clear
+    cleared: Cleared
+    all: Clear All
+    selected: Clear Selected
+    type:
+      site: Selected Site
+      siteAll: All Site
+      browser: Selected Browser
+      browserAll: All Browser
 
 cmd:
   # wxt.config.ts
@@ -167,6 +152,20 @@ option:
     showUpdate:
       label: Show Release Notes on Update
       tip: Show update notifications.
+
+  confirm:
+    site:
+      label: Site Cache
+      tip: Site Cache
+    siteAll:
+      label: All Site Cache
+      tip: All Site Cache
+    browser:
+      label: Browser Cache
+      tip: Browser Cache
+    browserAll:
+      label: All Browser Cache
+      tip: All Browser Cache
 
   site:
     cacheStorage:

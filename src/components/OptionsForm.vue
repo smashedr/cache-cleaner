@@ -10,7 +10,7 @@ withDefaults(
   defineProps<{
     compact?: boolean
     heading?: boolean
-    ms?: '0' | '1' | '2' | '3' | '4' | '5' // TODO: Fix this logic
+    ms?: '0' | '1' | '2' | '3' | '4' | '5' // TODO: Update this logic
     subheading?: 'short' | 'full'
     show?: string[]
     extension?: string[]
@@ -143,8 +143,6 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
                 v-model="options['confirm'][id]"
                 :id="id"
                 subkey="confirm"
-                :label="i18n.t(`confirm.${id}.label` as any)"
-                :tooltip="i18n.t(`confirm.${id}.tip` as any)"
                 :class="{ 'col-12': true, 'ms-2': true }"
               />
             </div>

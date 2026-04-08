@@ -38,8 +38,8 @@ async function onConfirm(type: ClearCacheType) {
   console.log('onConfirm:', type)
   try {
     await clearCache(type)
-    const text = i18n.t(`cache.type.${type}`)
-    showToast(`${i18n.t('cache.cleared')} ${text} ${i18n.t('cache.cache')}.`)
+    const text = i18n.t(`ui.cache.type.${type}`)
+    showToast(`${i18n.t('ui.cache.cleared')} ${text} ${i18n.t('ui.cache.cache')}.`)
   } catch (e) {
     console.log(e)
     if (e instanceof Error) showToast(e.message, 'danger')
@@ -61,12 +61,12 @@ function clearCacheClick(type: ClearCacheType) {
   <div v-if="cacheType === 'browser' || options.showAllButtons" class="row m-0 my-1">
     <div class="col-6 px-1">
       <button class="btn btn-warning w-100 px-0" @click="clearCacheClick('browser')">
-        <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('cache.type.browser') }}
+        <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
       </button>
     </div>
     <div class="col-6 px-1">
       <button class="btn btn-danger w-100 px-0" @click="clearCacheClick('browserAll')">
-        <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('cache.type.browserAll') }}
+        <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
       </button>
     </div>
   </div>
@@ -77,18 +77,18 @@ function clearCacheClick(type: ClearCacheType) {
       class="text-center text-ellipsis border border-danger border-2 rounded p-1"
       style="margin-top: 5px; margin-bottom: 5px"
     >
-      {{ i18n.t('ui.noTabAccess') }}.
+      {{ i18n.t('ui.text.noTabAccess') }}.
     </div>
     <div v-if="siteInfo">
       <div class="row m-0 g-0 my-1">
         <div class="col-6 px-1">
           <button class="btn btn-success w-100" @click="clearCacheClick('site')">
-            <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('cache.type.site') }}
+            <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.site') }}
           </button>
         </div>
         <div class="col-6 px-1">
           <button class="btn btn-info w-100" @click="clearCacheClick('siteAll')">
-            <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('cache.type.siteAll') }}
+            <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('ui.cache.type.siteAll') }}
           </button>
         </div>
       </div>
@@ -101,14 +101,14 @@ function clearCacheClick(type: ClearCacheType) {
       :class="cacheType === 'site' ? 'text-bg-primary' : 'text-bg-secondary'"
       role="button"
       @click="setCacheType('site')"
-      >{{ i18n.t('ui.siteCache') }}</span
+      >{{ i18n.t('ui.text.siteCache') }}</span
     >
     <span
       class="badge user-select-none w-100 px-0"
       :class="cacheType === 'browser' ? 'text-bg-primary' : 'text-bg-secondary'"
       role="button"
       @click="setCacheType('browser')"
-      >{{ i18n.t('ui.browserCache') }}</span
+      >{{ i18n.t('ui.text.browserCache') }}</span
     >
   </div>
 

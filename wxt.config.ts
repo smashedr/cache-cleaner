@@ -29,7 +29,7 @@ export default defineConfig({
       short_name: '__MSG_short_name__',
       description: '__MSG_description__',
 
-      homepage_url: 'https://github.com/cssnr/cache-cleaner',
+      homepage_url: 'https://github.com/smashedr/cache-cleaner', // TODO: UPDATE BEFORE MERGE
       permissions: ['activeTab', 'browsingData', 'contextMenus', 'scripting', 'storage'],
       host_permissions: ['*://*/*'],
 
@@ -71,7 +71,7 @@ export default defineConfig({
         ? {
             browser_specific_settings: {
               gecko: {
-                id: 'cache-cleaner-dev@cssnr.com',
+                id: 'cache-cleaner-dev@cssnr.com', // TODO: UPDATE BEFORE MERGE
                 strict_min_version: '112.0', // manifest - background.type
                 data_collection_permissions: { required: ['none'] },
               },

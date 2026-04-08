@@ -26,7 +26,7 @@ function show(type: ClearCacheType) {
 }
 
 function resolveConfig(type: ClearCacheType): ModalConfig {
-  const config: Partial<ModalConfig> = { text: i18n.t(`cache.type.${type}`) }
+  const config: Partial<ModalConfig> = { text: i18n.t(`ui.cache.type.${type}`) }
   const isAll = type.endsWith('All')
   if (type.startsWith('site')) {
     config.iconClass = isAll ? 'fa-broom' : 'fa-toggle-on'
@@ -59,7 +59,7 @@ defineExpose({ show })
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5 text-truncate" id="delete-modal-label">
-              {{ i18n.t('cache.clear') }} {{ modalConfig?.text }}
+              {{ i18n.t('ui.cache.clear') }} {{ modalConfig?.text }}
             </h1>
             <button
               type="button"
@@ -71,8 +71,8 @@ defineExpose({ show })
           </div>
           <div class="modal-body text-center p-2">
             <button type="button" class="btn w-100 mt-2" :class="modalConfig?.btnClass" @click="handleConfirm">
-              <i class="fa-solid ms-2" :class="modalConfig?.iconClass"></i> {{ i18n.t('cache.clear') }}
-              {{ modalConfig?.text }} {{ i18n.t('cache.cache') }}
+              <i class="fa-solid ms-2" :class="modalConfig?.iconClass"></i> {{ i18n.t('ui.cache.clear') }}
+              {{ modalConfig?.text }} {{ i18n.t('ui.cache.cache') }}
             </button>
           </div>
           <div class="modal-footer p-2">
