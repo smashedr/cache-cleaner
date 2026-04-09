@@ -8,7 +8,7 @@ export default defineBackground(() => {
 
   chrome.runtime.onInstalled.addListener(onInstalled)
   chrome.runtime.onStartup.addListener(onStartup)
-  chrome.storage.onChanged.addListener(onChanged)
+  chrome.storage.sync.onChanged.addListener(onChanged)
   chrome.runtime.onMessage.addListener(onMessage)
   chrome.commands?.onCommand.addListener(onCommand)
   chrome.contextMenus?.onClicked.addListener(onClicked)
@@ -16,7 +16,6 @@ export default defineBackground(() => {
 
 async function onInstalled(details: chrome.runtime.InstalledDetails) {
   console.log('onInstalled:', details)
-
   const options = await setDefaultOptions(defaultOptions)
   // NOTE: DUPLICATION in onStartup
   console.debug('options:', options)
@@ -51,17 +50,13 @@ async function onStartup() {
   }
 }
 
-function onChanged(changes: object, namespace: string) {
-  for (const [key, { oldValue, newValue }] of Object.entries(changes)) {
-    if (namespace === 'sync' && key === 'options' && oldValue && newValue) {
-      processOptions(oldValue, newValue)
-    }
-  }
-}
+function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
+  console.log('%c background/index.ts - onChanged:', 'color: Cyan', changes)
+  const oldValue = changes.options?.oldValue as Options | undefined
+  const newValue = changes.options?.newValue as Options | undefined
+  if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
 
-function processOptions(oldValue: Options, newValue: Options) {
-  console.log('optionsChanged:', oldValue, newValue)
-  if (oldValue.contextMenu !== newValue.contextMenu) {
+  if (oldValue?.contextMenu !== newValue.contextMenu) {
     if (newValue.contextMenu) {
       console.log('%c Enabled contextMenu...', 'color: Lime')
       createContextMenus(newValue.ctx).catch(console.warn)
