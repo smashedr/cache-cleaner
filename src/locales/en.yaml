@@ -6,12 +6,9 @@ ui:
   action:
     cancel: Cancel
     close: Close
-    go: Go
     openPopup: Open Popup
     sidePanel: Side Panel
     extensionPanel: Extension Panel
-    extensionPage: Extension Page
-    showOptions: Show Options
 
   text:
     siteCache: Site Cache
@@ -110,7 +107,6 @@ keyboard:
   notSet: Not Set
   shortcut: Shortcut
   shortcuts: Keyboard Shortcuts
-  unknown: Unknown
 
 theme:
   # ThemeSwitch.vue

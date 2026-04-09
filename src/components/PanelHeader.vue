@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { clickOpen, openExtPanel, openOptions, openPage, openPopup, openSidePanel } from '@/utils/extension.ts'
+import { clickOpen, openExtPanel, openOptions, openPopup, openSidePanel } from '@/utils/extension.ts'
 import { isMobile } from '@/utils/system.ts'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 import OptionsModal from '@/components/OptionsModal.vue'
@@ -8,7 +8,6 @@ import OptionsModal from '@/components/OptionsModal.vue'
 withDefaults(
   defineProps<{
     panelButton?: boolean
-    pageButton?: boolean
     sideButton?: boolean
     popupButton?: boolean
     optionsButton?: boolean
@@ -17,7 +16,6 @@ withDefaults(
   }>(),
   {
     panelButton: true,
-    pageButton: false, // TODO: Remove this page
     sideButton: true,
     popupButton: true,
     optionsButton: true,
@@ -55,18 +53,6 @@ console.log('manifest:', manifest)
         >
           v<span class="version">{{ manifest.version }}</span></a
         >
-      </div>
-      <!-- flex-grow-1 -->
-
-      <div v-if="pageButton" class="ms-1">
-        <a
-          :title="i18n.t('ui.action.extensionPage')"
-          href="/page.html"
-          class="btn btn-sm btn-outline-info"
-          @click.prevent="openPage(closeWindow)"
-        >
-          <i class="fa-solid fa-display me-1"></i>
-        </a>
       </div>
 
       <div v-if="!isMobile && panelButton" class="ms-1">
@@ -111,7 +97,6 @@ console.log('manifest:', manifest)
       </OptionsModal>
     </div>
   </div>
-  <!-- container-fluid -->
 
   <hr class="my-0" />
 </template>
