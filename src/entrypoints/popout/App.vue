@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, provide } from 'vue'
 import { debounce } from '@/utils'
 import { useTitle } from '@/composables/useTitle.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
@@ -8,8 +8,11 @@ import PanelHeader from '@/components/PanelHeader.vue'
 import PanelFooter from '@/components/PanelFooter.vue'
 import PermsCheck from '@/components/PermsCheck.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
+import FlushView from '@/components/FlushView.vue'
 
 console.debug('%c popout/App.vue', 'color: Lime')
+
+provide('siteInfo', undefined)
 
 useTitle(i18n.t('popout.title'))
 
@@ -38,6 +41,7 @@ onMounted(() => {
   <main class="flex-grow-1 overflow-auto p-1">
     <div class="d-grid gap-2">
       <PermsCheck />
+      <FlushView cache-type="browser" :show-site="false" />
       <OptionsForm :close-window="true" :compact="true" class="p-2" />
     </div>
   </main>

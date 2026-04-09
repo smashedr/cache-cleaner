@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { isMobile } from '@/utils/system.ts'
+import { useSiteInfo } from '@/composables/useSiteInfo.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
 import PermsCheck from '@/components/PermsCheck.vue'
 import FlushView from '@/components/FlushView.vue'
+import FlushSwitch from '@/components/FlushSwitch.vue'
+import FlushOptions from '@/components/FlushOptions.vue'
+import SiteView from '@/components/SiteView.vue'
 
 console.debug('%c popup/App.vue', 'color: Lime')
+
+const siteInfo = useSiteInfo()
+provide('siteInfo', siteInfo)
+
+const cacheType = ref<'site' | 'browser'>('site')
 
 // TODO: Determine better method to set popup width
 // const isBrowser = isFirefox ? '340px' : null
@@ -20,7 +29,10 @@ console.log('width:', width.value)
 
     <PermsCheck :close-window="true" />
 
-    <FlushView />
+    <FlushView :cache-type="cacheType" />
+    <FlushSwitch :cache-type="cacheType" @change="(value) => (cacheType = value)" />
+    <SiteView v-if="cacheType === 'site'" />
+    <FlushOptions :cache-type="cacheType" />
 
     <ToastAlerts />
   </div>
