@@ -26,7 +26,7 @@ console.log('width:', width.value)
   <div id="popupContainer">
     <PanelHeader :icon="false" :close-window="true" :popup-button="false" />
 
-    <FlushView :cache-type="cacheType" />
+    <FlushView :cache-type="cacheType" pad-x="px-1" class="row-gap-1 my-1" />
     <FlushSwitch :cache-type="cacheType" @change="(value) => (cacheType = value)" />
     <SiteView v-if="cacheType === 'site'" class="mx-2" />
     <FlushOptions :cache-type="cacheType" />
