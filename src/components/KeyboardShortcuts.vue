@@ -1,52 +1,29 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { clickOpen } from '@/utils/extension.ts'
 import { isFirefox } from '@/utils/system.ts'
 
+const hasCommands = ref<boolean>(!!chrome.commands)
+const commands = ref<{ description: string; shortcut: string }[]>([])
+
 const openChromeShortcuts = () => chrome.tabs.update({ url: 'chrome://extensions/shortcuts' })
 
-// TODO: Update for Vue - Ported from VanillaJS
-async function setShortcuts(selector = '#keyboard-shortcuts') {
-  console.debug('setShortcuts')
-  if (!chrome.commands) {
-    return console.debug('Skipping: chrome.commands')
-  }
-  const table = document.querySelector(selector)
-  if (!table) {
-    return console.warn(`Table not found: ${selector}`)
-  }
-  table.classList.remove('d-none')
-  const tbody = table.querySelector('tbody')
-  const source = table.querySelector('tfoot > tr')?.cloneNode(true)
-  if (!tbody || !source) {
-    return console.warn(`Source element not found!`)
-  }
-  const commands = await chrome.commands.getAll()
-  for (const command of commands) {
-    // console.debug('command:', command)
-    const row = source.cloneNode(true) as Element
-    let description = command.description
-    // Note: Chrome does not parse the description for _execute_action in manifest.json
-    if (!description && command.name === '_execute_action') {
-      description = i18n.t('cmd.executeAction') // NOTE: Also defined in: manifest.json
-    }
-    row.querySelector('.description')!.textContent = description ?? null
-    row.querySelector('kbd')!.textContent = command.shortcut || 'Not Set'
-    tbody.appendChild(row)
-  }
-}
-
-onMounted(() => setShortcuts())
+onMounted(async () => {
+  if (!hasCommands.value) return
+  const notSet = i18n.t('keyboard.notSet')
+  const result = await chrome.commands.getAll()
+  commands.value = result.map(({ description, name, shortcut }) => ({
+    description: description ?? (name === '_execute_action' ? i18n.t('cmd.executeAction') : notSet),
+    shortcut: shortcut || notSet,
+  }))
+})
 </script>
 
 <template>
-  <div>
+  <div v-if="hasCommands">
     <div class="rounded rounded-3 overflow-hidden">
-      <table
-        id="keyboard-shortcuts"
-        class="table table-sm rounded table-borderless table-hover transparent-table mb-0 d-none"
-      >
+      <table id="keyboard-shortcuts" class="table table-sm rounded table-borderless table-hover transparent-table mb-0">
         <caption class="visually-hidden">
           {{
             i18n.t('keyboard.shortcuts')
@@ -58,18 +35,17 @@ onMounted(() => setShortcuts())
             <th>{{ i18n.t('keyboard.shortcut') }}</th>
           </tr>
         </thead>
-        <tbody></tbody>
-        <tfoot class="d-none">
-          <tr>
+        <tbody>
+          <tr v-for="cmd in commands">
             <td class="ps-2">
               <i class="fa-regular fa-keyboard me-1"></i>
-              <span class="description"></span>
+              <span class="description">{{ cmd.description }}</span>
             </td>
             <td class="text-end pe-2" :title="i18n.t('keyboard.shortcuts')">
-              <kbd>{{ i18n.t('keyboard.unknown') }}</kbd>
+              <kbd>{{ cmd.shortcut }}</kbd>
             </td>
           </tr>
-        </tfoot>
+        </tbody>
       </table>
     </div>
 
