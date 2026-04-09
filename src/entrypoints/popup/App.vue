@@ -4,7 +4,6 @@ import { isMobile } from '@/utils/system.ts'
 import { useSiteInfo } from '@/composables/useSiteInfo.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
-import PermsCheck from '@/components/PermsCheck.vue'
 import FlushView from '@/components/FlushView.vue'
 import FlushSwitch from '@/components/FlushSwitch.vue'
 import FlushOptions from '@/components/FlushOptions.vue'
@@ -26,8 +25,6 @@ console.log('width:', width.value)
 <template>
   <div id="popupContainer">
     <PanelHeader :icon="false" :close-window="true" :popup-button="false" />
-
-    <PermsCheck :close-window="true" />
 
     <FlushView :cache-type="cacheType" />
     <FlushSwitch :cache-type="cacheType" @change="(value) => (cacheType = value)" />

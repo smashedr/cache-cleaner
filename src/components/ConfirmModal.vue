@@ -70,7 +70,7 @@ defineExpose({ show })
             <button
               v-if="clearCacheType"
               type="button"
-              class="btn w-100 mt-2"
+              class="btn text-truncate w-100 mt-2"
               :class="config[clearCacheType].btn"
               @click="handleConfirm"
             >

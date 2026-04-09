@@ -6,7 +6,6 @@ import ToastAlerts from '@/components/ToastAlerts.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
 import PanelFooter from '@/components/PanelFooter.vue'
-import PermsCheck from '@/components/PermsCheck.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
 import FlushView from '@/components/FlushView.vue'
 
@@ -40,7 +39,6 @@ onMounted(() => {
 
   <main class="flex-grow-1 overflow-auto p-1">
     <div class="d-grid gap-2">
-      <PermsCheck />
       <FlushView cache-type="browser" :show-site="false" />
       <OptionsForm :close-window="true" :compact="true" class="p-2" />
     </div>
