@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, provide } from 'vue'
 import { debounce } from '@/utils'
 import { useTitle } from '@/composables/useTitle.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
@@ -11,6 +11,8 @@ import OptionsForm from '@/components/OptionsForm.vue'
 import FlushView from '@/components/FlushView.vue'
 
 console.debug('%c popout/App.vue', 'color: Lime')
+
+provide('siteInfo', undefined)
 
 useTitle(i18n.t('popout.title'))
 

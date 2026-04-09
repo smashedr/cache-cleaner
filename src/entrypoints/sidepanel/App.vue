@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { provide } from 'vue'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
@@ -9,6 +10,8 @@ import FlushSwitch from '@/components/FlushSwitch.vue'
 import FlushOptions from '@/components/FlushOptions.vue'
 
 console.debug('%c sidepanel/App.vue', 'color: Lime')
+
+provide('siteInfo', undefined)
 
 const cacheType = ref<'site' | 'browser'>('browser')
 </script>

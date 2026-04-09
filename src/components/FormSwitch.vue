@@ -27,13 +27,13 @@ function onChange(_event: Event) {
   <div class="form-check form-switch">
     <input
       v-model="model"
-      :id="id + subkey || 'toggle'"
+      :id="id + (subkey || 'toggle')"
       @change="onChange"
       class="form-check-input"
       type="checkbox"
       role="switch"
     />
-    <label class="form-check-label" :for="id + subkey || 'toggle'">{{ labelText }}</label>
+    <label class="form-check-label" :for="id + (subkey || 'toggle')">{{ labelText }}</label>
     <i
       v-if="!isMobile && tooltipText"
       class="fa-solid fa-circle-info ms-2"

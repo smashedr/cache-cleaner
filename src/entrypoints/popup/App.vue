@@ -10,17 +10,17 @@ import FlushSwitch from '@/components/FlushSwitch.vue'
 import FlushOptions from '@/components/FlushOptions.vue'
 import SiteView from '@/components/SiteView.vue'
 
+console.debug('%c popup/App.vue', 'color: Lime')
+
 const siteInfo = useSiteInfo()
 provide('siteInfo', siteInfo)
 
-console.debug('%c popup/App.vue', 'color: Lime')
+const cacheType = ref<'site' | 'browser'>('site')
 
 // TODO: Determine better method to set popup width
 // const isBrowser = isFirefox ? '340px' : null
 const width = computed(() => (isMobile ? '100%' : '360px'))
 console.log('width:', width.value)
-
-const cacheType = ref<'site' | 'browser'>('site')
 </script>
 
 <template>

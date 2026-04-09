@@ -71,9 +71,9 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
         <!--<p v-for="key in allSiteKeys">{{ key }}</p>-->
         <FormSwitch
           v-if="!(isFirefox && ffExcludesAll.includes(id))"
-          v-model="(options['site'] as Record<string, boolean>)[id]"
+          v-model="(options['browser'] as Record<string, boolean>)[id]"
           :id="id"
-          subkey="site"
+          subkey="browser"
           :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
         />
       </template>
