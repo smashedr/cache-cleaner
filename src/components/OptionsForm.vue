@@ -10,16 +10,20 @@ withDefaults(
   defineProps<{
     compact?: boolean
     heading?: boolean
-    ms?: '0' | '1' | '2' | '3' | '4' | '5' // TODO: Update this logic
-    subheading?: 'short' | 'full'
+    subPadding?: string
+
+    browserHeading?: 'short' | 'full'
+    browserClass?: string
+
     show?: string[]
     extension?: string[]
   }>(),
   {
     compact: false,
     heading: true,
-    ms: '0',
-    subheading: 'short',
+    subPadding: '66',
+    browserHeading: 'short',
+    browserClass: 'ms-0',
     show: () => ['site', 'browser', 'extension'],
     extension: () => [
       'autoReload',
@@ -56,7 +60,6 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
             v-model="(options['site'] as Record<string, boolean>)[id]"
             :id="id"
             subkey="site"
-            :class="`ms-${ms}`"
           />
         </template>
       </div>
@@ -65,8 +68,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     <template v-if="options?.browser && show.includes('browser')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.form.globalBrowser') }}</HorizontalRule>
 
-      <div v-if="subheading === 'short'" class="ms-2">{{ i18n.t('options.form.allSites') }}:</div>
-      <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
+      <div v-if="browserHeading === 'short'" class="ms-2">{{ i18n.t('options.form.allSites') }}:</div>
+      <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
 
       <div class="px-2">
         <template v-for="id in allSiteKeys" :key="id">
@@ -75,13 +78,14 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
             v-model="(options['browser'] as Record<string, boolean>)[id]"
             :id="id"
             subkey="browser"
-            :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
+            class="col-12"
+            :class="browserClass"
           />
         </template>
       </div>
 
-      <div v-if="subheading === 'short'" class="ms-2">{{ i18n.t('options.form.browser') }}:</div>
-      <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
+      <div v-if="browserHeading === 'short'" class="ms-2">{{ i18n.t('options.form.browser') }}:</div>
+      <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
 
       <div class="px-2">
         <template v-for="id in allBrowserKeys" :key="id">
@@ -90,7 +94,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
             v-model="(options['browser'] as Record<string, boolean>)[id]"
             :id="id"
             subkey="browser"
-            :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
+            class="col-12"
+            :class="browserClass"
           />
         </template>
       </div>
@@ -100,7 +105,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="px-2">
         <template v-for="id in extension" :key="id">
-          <FormSwitch v-model="options[id]" :id="id" :class="{ 'col-12': true }" />
+          <FormSwitch v-model="options[id]" :id="id" class="col-12" />
 
           <Transition name="fade">
             <div v-if="id === 'contextMenu' && options['contextMenu']">
@@ -113,7 +118,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
                 subkey="ctx"
                 :label="i18n.t(`ctx.${id}.label` as any)"
                 :tooltip="i18n.t(`ctx.${id}.tip` as any)"
-                :class="{ 'col-12': true, 'ms-2': true }"
+                class="col-12"
+                :padding="subPadding"
               />
             </div>
           </Transition>
@@ -127,7 +133,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
                 v-model="options['confirm'][id]"
                 :id="id"
                 subkey="confirm"
-                :class="{ 'col-12': true, 'ms-2': true }"
+                class="col-12"
+                :padding="subPadding"
               />
             </div>
           </Transition>

@@ -11,6 +11,7 @@ const props = defineProps<{
   label?: string
   tooltip?: string
   subkey?: string
+  padding?: string
 }>()
 
 const labelText = computed(() => props.label || i18n.t(`option.${props.subkey || 'toggle'}.${props.id}.label` as any))
@@ -20,7 +21,7 @@ const onChange = () => saveKeyValue(props.id, model.value, props.subkey)
 </script>
 
 <template>
-  <div class="form-check form-switch">
+  <div class="form-check form-switch" :style="{ paddingLeft: padding ? `${padding}px` : undefined }">
     <input
       v-model="model"
       :id="id + (subkey || 'toggle')"

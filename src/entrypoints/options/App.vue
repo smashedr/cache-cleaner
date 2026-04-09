@@ -54,7 +54,7 @@ useTitle(i18n.t('options.title'))
         <HorizontalRule>{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
         <KeyboardShortcuts />
 
-        <OptionsForm />
+        <OptionsForm browser-class="ms-2" />
 
         <HorizontalRule>{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
         <BackgroundForm />
