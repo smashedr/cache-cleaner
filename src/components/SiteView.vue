@@ -26,6 +26,12 @@ async function copyText(e: MouseEvent) {
 </script>
 
 <template>
+  <HorizontalRule v-if="siteInfo">
+    Site Cache Size:
+    <span class="text-warning-emphasis fw-bolder">{{ formatBytes(siteInfo.estimate?.usage) }}</span>
+  </HorizontalRule>
+  <HorizontalRule v-else>{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
+
   <div
     v-bind="$attrs"
     class="text-center text-ellipsis border border-2 rounded p-1"
@@ -36,13 +42,6 @@ async function copyText(e: MouseEvent) {
       siteInfo.hostname
     }}</kbd>
     <template v-else>{{ i18n.t('ui.text.noTabAccess') }}</template>
-  </div>
-
-  <div v-if="siteInfo">
-    <HorizontalRule>
-      Site Cache Size:
-      <span class="text-warning-emphasis fw-bolder">{{ formatBytes(siteInfo.estimate?.usage) }}</span>
-    </HorizontalRule>
   </div>
 </template>
 

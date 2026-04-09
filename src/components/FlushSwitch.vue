@@ -16,7 +16,7 @@ const emit = defineEmits(['change'])
     <template v-for="type in ['site', 'browser']">
       <button
         class="btn btn-sm user-select-none text-truncate w-100 px-0"
-        :class="cacheType === type ? 'btn-primary' : 'btn-secondary'"
+        :class="cacheType === type ? 'btn-primary' : 'btn-outline-secondary'"
         @click="emit('change', type)"
       >
         {{ i18n.t(`ui.text.${type}Cache` as any) }}

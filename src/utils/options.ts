@@ -6,6 +6,10 @@ export const defaultOptions = {
   contextMenu: true,
   showUpdate: false,
 
+  radioBackground: 'bgPicture' as 'bgNone' | 'bgPicture' | 'bgVideo',
+  pictureURL: 'https://picsum.photos/1920/1080',
+  videoURL: '',
+
   confirm: {
     site: false,
     siteAll: true,

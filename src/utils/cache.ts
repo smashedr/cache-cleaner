@@ -23,6 +23,7 @@ async function clearBrowserCache(all = false) {
   if (!all) {
     cleanOptions = options.browser
   } else {
+    // noinspection JSDeprecatedSymbols
     cleanOptions = {
       cacheStorage: true,
       cookies: true,
