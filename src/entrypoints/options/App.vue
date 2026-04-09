@@ -53,7 +53,7 @@ useTitle(i18n.t('options.title'))
         <OptionsForm />
 
         <CopySupport
-          class="fst-italic small"
+          class="fst-italic small my-3"
           :message="i18n.t('options.copySupportMsg')"
           :tip="i18n.t('options.copySupportTip')"
           >{{ i18n.t('options.copySupport') }}</CopySupport
