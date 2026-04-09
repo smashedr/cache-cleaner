@@ -57,9 +57,9 @@ useTitle(i18n.t('options.title'))
         <PermsCheck :show-info="true" :show-remove="isFirefox" class="my-3" />
 
         <CopySupport
+          class="fst-italic small"
           :message="i18n.t('options.copySupportMsg')"
           :tip="i18n.t('options.copySupportTip')"
-          class="fst-italic small"
           >{{ i18n.t('options.copySupport') }}</CopySupport
         >
 

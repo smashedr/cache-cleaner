@@ -12,8 +12,7 @@ export default defineConfig({
   autoIcons: {
     enabled: true,
     baseIconPath: 'assets/icon.svg',
-    developmentIndicator: 'overlay',
-    // developmentIndicator: false,
+    developmentIndicator: false, // 'overlay' | false
     sizes: [96, 24], // Dfault: 128, 48, 32, 16
   },
 

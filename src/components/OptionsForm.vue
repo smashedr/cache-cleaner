@@ -48,9 +48,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 <template>
   <form v-if="options">
     <template v-if="options?.site && show.includes('site')">
-      <HorizontalRule v-if="heading">Site Specific Settings</HorizontalRule>
+      <HorizontalRule v-if="heading">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
       <template v-for="id in siteKeys" :key="id">
-        <!--<p v-for="key in siteKeys">{{ key }}</p>-->
         <FormSwitch
           v-if="!(isFirefox && ffExcludes.includes(id))"
           v-model="(options['site'] as Record<string, boolean>)[id]"
@@ -62,13 +61,12 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     </template>
 
     <template v-if="options?.browser && show.includes('browser')">
-      <HorizontalRule v-if="heading">Global Browser Settings</HorizontalRule>
+      <HorizontalRule v-if="heading">{{ i18n.t('options.form.globalBrowser') }}</HorizontalRule>
 
-      <div v-if="subheading === 'short'">All Sites:</div>
-      <HorizontalRule v-if="subheading === 'full'">All Sites</HorizontalRule>
+      <div v-if="subheading === 'short'">{{ i18n.t('options.form.allSites') }}:</div>
+      <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
 
       <template v-for="id in allSiteKeys" :key="id">
-        <!--<p v-for="key in allSiteKeys">{{ key }}</p>-->
         <FormSwitch
           v-if="!(isFirefox && ffExcludesAll.includes(id))"
           v-model="(options['browser'] as Record<string, boolean>)[id]"
@@ -78,8 +76,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
         />
       </template>
 
-      <div v-if="subheading === 'short'">Browser:</div>
-      <HorizontalRule v-if="subheading === 'full'">Browser</HorizontalRule>
+      <div v-if="subheading === 'short'">{{ i18n.t('options.form.browser') }}:</div>
+      <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
 
       <template v-for="id in allBrowserKeys" :key="id">
         <FormSwitch
