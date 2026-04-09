@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { i18n } from '#imports'
 import OptionsForm from '@/components/OptionsForm.vue'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
@@ -15,7 +16,7 @@ withDefaults(
 </script>
 
 <template>
-  <HorizontalRule v-if="cacheType === 'site' && siteHeading">Site Specific Settings</HorizontalRule>
+  <HorizontalRule v-if="cacheType === 'site' && siteHeading">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
   <OptionsForm
     v-show="cacheType === 'site'"
     :show="['extension']"

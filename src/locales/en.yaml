@@ -12,7 +12,6 @@ ui:
     extensionPanel: Extension Panel
     extensionPage: Extension Page
     showOptions: Show Options
-    showToast: Show Factual Toast
 
   text:
     siteCache: Site Cache
@@ -83,6 +82,12 @@ options:
   copySupport: Copy Support Information
   copySupportTip: For issue reporting.
   copySupportMsg: Support Information Copied.
+  form:
+    # components/OptionsForm.vue
+    siteSpecific: Site Specific Settings
+    globalBrowser: Global Browser Settings
+    allSites: All Sites
+    browser: Browser
 
 popup:
   # popout/App.vue
@@ -104,7 +109,7 @@ permissions:
 # Components
 
 keyboard:
-  # components/KeyboardShortcuts.vue
+  # KeyboardShortcuts.vue
   description: Description
   manage: Manage Keyboard Shortcuts
   notSet: Not Set
@@ -113,7 +118,7 @@ keyboard:
   unknown: Unknown
 
 perms:
-  # components/PermsCheck.vue
+  # PermsCheck.vue
   granted: Permissions Granted.
   grant:
     text: Grant Host Permissions
@@ -124,7 +129,7 @@ perms:
   info: More Information on Permissions
 
 theme:
-  # components/ThemeSwitch.vue
+  # ThemeSwitch.vue
   title: Theme Switcher
   dark: Dark
   light: Light
