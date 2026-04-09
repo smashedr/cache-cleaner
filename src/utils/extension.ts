@@ -31,13 +31,6 @@ export function openOptions(close = false) {
     .catch((e) => console.warn(e))
 }
 
-export async function openPage(close = false, path = 'page.html') {
-  console.debug('openPage:', path)
-  const page = chrome.runtime.getURL(path)
-  await activateOrOpen(page)
-  if (close) window.close()
-}
-
 export async function openPopup() {
   console.debug('openPopup')
   // Note: This fails if popup is already open (ex. double clicks)

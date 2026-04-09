@@ -14,34 +14,6 @@ export default defineBackground(() => {
   chrome.contextMenus?.onClicked.addListener(onClicked)
 })
 
-// async function setUninstallURL() {
-//   const manifest = chrome.runtime.getManifest()
-//   if (!manifest.homepage_url) return console.warn('No manifest.homepage_url')
-//   const url = new URL(manifest.homepage_url)
-//   url.pathname = '/uninstall/'
-//   url.searchParams.append('version', manifest.version)
-//   await chrome.runtime.setUninstallURL(url.href)
-// }
-
-async function setDefaultOptions(defaultOptions: object) {
-  console.log('setDefaultOptions', defaultOptions)
-  const options = await getOptions()
-  let changed = false
-  for (const [key, value] of Object.entries(defaultOptions)) {
-    // console.log(`${key}: default: ${value} current: ${options[key]}`)
-    if (options[key] === undefined) {
-      changed = true
-      options[key] = value
-      console.log(`Set %c${key}:`, 'color: Khaki', value)
-    }
-  }
-  if (changed) {
-    await chrome.storage.sync.set({ options })
-    console.log('changed options:', options)
-  }
-  return options
-}
-
 async function onInstalled(details: chrome.runtime.InstalledDetails) {
   console.log('onInstalled:', details)
 
@@ -69,8 +41,8 @@ async function onStartup() {
   console.log('onStartup')
   if (isFirefox) {
     console.log('Firefox Startup Workarounds')
-    // NOTE: Confirm these checks are still necessary...
     const options = await getOptions()
+    // NOTE: DUPLICATION - Confirm these checks are still necessary...
     console.debug('options:', options)
     if (options.contextMenu) createContextMenus(options.ctx).catch(console.warn)
     const manifest = chrome.runtime.getManifest()
@@ -150,4 +122,23 @@ async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs
   } catch (e) {
     console.warn(e)
   }
+}
+
+async function setDefaultOptions(defaultOptions: object) {
+  console.log('setDefaultOptions', defaultOptions)
+  const options = await getOptions()
+  let changed = false
+  for (const [key, value] of Object.entries(defaultOptions)) {
+    // console.log(`${key}: default: ${value} current: ${options[key]}`)
+    if (options[key] === undefined) {
+      changed = true
+      options[key] = value
+      console.log(`Set %c${key}:`, 'color: Khaki', value)
+    }
+  }
+  if (changed) {
+    await chrome.storage.sync.set({ options })
+    console.log('changed options:', options)
+  }
+  return options
 }

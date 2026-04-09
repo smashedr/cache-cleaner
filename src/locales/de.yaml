@@ -95,10 +95,6 @@ popout:
   # popout/App.vue
   title: Bereich
 
-page:
-  # page/App.vue
-  title: Seite
-
 background:
   # components/BackgroundForm.vue
   none: Keine

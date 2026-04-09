@@ -95,10 +95,6 @@ popout:
   # popout/App.vue
   title: Panel
 
-page:
-  # page/App.vue
-  title: Page
-
 # Components
 
 keyboard:
