@@ -4,11 +4,9 @@ import { onMounted } from 'vue'
 import { clickOpen } from '@/utils/extension.ts'
 import { isFirefox } from '@/utils/system.ts'
 
-function openChromeShortcuts() {
-  chrome.tabs.update({ url: 'chrome://extensions/shortcuts' })
-}
+const openChromeShortcuts = () => chrome.tabs.update({ url: 'chrome://extensions/shortcuts' })
 
-// NOTE: Ported from VanillaJS
+// TODO: Update for Vue - Ported from VanillaJS
 async function setShortcuts(selector = '#keyboard-shortcuts') {
   console.debug('setShortcuts')
   if (!chrome.commands) {
@@ -39,9 +37,7 @@ async function setShortcuts(selector = '#keyboard-shortcuts') {
   }
 }
 
-onMounted(() => {
-  setShortcuts()
-})
+onMounted(() => setShortcuts())
 </script>
 
 <template>

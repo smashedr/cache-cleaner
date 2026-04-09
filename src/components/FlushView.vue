@@ -29,13 +29,13 @@ async function onConfirm(type: ClearCacheType) {
     showToast(`${i18n.t('ui.cache.cleared')} ${text} ${i18n.t('ui.cache.cache')}.`)
   } catch (e) {
     console.log(e)
+    // TODO: Add localized error message and always showToast
     if (e instanceof Error) showToast(e.message, 'danger')
   }
 }
 
 function clearCacheClick(type: ClearCacheType) {
-  console.log('siteCache:', type)
-  console.log('confirm:', options.value?.confirm[type])
+  console.log(`clearCacheClick: ${type}:`, options.value?.confirm[type])
   if (options.value.showConfirmation && options.value?.confirm[type]) {
     confirmModal.value?.show(type)
   } else {

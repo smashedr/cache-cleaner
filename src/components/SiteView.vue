@@ -3,15 +3,6 @@ import { inject, type Ref } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
-// withDefaults(
-//   defineProps<{
-//     noAccess?: boolean
-//   }>(),
-//   {
-//     noAccess: true,
-//   },
-// )
-
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
 
 function formatBytes(bytes: number | string | undefined, decimals = 2): string {

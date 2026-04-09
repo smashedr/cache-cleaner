@@ -13,14 +13,10 @@ const props = defineProps<{
   subkey?: string
 }>()
 
-// const tKey = (key: string, sub?: string) => {}
-
 const labelText = computed(() => props.label || i18n.t(`option.${props.subkey || 'toggle'}.${props.id}.label` as any))
 const tooltipText = computed(() => props.tooltip || i18n.t(`option.${props.subkey || 'toggle'}.${props.id}.tip` as any))
 
-function onChange(_event: Event) {
-  saveKeyValue(props.id, model.value, props.subkey)
-}
+const onChange = () => saveKeyValue(props.id, model.value, props.subkey)
 </script>
 
 <template>
