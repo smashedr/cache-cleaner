@@ -49,50 +49,56 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
   <form v-if="options">
     <template v-if="options?.site && show.includes('site')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
-      <template v-for="id in siteKeys" :key="id">
-        <FormSwitch
-          v-if="!(isFirefox && ffExcludes.includes(id))"
-          v-model="(options['site'] as Record<string, boolean>)[id]"
-          :id="id"
-          subkey="site"
-          :class="`ms-${ms}`"
-        />
-      </template>
+      <div class="px-2">
+        <template v-for="id in siteKeys" :key="id">
+          <FormSwitch
+            v-if="!(isFirefox && ffExcludes.includes(id))"
+            v-model="(options['site'] as Record<string, boolean>)[id]"
+            :id="id"
+            subkey="site"
+            :class="`ms-${ms}`"
+          />
+        </template>
+      </div>
     </template>
 
     <template v-if="options?.browser && show.includes('browser')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.form.globalBrowser') }}</HorizontalRule>
 
-      <div v-if="subheading === 'short'">{{ i18n.t('options.form.allSites') }}:</div>
+      <div v-if="subheading === 'short'" class="ms-2">{{ i18n.t('options.form.allSites') }}:</div>
       <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
 
-      <template v-for="id in allSiteKeys" :key="id">
-        <FormSwitch
-          v-if="!(isFirefox && ffExcludesAll.includes(id))"
-          v-model="(options['browser'] as Record<string, boolean>)[id]"
-          :id="id"
-          subkey="browser"
-          :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
-        />
-      </template>
+      <div class="px-2">
+        <template v-for="id in allSiteKeys" :key="id">
+          <FormSwitch
+            v-if="!(isFirefox && ffExcludesAll.includes(id))"
+            v-model="(options['browser'] as Record<string, boolean>)[id]"
+            :id="id"
+            subkey="browser"
+            :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
+          />
+        </template>
+      </div>
 
-      <div v-if="subheading === 'short'">{{ i18n.t('options.form.browser') }}:</div>
+      <div v-if="subheading === 'short'" class="ms-2">{{ i18n.t('options.form.browser') }}:</div>
       <HorizontalRule v-if="subheading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
 
-      <template v-for="id in allBrowserKeys" :key="id">
-        <FormSwitch
-          v-if="!deprecated.includes(id) || options.showDeprecated"
-          v-model="(options['browser'] as Record<string, boolean>)[id]"
-          :id="id"
-          subkey="browser"
-          :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
-        />
-      </template>
+      <div class="px-2">
+        <template v-for="id in allBrowserKeys" :key="id">
+          <FormSwitch
+            v-if="!deprecated.includes(id) || options.showDeprecated"
+            v-model="(options['browser'] as Record<string, boolean>)[id]"
+            :id="id"
+            subkey="browser"
+            :class="'col-12' + `${subheading === 'short' ? ' ms-2' : ` ms-${ms}`}`"
+          />
+        </template>
+      </div>
     </template>
 
     <template v-if="show.includes('extension')">
       <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
-      <div class="row m-0">
+      <div class="px-2">
         <template v-for="id in extension" :key="id">
           <FormSwitch v-model="options[id]" :id="id" :class="{ 'col-12': true }" />
 

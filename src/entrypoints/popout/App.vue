@@ -37,10 +37,10 @@ onMounted(() => {
     <PanelHeader :panel-button="false" :side-button="false" :popup-button="false" />
   </header>
 
-  <main class="flex-grow-1 overflow-auto p-1">
+  <main class="flex-grow-1 overflow-auto">
     <div class="d-grid gap-2">
       <FlushView cache-type="browser" :show-site="false" />
-      <OptionsForm :close-window="true" :compact="true" class="p-2" />
+      <OptionsForm :close-window="true" :compact="true" />
     </div>
   </main>
 

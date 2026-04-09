@@ -7,14 +7,18 @@ import ConfirmModal from '@/components/ConfirmModal.vue'
 
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
 
+defineOptions({ inheritAttrs: false })
+
 withDefaults(
   defineProps<{
     cacheType?: 'site' | 'browser'
     showSite?: boolean
+    padX?: string
   }>(),
   {
     cacheType: 'site',
     showSite: true,
+    padX: 'px-0',
   },
 )
 
@@ -45,40 +49,40 @@ function clearCacheClick(type: ClearCacheType) {
 </script>
 
 <template>
-  <div v-if="cacheType === 'browser' || options.showAllButtons" class="row m-0 my-1">
-    <div class="px-1" :class="showSite ? 'col-6' : 'col-12 my-1'">
-      <button class="btn btn-warning text-truncate w-100 px-1" @click="clearCacheClick('browser')">
-        <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
-      </button>
-    </div>
-    <div class="px-1" :class="showSite ? 'col-6' : 'col-12 my-1'">
-      <button class="btn btn-danger text-truncate w-100 px-1" @click="clearCacheClick('browserAll')">
-        <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
-      </button>
-    </div>
-  </div>
+  <div class="row m-0" v-bind="$attrs">
+    <template v-if="cacheType === 'browser' || options.showAllButtons">
+      <div :class="[showSite ? 'col-6' : 'col-12', padX]">
+        <button class="btn btn-warning text-truncate w-100 px-0" @click="clearCacheClick('browser')">
+          <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
+        </button>
+      </div>
+      <div :class="[showSite ? 'col-6' : 'col-12', padX]">
+        <button class="btn btn-danger text-truncate w-100 px-0" @click="clearCacheClick('browserAll')">
+          <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
+        </button>
+      </div>
+    </template>
 
-  <div v-if="showSite && (cacheType === 'site' || options.showAllButtons)">
-    <div class="row m-0 g-0 my-1">
-      <div class="col-6 px-1">
+    <template v-if="showSite && (cacheType === 'site' || options.showAllButtons)">
+      <div class="col-6" :class="padX">
         <button
-          class="btn btn-success text-truncate w-100 px-1"
+          class="btn btn-success text-truncate w-100 px-0"
           :class="{ disabled: !siteInfo }"
           @click="clearCacheClick('site')"
         >
           <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.site') }}
         </button>
       </div>
-      <div class="col-6 px-1">
+      <div class="col-6" :class="padX">
         <button
-          class="btn btn-info text-truncate w-100 px-1"
+          class="btn btn-info text-truncate w-100 px-0"
           :class="{ disabled: !siteInfo }"
           @click="clearCacheClick('siteAll')"
         >
           <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('ui.cache.type.siteAll') }}
         </button>
       </div>
-    </div>
+    </template>
   </div>
 
   <ConfirmModal ref="confirmModal" @confirm="onConfirm" />

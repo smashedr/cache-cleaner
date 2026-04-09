@@ -8,43 +8,14 @@ export default defineBackground(() => {
 
   chrome.runtime.onInstalled.addListener(onInstalled)
   chrome.runtime.onStartup.addListener(onStartup)
-  chrome.storage.onChanged.addListener(onChanged)
+  chrome.storage.sync.onChanged.addListener(onChanged)
   chrome.runtime.onMessage.addListener(onMessage)
   chrome.commands?.onCommand.addListener(onCommand)
   chrome.contextMenus?.onClicked.addListener(onClicked)
 })
 
-// async function setUninstallURL() {
-//   const manifest = chrome.runtime.getManifest()
-//   if (!manifest.homepage_url) return console.warn('No manifest.homepage_url')
-//   const url = new URL(manifest.homepage_url)
-//   url.pathname = '/uninstall/'
-//   url.searchParams.append('version', manifest.version)
-//   await chrome.runtime.setUninstallURL(url.href)
-// }
-
-async function setDefaultOptions(defaultOptions: object) {
-  console.log('setDefaultOptions', defaultOptions)
-  const options = await getOptions()
-  let changed = false
-  for (const [key, value] of Object.entries(defaultOptions)) {
-    // console.log(`${key}: default: ${value} current: ${options[key]}`)
-    if (options[key] === undefined) {
-      changed = true
-      options[key] = value
-      console.log(`Set %c${key}:`, 'color: Khaki', value)
-    }
-  }
-  if (changed) {
-    await chrome.storage.sync.set({ options })
-    console.log('changed options:', options)
-  }
-  return options
-}
-
 async function onInstalled(details: chrome.runtime.InstalledDetails) {
   console.log('onInstalled:', details)
-
   const options = await setDefaultOptions(defaultOptions)
   // NOTE: DUPLICATION in onStartup
   console.debug('options:', options)
@@ -69,8 +40,8 @@ async function onStartup() {
   console.log('onStartup')
   if (isFirefox) {
     console.log('Firefox Startup Workarounds')
-    // NOTE: Confirm these checks are still necessary...
     const options = await getOptions()
+    // NOTE: DUPLICATION - Confirm these checks are still necessary...
     console.debug('options:', options)
     if (options.contextMenu) createContextMenus(options.ctx).catch(console.warn)
     const manifest = chrome.runtime.getManifest()
@@ -79,17 +50,13 @@ async function onStartup() {
   }
 }
 
-function onChanged(changes: object, namespace: string) {
-  for (const [key, { oldValue, newValue }] of Object.entries(changes)) {
-    if (namespace === 'sync' && key === 'options' && oldValue && newValue) {
-      processOptions(oldValue, newValue)
-    }
-  }
-}
+function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
+  console.log('%c background/index.ts - onChanged:', 'color: Cyan', changes)
+  const oldValue = changes.options?.oldValue as Options | undefined
+  const newValue = changes.options?.newValue as Options | undefined
+  if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
 
-function processOptions(oldValue: Options, newValue: Options) {
-  console.log('optionsChanged:', oldValue, newValue)
-  if (oldValue.contextMenu !== newValue.contextMenu) {
+  if (oldValue?.contextMenu !== newValue.contextMenu) {
     if (newValue.contextMenu) {
       console.log('%c Enabled contextMenu...', 'color: Lime')
       createContextMenus(newValue.ctx).catch(console.warn)
@@ -150,4 +117,23 @@ async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs
   } catch (e) {
     console.warn(e)
   }
+}
+
+async function setDefaultOptions(defaultOptions: object) {
+  console.log('setDefaultOptions', defaultOptions)
+  const options = await getOptions()
+  let changed = false
+  for (const [key, value] of Object.entries(defaultOptions)) {
+    // console.log(`${key}: default: ${value} current: ${options[key]}`)
+    if (options[key] === undefined) {
+      changed = true
+      options[key] = value
+      console.log(`Set %c${key}:`, 'color: Khaki', value)
+    }
+  }
+  if (changed) {
+    await chrome.storage.sync.set({ options })
+    console.log('changed options:', options)
+  }
+  return options
 }
