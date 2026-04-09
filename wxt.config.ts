@@ -31,7 +31,6 @@ export default defineConfig({
 
       homepage_url: 'https://github.com/smashedr/cache-cleaner', // TODO: UPDATE BEFORE MERGE
       permissions: ['activeTab', 'browsingData', 'contextMenus', 'scripting', 'storage'],
-      host_permissions: ['*://*/*'],
 
       commands: {
         _execute_action: {

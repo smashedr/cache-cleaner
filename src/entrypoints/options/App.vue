@@ -2,9 +2,7 @@
 import { i18n } from '#imports'
 import { clickOpen } from '@/utils/extension.ts'
 import { useTitle } from '@/composables/useTitle.ts'
-import { isFirefox } from '@/utils/system.ts'
 import BackToTop from '@/components/BackToTop.vue'
-import PermsCheck from '@/components/PermsCheck.vue'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
 import KeyboardShortcuts from '@/components/KeyboardShortcuts.vue'
@@ -53,8 +51,6 @@ useTitle(i18n.t('options.title'))
         <KeyboardShortcuts />
 
         <OptionsForm />
-
-        <PermsCheck :show-info="true" :show-remove="isFirefox" class="my-3" />
 
         <CopySupport
           class="fst-italic small"

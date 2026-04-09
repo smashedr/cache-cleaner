@@ -37,12 +37,12 @@ defineOptions({
           />
         </div>
 
-        <div class="modal-footer p-0">
-          <button type="button" class="btn btn-sm btn-secondary me-auto" data-bs-dismiss="modal">
-            {{ i18n.t('ui.action.close') }}
-          </button>
-          <button type="button" class="btn btn-sm btn-primary" @click="openOptions(true)">
+        <div class="modal-footer p-0 flex-column align-items-start flex-sm-row align-items-sm-center">
+          <button type="button" class="btn btn-sm btn-primary me-auto" @click="openOptions(true)">
             <i class="fa-solid fa-gears me-2"></i> {{ i18n.t('options.moreOptions') }}
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+            {{ i18n.t('ui.action.close') }}
           </button>
         </div>
       </div>

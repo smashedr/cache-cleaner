@@ -101,11 +101,6 @@ page:
   # page/App.vue
   title: Page
 
-permissions:
-  # permissions/App.vue
-  title: Permissions
-  reason: To intercept authentication requests, hosts permissions are required.
-
 # Components
 
 keyboard:
@@ -116,17 +111,6 @@ keyboard:
   shortcut: Shortcut
   shortcuts: Keyboard Shortcuts
   unknown: Unknown
-
-perms:
-  # PermsCheck.vue
-  granted: Permissions Granted.
-  grant:
-    text: Grant Host Permissions
-    tip: This Extension Requires Host Permissions to Function
-  remove:
-    text: Remove Host Permissions
-    tip: You will no longer be able to analyze new images
-  info: More Information on Permissions
 
 theme:
   # ThemeSwitch.vue
