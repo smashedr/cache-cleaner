@@ -2,6 +2,7 @@
 import { i18n } from '#imports'
 import { clickOpen } from '@/utils/extension.ts'
 import { useTitle } from '@/composables/useTitle.ts'
+import { useBackground } from '@/composables/useBackground.ts'
 import BackToTop from '@/components/BackToTop.vue'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
@@ -9,8 +10,11 @@ import KeyboardShortcuts from '@/components/KeyboardShortcuts.vue'
 import PageFooter from '@/components/PageFooter.vue'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 import CopySupport from '@/components/CopySupport.vue'
+import BackgroundForm from '@/components/BackgroundForm.vue'
 
 console.debug('%c options/App.vue', 'color: Lime')
+
+useBackground()
 
 const manifest = chrome.runtime.getManifest()
 
@@ -18,9 +22,9 @@ useTitle(i18n.t('options.title'))
 </script>
 
 <template>
-  <div class="d-flex align-items-center justify-content-center p-1 p-sm-3 h-100 w-100">
+  <div class="d-flex align-items-center justify-content-center p-1 p-md-3 h-100 w-100">
     <div class="m-auto pb-4 w-100">
-      <div id="options-wrapper" class="glass-outline blur rounded rounded-3 p-2 p-sm-3 m-auto w-100">
+      <div id="options-wrapper" class="glass-outline blur rounded rounded-3 p-2 p-md-3 m-auto w-100">
         <div class="d-flex flex-row justify-content-center align-items-center">
           <img :src="'/icons/48.png'" class="me-1" height="48" width="48" :alt="manifest.name" :title="manifest.name" />
           <div>
@@ -51,6 +55,9 @@ useTitle(i18n.t('options.title'))
         <KeyboardShortcuts />
 
         <OptionsForm />
+
+        <HorizontalRule>{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
+        <BackgroundForm />
 
         <CopySupport
           class="fst-italic small my-3"

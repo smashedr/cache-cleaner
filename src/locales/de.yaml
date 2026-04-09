@@ -76,6 +76,7 @@ options:
   extension: Erweiterungseinstellungen
   moreOptions: Weitere Optionen
   quickOptions: Schnelloptionen
+  optionsBackground: Optionsseite Hintergrund
   copySupport: Supportinformationen kopieren
   copySupportTip: Für die Fehlermeldung.
   copySupportMsg: Supportinformationen kopiert.
@@ -97,6 +98,16 @@ popout:
 page:
   # page/App.vue
   title: Seite
+
+background:
+  # components/BackgroundForm.vue
+  none: Keine
+  picture: Bild
+  pictureTip: URL zu einem Web-Bild.
+  pictureLabel: Hintergrundbild-URL
+  video: Video
+  videoTip: URL zu einem Web-Video
+  videoLabel: Hintergrundvideo-URL
 
 # Components
 

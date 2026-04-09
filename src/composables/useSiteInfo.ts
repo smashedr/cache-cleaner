@@ -1,4 +1,3 @@
-// useSiteInfo.ts
 import { ref, onMounted } from 'vue'
 
 export function useSiteInfo(enabled = true) {

@@ -76,6 +76,7 @@ options:
   extension: Extension Options
   moreOptions: More Options
   quickOptions: Quick Options
+  optionsBackground: Options Page Background
   copySupport: Copy Support Information
   copySupportTip: For issue reporting.
   copySupportMsg: Support Information Copied.
@@ -114,6 +115,16 @@ theme:
   dark: Dark
   light: Light
   auto: Auto
+
+background:
+  # components/BackgroundForm.vue
+  none: None
+  picture: Picture
+  pictureTip: URL to a Web Image.
+  pictureLabel: Background Picture URL
+  video: Video
+  videoTip: URL to a Web Video
+  videoLabel: Background Video URL
 
 # Options
 

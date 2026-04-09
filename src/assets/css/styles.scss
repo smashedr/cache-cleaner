@@ -2,13 +2,14 @@
 @import 'bootswatch/dist/united/variables';
 
 // https://getbootstrap.com/docs/5.3/layout/breakpoints/
+// NOTE: All breakpoints reduced by 1
 $grid-breakpoints: (
     xs: 0,
     sm: 340px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px,
+    md: 576px,
+    lg: 768px,
+    xl: 992px,
+    xxl: 1200px,
 );
 
 @import 'bootstrap/scss/bootstrap';
