@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { provide } from 'vue'
 import ToastAlerts from '@/components/ToastAlerts.vue'
-import BackToTop from '@/components/BackToTop.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
 import PanelFooter from '@/components/PanelFooter.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
@@ -33,7 +32,6 @@ provide('siteInfo', undefined)
   </footer>
 
   <ToastAlerts />
-  <BackToTop />
 </template>
 
 <!--<style scoped></style>-->

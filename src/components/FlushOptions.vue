@@ -21,20 +21,17 @@ withDefaults(
     v-show="cacheType === 'site'"
     :show="['extension']"
     :extension="['autoReload']"
-    subheading="full"
     :heading="false"
     :close-window="true"
     :compact="true"
-    class="ms-2"
   />
 
   <OptionsForm
     :show="[cacheType]"
-    subheading="full"
+    browser-heading="full"
     :heading="false"
     :close-window="true"
     :compact="true"
-    ms="2"
     class="overflow-x-hidden"
   />
 </template>

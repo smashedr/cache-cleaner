@@ -50,39 +50,37 @@ function clearCacheClick(type: ClearCacheType) {
 
 <template>
   <div class="row m-0" v-bind="$attrs">
-    <template v-if="cacheType === 'browser' || options.showAllButtons">
-      <div :class="[showSite ? 'col-6' : 'col-12', padX]">
-        <button class="btn btn-warning text-truncate w-100 px-0" @click="clearCacheClick('browser')">
-          <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
-        </button>
-      </div>
-      <div :class="[showSite ? 'col-6' : 'col-12', padX]">
-        <button class="btn btn-danger text-truncate w-100 px-0" @click="clearCacheClick('browserAll')">
-          <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
-        </button>
-      </div>
-    </template>
+    <div
+      v-if="showSite && (cacheType === 'site' || options.showAllButtons)"
+      :class="[options.showAllButtons ? 'col-6' : 'col-12', 'd-flex flex-column gap-1', padX]"
+    >
+      <button
+        class="btn btn-success text-truncate w-100 px-0"
+        :class="{ disabled: !siteInfo }"
+        @click="clearCacheClick('site')"
+      >
+        <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.site') }}
+      </button>
+      <button
+        class="btn btn-info text-truncate w-100 px-0"
+        :class="{ disabled: !siteInfo }"
+        @click="clearCacheClick('siteAll')"
+      >
+        <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('ui.cache.type.siteAll') }}
+      </button>
+    </div>
 
-    <template v-if="showSite && (cacheType === 'site' || options.showAllButtons)">
-      <div class="col-6" :class="padX">
-        <button
-          class="btn btn-success text-truncate w-100 px-0"
-          :class="{ disabled: !siteInfo }"
-          @click="clearCacheClick('site')"
-        >
-          <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.site') }}
-        </button>
-      </div>
-      <div class="col-6" :class="padX">
-        <button
-          class="btn btn-info text-truncate w-100 px-0"
-          :class="{ disabled: !siteInfo }"
-          @click="clearCacheClick('siteAll')"
-        >
-          <i class="fa-solid fa-broom me-1"></i> {{ i18n.t('ui.cache.type.siteAll') }}
-        </button>
-      </div>
-    </template>
+    <div
+      v-if="cacheType === 'browser' || options.showAllButtons"
+      :class="[options.showAllButtons && showSite ? 'col-6' : 'col-12', 'd-flex flex-column gap-1', padX]"
+    >
+      <button class="btn btn-warning text-truncate w-100 px-0" @click="clearCacheClick('browser')">
+        <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
+      </button>
+      <button class="btn btn-danger text-truncate w-100 px-0" @click="clearCacheClick('browserAll')">
+        <i class="fa-solid fa-skull-crossbones me-1"></i> {{ i18n.t('ui.cache.type.browserAll') }}
+      </button>
+    </div>
   </div>
 
   <ConfirmModal ref="confirmModal" @confirm="onConfirm" />
