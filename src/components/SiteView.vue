@@ -3,6 +3,8 @@ import { inject, type Ref } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
 
 function formatBytes(bytes: number | string | undefined, decimals = 2): string {
@@ -25,6 +27,7 @@ async function copyText(e: MouseEvent) {
 
 <template>
   <div
+    v-bind="$attrs"
     class="text-center text-ellipsis border border-2 rounded p-1"
     :class="{ 'border-success': siteInfo, 'border-danger': !siteInfo, 'pb-0': siteInfo }"
     style="margin-top: 5px; margin-bottom: 5px"

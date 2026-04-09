@@ -4,9 +4,7 @@ import { openOptions } from '@/utils/extension.ts'
 import OptionsForm from '@/components/OptionsForm.vue'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 
-defineOptions({
-  inheritAttrs: false,
-})
+defineOptions({ inheritAttrs: false })
 </script>
 
 <template>

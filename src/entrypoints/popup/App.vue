@@ -28,7 +28,7 @@ console.log('width:', width.value)
 
     <FlushView :cache-type="cacheType" />
     <FlushSwitch :cache-type="cacheType" @change="(value) => (cacheType = value)" />
-    <SiteView v-if="cacheType === 'site'" />
+    <SiteView v-if="cacheType === 'site'" class="mx-2" />
     <FlushOptions :cache-type="cacheType" />
 
     <ToastAlerts />

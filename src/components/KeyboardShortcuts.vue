@@ -28,7 +28,7 @@ onMounted(async () => {
 <template>
   <div v-if="hasCommands">
     <div class="rounded rounded-3 overflow-hidden">
-      <table id="keyboard-shortcuts" class="table table-sm rounded table-borderless table-hover transparent-table mb-0">
+      <table class="table table-sm rounded table-borderless table-hover transparent-table mb-0">
         <caption class="visually-hidden">
           {{
             i18n.t('keyboard.shortcuts')
@@ -42,11 +42,11 @@ onMounted(async () => {
         </thead>
         <tbody>
           <tr v-for="cmd in commands">
-            <td class="ps-2">
+            <td class="ps-2 text-truncate w-100" style="max-width: 0">
               <i class="fa-regular fa-keyboard me-1"></i>
-              <span class="description">{{ cmd.description }}</span>
+              {{ cmd.description }}
             </td>
-            <td class="text-end pe-2" :title="i18n.t('keyboard.shortcuts')">
+            <td class="text-end pe-2 text-nowrap">
               <kbd>{{ cmd.shortcut }}</kbd>
             </td>
           </tr>
@@ -79,4 +79,9 @@ onMounted(async () => {
   </div>
 </template>
 
-<!--<style scoped></style>-->
+<!--<style scoped>-->
+<!--#table td:first-child {-->
+<!--  width: 100%;-->
+<!--  max-width: 0;-->
+<!--}-->
+<!--</style>-->
