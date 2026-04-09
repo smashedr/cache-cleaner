@@ -4,6 +4,11 @@ import { onMounted, ref } from 'vue'
 import { clickOpen } from '@/utils/extension.ts'
 import { isFirefox } from '@/utils/system.ts'
 
+defineProps<{
+  hideLink?: boolean
+  linkMt?: string
+}>()
+
 const hasCommands = ref<boolean>(!!chrome.commands)
 const commands = ref<{ description: string; shortcut: string }[]>([])
 
@@ -49,7 +54,7 @@ onMounted(async () => {
       </table>
     </div>
 
-    <div class="mb-2">
+    <div v-if="!hideLink" :class="linkMt || `mt-2`">
       {{ i18n.t('keyboard.manage') }}:
       <a
         v-if="isFirefox"
