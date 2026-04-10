@@ -33,6 +33,21 @@ export default defineConfig({
       permissions: ['activeTab', 'browsingData', 'contextMenus', 'scripting', 'storage'],
 
       commands: {
+        clearSiteCache: {
+          description: '__MSG_cmd_clearSiteCache__',
+          suggested_key: { default: isFirefox ? 'F4' : 'Ctrl+Shift+4' },
+        },
+        clearAllSiteCache: {
+          description: '__MSG_cmd_clearAllSiteCache__',
+          suggested_key: { default: isFirefox ? 'F6' : 'Ctrl+Shift+5' },
+        },
+        clearBrowserCache: {
+          description: '__MSG_cmd_clearBrowserCache__',
+        },
+        clearAllBrowserCache: {
+          description: '__MSG_cmd_clearAllBrowserCache__',
+        },
+
         _execute_action: {
           description: '__MSG_cmd_executeAction__',
           ...(!isDev && { suggested_key: { default: 'Alt+Shift+A' } }),
@@ -48,21 +63,6 @@ export default defineConfig({
         openOptions: {
           description: '__MSG_cmd_openOptions__',
           suggested_key: { default: 'Alt+Shift+O' },
-        },
-
-        clearSiteCache: {
-          description: '__MSG_cmd_clearSiteCache__',
-          suggested_key: { default: isFirefox ? 'F4' : 'Ctrl+Shift+4' },
-        },
-        clearAllSiteCache: {
-          description: '__MSG_cmd_clearAllSiteCache__',
-          suggested_key: { default: isFirefox ? 'F6' : 'Ctrl+Shift+5' },
-        },
-        clearBrowserCache: {
-          description: '__MSG_cmd_clearBrowserCache__',
-        },
-        clearAllBrowserCache: {
-          description: '__MSG_cmd_clearAllBrowserCache__',
         },
       },
 
@@ -90,7 +90,7 @@ export default defineConfig({
   // https://wxt.dev/guide/essentials/config/hooks
   hooks: {
     'build:manifestGenerated': (wxt, manifest) => {
-      // console.log('build:manifestGenerated:', wxt.config.browser)
+      console.log('build:manifestGenerated:', wxt.config.browser)
       if (manifest.action) manifest.action.default_icon = manifest.icons
       if (manifest.sidebar_action) manifest.sidebar_action.default_icon = manifest.icons
     },
