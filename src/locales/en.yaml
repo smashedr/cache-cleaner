@@ -132,6 +132,9 @@ option:
     showAllButtons:
       label: Show All Buttons
       tip: Show both site and browser buttons on popup.
+    popupBrowser:
+      label: Default to Browser
+      tip: Show the Browser tab when opening the popup.
     showConfirmation:
       label: Show Confirmation
       tip: Show confirmation before clearing cache.

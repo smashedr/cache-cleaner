@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, provide, ref } from 'vue'
 import { isMobile } from '@/utils/system.ts'
+import { getOptions } from '@/utils/options.ts'
 import { useSiteInfo } from '@/composables/useSiteInfo.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import PanelHeader from '@/components/PanelHeader.vue'
@@ -16,10 +17,31 @@ provide('siteInfo', siteInfo)
 
 const cacheType = ref<'site' | 'browser'>('site')
 
+// watch(
+//   options,
+//   (opts) => {
+//     console.log('popup/App.vue %c watch: options:', 'color: MediumOrchid', opts)
+//     console.log('opts.popupBrowser:', opts.popupBrowser)
+//     if (opts.popupBrowser) {
+//       cacheType.value = 'browser'
+//     }
+//   },
+//   { once: true },
+// )
+
 // TODO: Determine better method to set popup width
 // const isBrowser = isFirefox ? '340px' : null
 const width = computed(() => (isMobile ? '100%' : '360px'))
-console.log('width:', width.value)
+
+onMounted(() => {
+  console.debug('width:', width.value)
+  getOptions().then((options) => {
+    console.debug('options.popupBrowser:', options.popupBrowser)
+    if (options.popupBrowser) {
+      cacheType.value = 'browser'
+    }
+  })
+})
 </script>
 
 <template>
