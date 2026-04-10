@@ -5,6 +5,8 @@ import OptionsForm from '@/components/OptionsForm.vue'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 
 defineOptions({ inheritAttrs: false })
+
+const extensionOptions = ['autoReload', 'showAllButtons', 'popupBrowser', 'showDeprecated', 'showConfirmation']
 </script>
 
 <template>
@@ -27,12 +29,7 @@ defineOptions({ inheritAttrs: false })
         </div>
 
         <div class="modal-body py-2">
-          <OptionsForm
-            :extension="['autoReload', 'showAllButtons', 'showDeprecated', 'showConfirmation']"
-            :compact="true"
-            :show="['extension']"
-            :heading="false"
-          />
+          <OptionsForm :extension="extensionOptions" :compact="true" :show="['extension']" :heading="false" />
         </div>
 
         <div class="modal-footer p-0 flex-column align-items-start flex-sm-row align-items-sm-center">

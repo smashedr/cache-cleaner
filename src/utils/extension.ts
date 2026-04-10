@@ -73,7 +73,7 @@ export async function openExtPanel(close = false) {
         // console.debug('tabs:', tabs)
         console.debug('tabs[0]?.windowId:', tabs[0]?.windowId)
         if (panel.id != tabs[0]?.windowId) {
-          console.debug('%c Window found:', 'color: SpringGreen', panel.id)
+          console.debug('%c Panel found:', 'color: SpringGreen', panel.id)
           await chrome.windows.update(lastPanelID, { focused: true })
           if (close) window.close()
           return
@@ -128,7 +128,9 @@ export function clickOpen(e: Event, close = false) {
   if (url.startsWith('/')) {
     url = chrome.runtime.getURL(url)
   }
-  activateOrOpen(url).then(() => {
-    if (close || target.dataset.close === 'true') window.close()
-  })
+  activateOrOpen(url)
+    .then(() => {
+      if (close || target.dataset.close === 'true') window.close()
+    })
+    .catch(console.log)
 }

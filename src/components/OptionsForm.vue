@@ -28,6 +28,7 @@ withDefaults(
     extension: () => [
       'autoReload',
       'showAllButtons',
+      'popupBrowser',
       'showConfirmation',
       'contextMenu',
       'showDeprecated',

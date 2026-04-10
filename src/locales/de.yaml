@@ -132,6 +132,9 @@ option:
     showAllButtons:
       label: Alle Schaltflächen anzeigen
       tip: Sowohl Website- als auch Browser-Schaltflächen im Popup anzeigen.
+    popupBrowser:
+      label: Standardmäßig Browser
+      tip: Zeigt den Browser-Tab beim Öffnen des Popups an.
     showConfirmation:
       label: Bestätigung anzeigen
       tip: Vor dem Löschen des Caches eine Bestätigung anfordern.

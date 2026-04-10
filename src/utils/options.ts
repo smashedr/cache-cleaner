@@ -1,6 +1,7 @@
 export const defaultOptions = {
   autoReload: true,
   showAllButtons: true,
+  popupBrowser: false,
   showConfirmation: true,
   showDeprecated: false,
   contextMenu: true,

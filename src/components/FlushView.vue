@@ -13,12 +13,12 @@ withDefaults(
   defineProps<{
     cacheType?: 'site' | 'browser'
     showSite?: boolean
-    padX?: string
+    colClass?: string
   }>(),
   {
     cacheType: 'site',
     showSite: true,
-    padX: 'px-0',
+    colClass: 'px-0',
   },
 )
 
@@ -52,7 +52,7 @@ function clearCacheClick(type: ClearCacheType) {
   <div class="row m-0" v-bind="$attrs">
     <div
       v-if="showSite && (cacheType === 'site' || options.showAllButtons)"
-      :class="[options.showAllButtons ? 'col-6' : 'col-12', 'd-flex flex-column gap-1', padX]"
+      :class="[options.showAllButtons ? 'col-6' : 'col-12', 'd-flex flex-column', colClass]"
     >
       <button
         class="btn btn-success text-truncate w-100 px-0"
@@ -72,7 +72,7 @@ function clearCacheClick(type: ClearCacheType) {
 
     <div
       v-if="cacheType === 'browser' || options.showAllButtons"
-      :class="[options.showAllButtons && showSite ? 'col-6' : 'col-12', 'd-flex flex-column gap-1', padX]"
+      :class="[options.showAllButtons && showSite ? 'col-6' : 'col-12', 'd-flex flex-column', colClass]"
     >
       <button class="btn btn-warning text-truncate w-100 px-0" @click="clearCacheClick('browser')">
         <i class="fa-solid fa-toggle-on me-1"></i> {{ i18n.t('ui.cache.type.browser') }}
