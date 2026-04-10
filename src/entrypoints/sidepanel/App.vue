@@ -19,7 +19,7 @@ provide('siteInfo', undefined)
 
   <main class="flex-grow-1 overflow-auto">
     <div class="d-grid gap-2 m-2">
-      <FlushView cache-type="browser" :show-site="false" class="row-gap-2" />
+      <FlushView cache-type="browser" :show-site="false" col-class="gap-2 px-0" />
       <button class="btn btn-success" @click="openPopup()">
         <i class="fa-solid fa-window-maximize"></i> {{ i18n.t('ui.text.siteCache') }}
       </button>

@@ -39,7 +39,7 @@ onMounted(() => {
 
   <main class="flex-grow-1 overflow-auto">
     <div class="d-grid gap-2 m-2">
-      <FlushView cache-type="browser" :show-site="false" class="row-gap-2" />
+      <FlushView cache-type="browser" :show-site="false" col-class="gap-2 px-0" />
       <OptionsForm :close-window="true" :compact="true" />
     </div>
   </main>
