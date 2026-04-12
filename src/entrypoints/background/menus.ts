@@ -24,12 +24,6 @@ export async function createContextMenus(ctx: Options['ctx']) {
 
   const contexts: chrome.contextMenus.CreateProperties[] = []
 
-  // for (const [pk, obj] of Object.entries(newConfig)) {
-  //   for (const [key, value] of Object.entries(obj)) {
-  //     console.log(pk, key, value)
-  //   }
-  // }
-
   for (const [key, value] of Object.entries(config['cache'])) {
     addContextMenuItem(contexts, ctx, key, value)
   }
