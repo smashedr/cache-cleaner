@@ -6,7 +6,7 @@ import { useOptions } from '@/composables/useOptions.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 import FormSwitch from '@/components/FormSwitch.vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     compact?: boolean
     heading?: boolean
@@ -38,6 +38,8 @@ withDefaults(
 )
 
 const options = useOptions()
+
+const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
 
 const siteKeys = computed(() => Object.keys(options.value?.site)) // Site
 
@@ -105,7 +107,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     <template v-if="show.includes('extension')">
       <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="px-2">
-        <template v-for="id in extension" :key="id">
+        <template v-for="id in extensionKeys" :key="id">
           <FormSwitch v-model="options[id]" :id="id" class="col-12" />
 
           <Transition name="fade">
