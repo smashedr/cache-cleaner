@@ -27,10 +27,10 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
     await chrome.runtime.openOptionsPage()
   } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
     if (options.showUpdate) {
-      const manifest = chrome.runtime.getManifest()
-      console.debug('manifest:', manifest)
-      if (manifest.version !== details.previousVersion) {
-        const url = `${manifest.homepage_url}/releases/tag/${manifest.version}`
+      const config = useAppConfig()
+      console.log('config:', config)
+      if (config.version !== details.previousVersion) {
+        const url = `${config.githubUrl}/releases/tag/${config.version}`
         await chrome.tabs.create({ active: false, url })
       }
     }
@@ -139,11 +139,8 @@ async function setDefaultOptions(defaultOptions: object) {
 async function setUninstall() {
   // NOTE: Calling this function setUninstallURL breaks WXT
   const config = getAppConfig()
-  // console.log('config:', config)
-  const manifest = chrome.runtime.getManifest()
-  // console.log('manifest:', manifest)
   const url = new URL(config.uninstallUrl)
-  url.searchParams.append('version', manifest.version)
+  url.searchParams.append('version', config.version)
   url.searchParams.append('id', chrome.runtime.id)
   console.log('setUninstallURL:', url.href)
   await chrome.runtime.setUninstallURL(url.href)

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAppConfig } from '#imports'
 import { isFirefox, isMobile } from '@/utils/system.ts'
 import { getOptions } from '@/utils/options.ts'
 import { showToast } from '@/composables/useToast.ts'
@@ -12,7 +13,7 @@ async function copySupport(event: Event) {
   console.debug('copySupport:', event)
   event.preventDefault()
   const date = new Date()
-  const manifest = chrome.runtime.getManifest()
+  const config = useAppConfig()
   const permissions = await chrome.permissions.getAll()
   const userSettings = await chrome.action.getUserSettings()
   const options = await getOptions()
@@ -22,9 +23,10 @@ async function copySupport(event: Event) {
   // delete local.results
 
   const result = [
-    `${manifest.name} - ${manifest.version}`,
+    `${config.name} - ${config.version}`,
     date.toString(),
     navigator.userAgent,
+    `id: ${chrome.runtime.id}`,
     `permissions.origins: ${JSON.stringify(permissions.origins)}`,
     `options: ${JSON.stringify(options)}`,
     `local: ${JSON.stringify(local)}`,

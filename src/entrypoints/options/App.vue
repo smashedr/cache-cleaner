@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { i18n } from '#imports'
+import { i18n, useAppConfig } from '#imports'
 import { clickOpen } from '@/utils/extension.ts'
 import { useTitle } from '@/composables/useTitle.ts'
 import { useBackground } from '@/composables/useBackground.ts'
@@ -14,11 +14,12 @@ import BackgroundForm from '@/components/BackgroundForm.vue'
 
 console.debug('%c options/App.vue', 'color: Lime')
 
+useTitle(i18n.t('options.title'))
+
 useBackground()
 
-const manifest = chrome.runtime.getManifest()
-
-useTitle(i18n.t('options.title'))
+const config = useAppConfig()
+console.log('config:', config)
 </script>
 
 <template>
@@ -26,41 +27,41 @@ useTitle(i18n.t('options.title'))
     <div class="m-auto pb-4 w-100">
       <div id="options-wrapper" class="glass-outline blur rounded rounded-3 p-2 p-md-3 m-auto w-100">
         <div class="d-flex flex-row justify-content-center align-items-center">
-          <img :src="'/icons/48.png'" class="me-1" height="48" width="48" :alt="manifest.name" :title="manifest.name" />
+          <img :src="'/icons/48.png'" class="me-1" height="48" width="48" :alt="config.name" :title="config.name" />
           <div>
             <a
               class="link-body-emphasis text-decoration-none fs-1"
               :title="i18n.t('ui.text.homePage')"
-              :href="manifest.homepage_url"
+              :href="config.githubUrl"
               target="_blank"
               rel="nofollow"
               @click.prevent="clickOpen"
             >
-              {{ manifest.name }}</a
+              {{ config.name }}</a
             >
             <a
               class="link-body-emphasis text-decoration-none small"
               :title="i18n.t('ui.text.releaseNotes')"
-              :href="`${manifest.homepage_url}/releases/tag/${manifest.version}`"
+              :href="`${config.githubUrl}/releases/tag/${config.version}`"
               target="_blank"
               rel="nofollow"
               @click.prevent="clickOpen"
             >
-              v<span class="version">{{ manifest.version }}</span></a
+              v<span class="version">{{ config.version }}</span></a
             >
           </div>
         </div>
 
-        <HorizontalRule>{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
+        <HorizontalRule class="my-2">{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
         <KeyboardShortcuts />
 
         <OptionsForm browser-class="ms-2" />
 
-        <HorizontalRule>{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
+        <HorizontalRule class="my-3">{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
         <BackgroundForm />
 
         <CopySupport
-          class="fst-italic small my-3"
+          class="fst-italic small my-4"
           :message="i18n.t('options.copySupportMsg')"
           :tip="i18n.t('options.copySupportTip')"
           >{{ i18n.t('options.copySupport') }}</CopySupport
