@@ -53,7 +53,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 <template>
   <form v-if="options">
     <template v-if="options?.site && show.includes('site')">
-      <HorizontalRule v-if="heading">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
+      <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
       <div class="px-2">
         <template v-for="id in siteKeys" :key="id">
           <FormSwitch
@@ -67,7 +67,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     </template>
 
     <template v-if="options?.browser && show.includes('browser')">
-      <HorizontalRule v-if="heading">{{ i18n.t('options.form.globalBrowser') }}</HorizontalRule>
+      <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.form.globalBrowser') }}</HorizontalRule>
 
       <div v-if="browserHeading === 'short'" class="ms-2">{{ i18n.t('options.form.allSites') }}:</div>
       <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
@@ -103,7 +103,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     </template>
 
     <template v-if="show.includes('extension')">
-      <HorizontalRule v-if="heading">{{ i18n.t('options.extension') }}</HorizontalRule>
+      <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.extension') }}</HorizontalRule>
       <div class="px-2">
         <template v-for="id in extension" :key="id">
           <FormSwitch v-model="options[id]" :id="id" class="col-12" />
