@@ -137,7 +137,7 @@ async function setDefaultOptions(defaultOptions: object) {
 }
 
 async function setUninstall() {
-  // NOTE: Calling this function setUninstallURL breaks WXT
+  // NOTE: Calling this setUninstallURL and using getAppConfig breaks WXT
   const config = getAppConfig()
   const url = new URL(config.uninstallUrl)
   url.searchParams.append('version', config.version)

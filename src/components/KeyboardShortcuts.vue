@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
 import { onMounted, ref } from 'vue'
-import { clickOpen } from '@/utils/extension.ts'
 import { isFirefox } from '@/utils/system.ts'
+import { clickOpen } from '@/utils/extension.ts'
+import HorizontalRule from '@/components/HorizontalRule.vue'
 
 defineProps<{
+  hideHeading?: boolean
   hideLink?: boolean
   linkMt?: string
 }>()
@@ -27,6 +29,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="hasCommands">
+    <HorizontalRule class="my-2">{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
     <div class="rounded rounded-3 overflow-hidden">
       <table class="table table-sm rounded table-borderless table-hover transparent-table mb-0">
         <caption class="visually-hidden">

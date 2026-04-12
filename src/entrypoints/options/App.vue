@@ -52,7 +52,6 @@ console.log('config:', config)
           </div>
         </div>
 
-        <HorizontalRule class="my-2">{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
         <KeyboardShortcuts />
 
         <OptionsForm browser-class="ms-2" />
