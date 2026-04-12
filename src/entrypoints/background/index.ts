@@ -1,7 +1,7 @@
 import { getAppConfig } from '#imports'
 import { isFirefox } from '@/utils/system.ts'
-import { defaultOptions, getOptions } from '@/utils/options.ts'
 import { openExtPanel, openPopup, openSidePanel } from '@/utils/extension.ts'
+import { defaultOptions, getOptions } from '@/utils/options.ts'
 import { createContextMenus } from './menus.ts'
 
 export default defineBackground(() => {
@@ -83,37 +83,29 @@ function onMessage(
 
 async function onCommand(command: string, tab?: chrome.tabs.Tab) {
   console.debug('onCommand:', command, tab)
-  try {
-    if (command === 'openOptions') {
-      await chrome.runtime.openOptionsPage()
-    } else if (command === 'openExtPanel') {
-      await openExtPanel()
-    } else if (command === 'openSidePanel') {
-      openSidePanel()
-    } else {
-      console.warn(`Unknown Command: ${command}`)
-    }
-  } catch (e) {
-    console.warn(e)
+  if (command === 'openOptions') {
+    await chrome.runtime.openOptionsPage()
+  } else if (command === 'openExtPanel') {
+    await openExtPanel()
+  } else if (command === 'openSidePanel') {
+    openSidePanel()
+  } else {
+    console.warn(`Unknown Command: ${command}`)
   }
 }
 
 async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs.Tab) {
   console.debug('onClicked:', ctx, tab)
-  try {
-    if (ctx.menuItemId === 'options') {
-      await chrome.runtime.openOptionsPage()
-    } else if (ctx.menuItemId === 'popup') {
-      await openPopup()
-    } else if (ctx.menuItemId === 'popout') {
-      await openExtPanel()
-    } else if (ctx.menuItemId === 'sidepanel') {
-      openSidePanel()
-    } else {
-      console.error(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
-    }
-  } catch (e) {
-    console.warn(e)
+  if (ctx.menuItemId === 'options') {
+    await chrome.runtime.openOptionsPage()
+  } else if (ctx.menuItemId === 'popup') {
+    await openPopup()
+  } else if (ctx.menuItemId === 'popout') {
+    await openExtPanel()
+  } else if (ctx.menuItemId === 'sidepanel') {
+    openSidePanel()
+  } else {
+    console.error(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
   }
 }
 
