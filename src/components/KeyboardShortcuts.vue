@@ -21,7 +21,7 @@ onMounted(async () => {
   const notSet = i18n.t('keyboard.notSet')
   const result = await chrome.commands.getAll()
   commands.value = result.map(({ description, name, shortcut }) => ({
-    description: description ?? (name === '_execute_action' ? i18n.t('cmd.executeAction') : notSet),
+    description: description || (name === '_execute_action' ? i18n.t('cmd.executeAction') : notSet),
     shortcut: shortcut || notSet,
   }))
 })
@@ -29,7 +29,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="hasCommands">
-    <HorizontalRule class="my-2">{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
+    <HorizontalRule v-if="!hideHeading" class="my-2">{{ i18n.t('keyboard.shortcuts') }}</HorizontalRule>
     <div class="rounded rounded-3 overflow-hidden">
       <table class="table table-sm rounded table-borderless table-hover transparent-table mb-0">
         <caption class="visually-hidden">
