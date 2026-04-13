@@ -3,6 +3,7 @@ import { isFirefox } from '@/utils/system.ts'
 import { openExtPanel, openPopup, openSidePanel } from '@/utils/extension.ts'
 import { defaultOptions, getOptions } from '@/utils/options.ts'
 import { createContextMenus } from './menus.ts'
+import { processUpdate } from './upgrade.ts'
 
 export default defineBackground(() => {
   console.log(`Loaded: %c${chrome.runtime.id}`, 'Color: Cyan')
@@ -26,8 +27,10 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     await chrome.runtime.openOptionsPage()
   } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
+    const config = useAppConfig()
+    processUpdate(options, config.version, details.previousVersion)
+
     if (options.showUpdate) {
-      const config = useAppConfig()
       console.log('config:', config)
       if (config.version !== details.previousVersion) {
         const url = `${config.githubUrl}/releases/tag/${config.version}`

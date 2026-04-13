@@ -53,7 +53,7 @@ export const defaultOptions = {
     browserAll: false,
     options: true,
     popup: true,
-    sidepanel: true,
+    sidepanel: false,
   },
 }
 
