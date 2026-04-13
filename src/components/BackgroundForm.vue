@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useOptions } from '@/composables/useOptions.ts'
 import { saveKeyValue } from '@/utils/options.ts'
+import HorizontalRule from '@/components/HorizontalRule.vue'
 
 const options = useOptions()
 
@@ -30,6 +31,7 @@ function radioChange(event: Event) {
 
 <template>
   <div>
+    <HorizontalRule class="my-3">{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
     <form @change="radioChange">
       <div class="d-flex flex-column flex-md-row ms-1 ms-md-3">
         <div class="form-check form-check-inline mb-2 mb-md-0">
