@@ -122,7 +122,7 @@ async function injectFunction<Args extends unknown[], R>(
   args: Args = [] as unknown as Args,
 ) {
   const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
-  if (!tab.id) return console.warn('no tab.id')
+  if (!tab.id) return console.warn('no tab.id') // TODO: Determine if this should throw
   return await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func,
