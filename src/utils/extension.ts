@@ -65,6 +65,7 @@ export async function openExtPanel(close = false) {
 
   try {
     if (lastPanelID) {
+      // NOTE: This throws if lastPanelID is not an existing window ID
       const panel = await chrome.windows.get(lastPanelID)
       // console.debug('panel', panel)
       console.debug('panel?.id', panel?.id)
