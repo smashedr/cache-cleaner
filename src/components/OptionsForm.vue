@@ -146,5 +146,3 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     </template>
   </form>
 </template>
-
-<!--<style scoped></style>-->

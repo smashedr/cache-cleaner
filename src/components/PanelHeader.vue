@@ -100,5 +100,3 @@ console.log('config:', config)
 
   <hr class="my-0" />
 </template>
-
-<!--<style scoped></style>-->

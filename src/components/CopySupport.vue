@@ -50,5 +50,3 @@ async function copySupport(event: Event) {
     <i v-if="!isMobile" class="fa-solid fa-circle-info ms-2" data-bs-toggle="tooltip" :data-bs-title="tip" v-bs></i>
   </p>
 </template>
-
-<!--<style scoped></style>-->

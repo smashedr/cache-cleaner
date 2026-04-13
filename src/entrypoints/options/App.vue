@@ -23,9 +23,9 @@ console.log('config:', config)
 </script>
 
 <template>
-  <div class="d-flex align-items-center justify-content-center p-1 p-md-3 h-100 w-100">
+  <div class="d-flex align-items-center justify-content-center h-100 w-100 p-1 p-md-3">
     <div class="m-auto pb-4 w-100">
-      <div id="options-wrapper" class="glass-outline blur rounded rounded-3 p-2 p-md-3 m-auto w-100">
+      <div id="options-wrapper" class="glass-outline rounded rounded-3 w-100 m-auto p-2 p-md-3">
         <div class="d-flex flex-row justify-content-center align-items-center">
           <img :src="'/icons/48.png'" class="me-1" height="48" width="48" :alt="config.name" :title="config.name" />
           <div>
@@ -66,7 +66,7 @@ console.log('config:', config)
           >{{ i18n.t('options.copySupport') }}</CopySupport
         >
 
-        <hr />
+        <hr class="my-2 my-md-3" />
 
         <PageFooter />
       </div>
@@ -78,4 +78,8 @@ console.log('config:', config)
   <BackToTop />
 </template>
 
-<!--<style scoped></style>-->
+<style scoped>
+#options-wrapper {
+  max-width: 576px;
+}
+</style>

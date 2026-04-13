@@ -24,5 +24,3 @@ const emit = defineEmits(['change'])
     </template>
   </div>
 </template>
-
-<!--<style scoped></style>-->

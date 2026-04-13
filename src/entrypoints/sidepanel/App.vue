@@ -33,5 +33,3 @@ provide('siteInfo', undefined)
 
   <ToastAlerts />
 </template>
-
-<!--<style scoped></style>-->
