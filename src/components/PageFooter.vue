@@ -51,5 +51,3 @@ const config = useAppConfig()
     >
   </div>
 </template>
-
-<!--<style scoped></style>-->

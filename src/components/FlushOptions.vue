@@ -35,5 +35,3 @@ withDefaults(
     class="overflow-x-hidden"
   />
 </template>
-
-<!--<style scoped></style>-->

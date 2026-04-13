@@ -44,5 +44,3 @@ async function copyText(e: MouseEvent) {
     <template v-else>{{ i18n.t('ui.text.noTabAccess') }}</template>
   </div>
 </template>
-
-<!--<style scoped></style>-->

@@ -44,5 +44,3 @@ const extensionOptions = ['autoReload', 'showAllButtons', 'popupBrowser', 'showD
     </div>
   </div>
 </template>
-
-<!--<style scoped></style>-->

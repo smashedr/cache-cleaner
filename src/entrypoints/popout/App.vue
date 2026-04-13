@@ -51,5 +51,3 @@ onMounted(() => {
   <ToastAlerts />
   <BackToTop />
 </template>
-
-<!--<style scoped></style>-->

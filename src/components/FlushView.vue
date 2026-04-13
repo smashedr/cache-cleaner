@@ -2,7 +2,7 @@
 import { inject, ref, type Ref } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import { useOptions } from '@/composables/useOptions.ts'
-import { clearCache, type ClearCacheType } from '@/utils/cache.ts'
+import { type ClearCacheType, clearCache } from '@/utils/cache.ts'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
@@ -85,5 +85,3 @@ function clearCacheClick(type: ClearCacheType) {
 
   <ConfirmModal ref="confirmModal" @confirm="onConfirm" />
 </template>
-
-<!--<style scoped></style>-->
