@@ -24,13 +24,16 @@ async function clearBrowserCache(all = false) {
   if (!all) {
     cleanOptions = options.browser
   } else {
-    // noinspection JSDeprecatedSymbols
     cleanOptions = {
+      appcache: true,
       cacheStorage: true,
       cookies: true,
+      fileSystems: true,
       indexedDB: true,
       localStorage: true,
       serviceWorkers: true,
+      webSQL: true,
+
       cache: true,
       downloads: true,
       formData: true,
@@ -41,11 +44,17 @@ async function clearBrowserCache(all = false) {
   }
 
   if (isFirefox) {
+    delete cleanOptions.appcache
     delete cleanOptions.cacheStorage
     delete cleanOptions.fileSystems
     delete cleanOptions.webSQL
-    delete cleanOptions.appcache
   }
+
+  if (!options.showDeprecated || !options.browser.appcache) delete cleanOptions.appcache
+  if (!options.showDeprecated || !options.browser.passwords) delete cleanOptions.passwords
+  if (!options.showDeprecated || !options.browser.pluginData)
+    delete cleanOptions.pluginData
+  if (!options.showDeprecated || !options.browser.webSQL) delete cleanOptions.webSQL
 
   console.debug('cleanOptions:', cleanOptions)
   await chrome.browsingData.remove({}, cleanOptions)
@@ -84,10 +93,14 @@ async function clearSiteCache(all = false) {
   if (isFirefox) {
     if (cleanOptions.cacheStorage) clearCacheStorage().catch(console.warn)
 
+    delete cleanOptions.appcache
     delete cleanOptions.cacheStorage
     delete cleanOptions.fileSystems
     delete cleanOptions.webSQL
   }
+
+  if (!options.showDeprecated || !options.site.appcache) delete cleanOptions.appcache
+  if (!options.showDeprecated || !options.site.webSQL) delete cleanOptions.webSQL
 
   console.debug('removalOptions:', removalOptions)
   console.debug('cleanOptions:', cleanOptions)

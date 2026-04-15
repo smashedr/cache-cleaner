@@ -42,16 +42,34 @@ const props = withDefaults(
     ],
     ctx: () => ['site', 'siteAll', 'browser', 'browserAll', 'popup', 'sidepanel', 'options'],
     confirm: () => ['site', 'siteAll', 'browser', 'browserAll'],
-    site: () => ['cookies', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'fileSystems', 'webSQL'],
-    allSite: () => ['cookies', 'fileSystems', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'webSQL'],
-    allBrowser: () => ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'],
+    site: () => [
+      'cookies',
+      'indexedDB',
+      'localStorage',
+      'serviceWorkers',
+      'cacheStorage',
+      'appcache',
+      'fileSystems',
+      'webSQL',
+    ],
+    allSite: () => [
+      'cookies',
+      'fileSystems',
+      'indexedDB',
+      'localStorage',
+      'serviceWorkers',
+      'cacheStorage',
+      'appcache',
+      'webSQL',
+    ],
+    allBrowser: () => ['cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'],
   },
 )
 
 const options = useOptions()
 
-const deprecated = ['passwords', 'pluginData', 'webSQL']
-const ffExcludes = ['fileSystems', 'webSQL']
+const deprecated = ['appcache', 'passwords', 'pluginData', 'webSQL']
+const ffExcludes = ['appcache', 'fileSystems', 'webSQL']
 const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 
 const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
