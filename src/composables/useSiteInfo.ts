@@ -28,7 +28,6 @@ export function useSiteInfo(enabled = true) {
   }
 
   onMounted(async () => {
-    console.log('window.location.href:', window.location.href)
     if (!enabled) return
     const result = await checkTab()
     console.log('%c checkTab:', `color: ${result ? 'Lime' : 'Red'}`, result)

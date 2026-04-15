@@ -1,7 +1,8 @@
 import { getAppConfig } from '#imports'
 import { isFirefox } from '@/utils/system.ts'
+import { defineBackground } from 'wxt/utils/define-background'
 import { openExtPanel, openPopup, openSidePanel } from '@/utils/extension.ts'
-import { defaultOptions, getOptions } from '@/utils/options.ts'
+import { type Options, defaultOptions, getOptions } from '@/utils/options.ts'
 import { createContextMenus } from './menus.ts'
 import { processUpdate } from './upgrade.ts'
 
@@ -27,15 +28,12 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     await chrome.runtime.openOptionsPage()
   } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
-    const config = useAppConfig()
+    const config = getAppConfig()
     processUpdate(options, config.version, details.previousVersion)
 
-    if (options.showUpdate) {
-      console.log('config:', config)
-      if (config.version !== details.previousVersion) {
-        const url = `${config.githubUrl}/releases/tag/${config.version}`
-        await chrome.tabs.create({ active: false, url })
-      }
+    if (options.showUpdate && config.version !== details.previousVersion) {
+      const url = `${config.githubUrl}/releases/tag/${config.version}`
+      await chrome.tabs.create({ active: false, url })
     }
   }
 }
@@ -126,7 +124,7 @@ async function setDefaultOptions(defaultOptions: object) {
   }
   if (changed) {
     await chrome.storage.sync.set({ options })
-    console.log('changed options:', options)
+    console.log('set changed options:', options)
   }
   return options
 }

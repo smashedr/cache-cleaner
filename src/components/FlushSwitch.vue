@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { i18n } from '#imports'
+
 withDefaults(
   defineProps<{
     cacheType?: 'site' | 'browser'

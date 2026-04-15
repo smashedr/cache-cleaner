@@ -21,10 +21,11 @@ ui:
     noTabAccess: No Access to the Current Tab.
 
   cache:
+    all: Clear All
     cache: Cache
     clear: Clear
     cleared: Cleared
-    all: Clear All
+    error: Error
     selected: Clear Selected
     type:
       site: Selected Site

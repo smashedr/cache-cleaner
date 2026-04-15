@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, type Ref } from 'vue'
+import { i18n } from '#imports'
+import { type Ref, inject } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 

@@ -1,3 +1,4 @@
+import { i18n } from '#imports'
 import { Options } from '@/utils/options.ts'
 
 const config = {
@@ -8,9 +9,9 @@ const config = {
     browserAll: ['all'],
   },
   extension: {
-    options: ['all'],
     popup: ['all'],
     sidepanel: ['all'],
+    options: ['all'],
   },
 }
 
@@ -32,6 +33,7 @@ export async function createContextMenus(ctx: Options['ctx']) {
   let length = contexts.length
 
   for (const [key, value] of Object.entries(config['extension'])) {
+    // NOTE: Update this to add items to action if not enabled
     addContextMenuItem(contexts, ctx, key, value)
   }
 

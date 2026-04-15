@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import type { Ref } from 'vue'
-import type { Options } from '@/utils/options.ts'
+import { type Options, getOptions } from '@/utils/options.ts'
 
 export function useOptions(): Ref<Options> {
   // console.debug('%cLOADED composables/useOptions.ts', 'color: Orange')

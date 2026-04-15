@@ -1,3 +1,5 @@
+import { type Options } from '@/utils/options.ts'
+
 export function processUpdate(
   options: Options,
   version: string,

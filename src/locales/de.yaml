@@ -21,10 +21,11 @@ ui:
     noTabAccess: Kein Zugriff auf den aktuellen Tab.
 
   cache:
+    all: Alle löschen
     cache: Cache
     clear: Löschen
     cleared: Gelöscht
-    all: Alle löschen
+    error: Fehler
     selected: Auswahl löschen
     type:
       site: Ausgewählte Website

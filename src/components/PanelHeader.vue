@@ -25,7 +25,6 @@ withDefaults(
 )
 
 const config = useAppConfig()
-console.log('config:', config)
 </script>
 
 <template>
