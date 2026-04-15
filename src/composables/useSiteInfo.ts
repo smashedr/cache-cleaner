@@ -1,7 +1,7 @@
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export function useSiteInfo(enabled = true) {
-  const tabAccess = ref<SiteInfo | undefined>(undefined)
+  const siteInfo = ref<SiteInfo | undefined>(undefined)
 
   async function getInfo(): Promise<SiteInfo> {
     return {
@@ -27,13 +27,17 @@ export function useSiteInfo(enabled = true) {
     }
   }
 
-  onMounted(async () => {
+  async function updateTab() {
     if (!enabled) return
     const result = await checkTab()
-    console.log('%c checkTab:', `color: ${result ? 'Lime' : 'Red'}`, result)
-    tabAccess.value = result
+    console.log('%cupdateTab:', `color: ${result ? 'Lime' : 'Yellow'}`, result)
+    if (!result) return
+    siteInfo.value = result
+  }
+
+  onMounted(async () => {
+    await updateTab()
   })
 
-  // return { tabAccess, checkTab }
-  return tabAccess
+  return { siteInfo, updateTab }
 }

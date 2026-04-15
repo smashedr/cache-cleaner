@@ -7,6 +7,7 @@ import { type ClearCacheType, clearCache } from '@/utils/cache.ts'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
+const updateTab = inject<() => Promise<void>>('updateTab')
 
 defineOptions({ inheritAttrs: false })
 
@@ -32,6 +33,12 @@ async function onConfirm(type: ClearCacheType) {
     await clearCache(type)
     const text = i18n.t(`ui.cache.type.${type}`)
     showToast(`${i18n.t('ui.cache.cleared')} ${text} ${i18n.t('ui.cache.cache')}.`)
+    // NOTE: activeTab permissions are lost on reload and therefore require re-activation...
+    //  The only work around is to add optional host permissions, just for this feature.
+    if (type.startsWith('site') && options.value.autoReload) return window.close()
+    // NOTE: chrome.browsingData.remove clears cache asynchronously after resolving, therefore;
+    //  there is no reliable way to know when to re-check the site cache size...
+    if (type.startsWith('site') && updateTab) setTimeout(updateTab, 1000)
   } catch (e) {
     console.log(e)
     let message = i18n.t('ui.cache.error')

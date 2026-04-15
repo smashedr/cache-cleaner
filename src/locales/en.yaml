@@ -44,31 +44,6 @@ cmd:
   clearBrowserCache: Clear Browser Cache
   clearAllBrowserCache: Clear All Browser Cache
 
-ctx:
-  # background/menus.ts
-  site:
-    label: Clear Site Cache
-    tip: Clear Site Cache
-  siteAll:
-    label: Clear All Site Cache
-    tip: Clear All Site Cache
-  browser:
-    label: Clear Browser Cache
-    tip: Clear Browser Cache
-  browserAll:
-    label: Clear All Browser Cache
-    tip: Clear All Browser Cache
-
-  options:
-    label: Open Options
-    tip: Open Options
-  popup:
-    label: Open Popup
-    tip: Open Popup
-  sidepanel:
-    label: Open Side Panel
-    tip: Open Side Panel
-
 # Entrypoints
 
 options:
@@ -123,6 +98,30 @@ background:
   videoTip: URL to a Web Video
   videoLabel: Background Video URL
 
+ctx:
+  # background/menus.ts
+  site:
+    label: Clear Site Cache
+    tip: Clear Site Cache
+  siteAll:
+    label: Clear All Site Cache
+    tip: Clear All Site Cache
+  browser:
+    label: Clear Browser Cache
+    tip: Clear Browser Cache
+  browserAll:
+    label: Clear All Browser Cache
+    tip: Clear All Browser Cache
+  popup:
+    label: Open Popup
+    tip: Open Popup
+  sidepanel:
+    label: Open Side Panel
+    tip: Open Side Panel
+  options:
+    label: Open Options
+    tip: Open Options
+
 # Options
 
 option:
@@ -164,6 +163,9 @@ option:
       tip: All Browser Cache
 
   site:
+    appcache:
+      label: App Cache
+      tip: Browser App Cache (Deprecated)
     cacheStorage:
       label: Cache Storage
       tip: Site Cache Storage
@@ -172,7 +174,7 @@ option:
       tip: Site Cookies
     fileSystems:
       label: File Systems
-      tip: Site File Systems
+      tip: Site File Systems (Deprecated)
     indexedDB:
       label: Index DB
       tip: Site Index DB
@@ -184,9 +186,12 @@ option:
       tip: Site Service Workers
     webSQL:
       label: Web SQL
-      tip: Site Web SQL
+      tip: Site Web SQL (Deprecated)
 
   browser:
+    appcache:
+      label: App Cache
+      tip: Browser App Cache (Deprecated)
     cacheStorage:
       label: Cache Storage
       tip: All Sites Cache Storage
@@ -207,11 +212,8 @@ option:
       tip: All Sites Service Workers
     webSQL:
       label: Web SQL
-      tip: All Sites Web SQL
+      tip: All Sites Web SQL (Deprecated)
 
-    appcache:
-      label: App Cache
-      tip: Browser App Cache
     cache:
       label: Browser Cache
       tip: Browser Cache
