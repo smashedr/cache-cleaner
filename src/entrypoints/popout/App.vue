@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { i18n } from '#imports'
 import { onMounted, provide } from 'vue'
 import { debounce } from '@/utils'
 import { useTitle } from '@/composables/useTitle.ts'

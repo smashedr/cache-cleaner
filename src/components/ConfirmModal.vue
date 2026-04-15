@@ -30,14 +30,13 @@ const config = {
 
 function show(type: ClearCacheType) {
   if (!modalEl.value) return
-  console.log('show:', type)
+  // console.log('show:', type)
   clearCacheType.value = type
   Modal.getOrCreateInstance(modalEl.value).show()
 }
 
 function hide() {
   if (!modalEl.value) return
-  console.log('hide:')
   Modal.getInstance(modalEl.value)?.hide()
 }
 

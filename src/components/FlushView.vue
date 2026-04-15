@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, ref, type Ref } from 'vue'
+import { i18n } from '#imports'
+import { type Ref, inject, ref } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import { useOptions } from '@/composables/useOptions.ts'
 import { type ClearCacheType, clearCache } from '@/utils/cache.ts'
@@ -33,8 +34,9 @@ async function onConfirm(type: ClearCacheType) {
     showToast(`${i18n.t('ui.cache.cleared')} ${text} ${i18n.t('ui.cache.cache')}.`)
   } catch (e) {
     console.log(e)
-    // TODO: Add localized error message and always showToast
-    if (e instanceof Error) showToast(e.message, 'danger')
+    let message = i18n.t('ui.cache.error')
+    if (e instanceof Error) message += `: ${e.message.slice(0, 80)}...`
+    showToast(message, 'danger')
   }
 }
 

@@ -3,7 +3,6 @@ import { i18n, useAppConfig } from '#imports'
 import { clickOpen } from '@/utils/extension.ts'
 
 const config = useAppConfig()
-console.log('config:', config)
 </script>
 
 <template>

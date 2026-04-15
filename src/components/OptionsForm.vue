@@ -1,6 +1,7 @@
 <!--suppress JSUnusedLocalSymbols -->
 <script setup lang="ts">
 import { i18n } from '#imports'
+import { computed } from 'vue'
 import { isFirefox } from '@/utils/system.ts'
 import { useOptions } from '@/composables/useOptions.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
@@ -17,6 +18,11 @@ const props = withDefaults(
 
     show?: string[]
     extension?: string[]
+    ctx?: string[]
+    confirm?: string[]
+    site?: string[]
+    allSite?: string[]
+    allBrowser?: string[]
   }>(),
   {
     compact: false,
@@ -34,18 +40,17 @@ const props = withDefaults(
       'showDeprecated',
       'showUpdate',
     ],
+    ctx: () => ['site', 'siteAll', 'browser', 'browserAll', 'popup', 'sidepanel', 'options'],
+    confirm: () => ['site', 'siteAll', 'browser', 'browserAll'],
+    site: () => ['cookies', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'fileSystems'],
+    allSite: () => ['cookies', 'fileSystems', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'webSQL'],
+    allBrowser: () => ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'],
   },
 )
 
 const options = useOptions()
 
 const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
-
-const siteKeys = computed(() => Object.keys(options.value?.site)) // Site
-
-const browserKeys = computed(() => Object.keys(options.value?.browser))
-const allSiteKeys = computed(() => browserKeys.value.slice(0, 7)) // Browser - Site
-const allBrowserKeys = computed(() => browserKeys.value.slice(-7)) // Browser - Browser
 
 const deprecated = ['passwords', 'pluginData']
 const ffExcludes = ['fileSystems', 'webSQL']
@@ -57,7 +62,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     <template v-if="options?.site && show.includes('site')">
       <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
       <div class="px-2">
-        <template v-for="id in siteKeys" :key="id">
+        <template v-for="id in site" :key="id">
           <FormSwitch
             v-if="!(isFirefox && ffExcludes.includes(id))"
             v-model="(options['site'] as Record<string, boolean>)[id]"
@@ -75,7 +80,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
 
       <div class="px-2">
-        <template v-for="id in allSiteKeys" :key="id">
+        <template v-for="id in allSite" :key="id">
           <FormSwitch
             v-if="!(isFirefox && ffExcludesAll.includes(id))"
             v-model="(options['browser'] as Record<string, boolean>)[id]"
@@ -91,7 +96,7 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
 
       <div class="px-2">
-        <template v-for="id in allBrowserKeys" :key="id">
+        <template v-for="id in allBrowser" :key="id">
           <FormSwitch
             v-if="!deprecated.includes(id) || options.showDeprecated"
             v-model="(options['browser'] as Record<string, boolean>)[id]"
@@ -112,11 +117,10 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 
           <Transition name="fade">
             <div v-if="id === 'contextMenu' && options['contextMenu']">
-              <!--TODO: Loop through a consistent list and not options keys-->
               <FormSwitch
-                v-for="(_, id) in options.ctx"
+                v-for="id in ctx"
                 :key="id"
-                v-model="options['ctx'][id]"
+                v-model="(options['ctx'] as Record<string, boolean>)[id]"
                 :id="id"
                 subkey="ctx"
                 :label="i18n.t(`ctx.${id}.label` as any)"
@@ -129,11 +133,10 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
 
           <Transition name="fade">
             <div v-if="id === 'showConfirmation' && options['showConfirmation']">
-              <!--TODO: Loop through a consistent list and not options keys-->
               <FormSwitch
-                v-for="(_, id) in options.confirm"
+                v-for="id in confirm"
                 :key="id"
-                v-model="options['confirm'][id]"
+                v-model="(options['confirm'] as Record<string, boolean>)[id]"
                 :id="id"
                 subkey="confirm"
                 class="col-12"

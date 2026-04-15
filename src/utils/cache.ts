@@ -1,10 +1,11 @@
+import { isFirefox } from '@/utils/system.ts'
 import { getOptions } from '@/utils/options.ts'
 
 export type ClearCacheType = 'site' | 'siteAll' | 'browser' | 'browserAll'
 
 export async function clearCache(type: ClearCacheType) {
   const isAll = type.endsWith('All')
-  console.log('%c clearCache:', 'color: OrangeRed', type, isAll)
+  console.log('%cClear Cache:', 'color: Coral', type, isAll)
   if (type.startsWith('site')) {
     await clearSiteCache(isAll)
   } else {
@@ -15,7 +16,7 @@ export async function clearCache(type: ClearCacheType) {
 // NOTE: Below functions refactored from VanillaJS
 
 async function clearBrowserCache(all = false) {
-  console.log('%cCleaning Browser Cache:', 'color: OrangeRed', all)
+  console.log('%cClear Browser Cache:', 'color: Crimson', all)
 
   const options = await getOptions()
 
@@ -51,7 +52,7 @@ async function clearBrowserCache(all = false) {
 }
 
 async function clearSiteCache(all = false) {
-  console.log('%cClear Site Cache:', 'color: Yellow', all)
+  console.log('%cClear Site Cache:', 'color: Gold', all)
 
   const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
   console.debug('tab:', tab)
@@ -101,19 +102,19 @@ async function clearSiteCache(all = false) {
 
 async function clearCacheStorage() {
   async function cacheStorage() {
-    console.log('cacheStorage: isSecureContext:', self.isSecureContext)
+    // console.debug('cacheStorage: isSecureContext:', self.isSecureContext)
     if (!self.isSecureContext) {
       throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
     }
     const keys = await caches.keys()
-    console.log(`%cCache Keys Found: ${keys.length}`, 'color: Yellow')
+    console.log('%cCache Keys Found', 'color: Coral', keys.length)
     for (const key of keys) {
-      console.log(`%cDeleting Cache: ${key}`, 'color: DeepSkyBlue')
+      console.log('%cDeleting Cache:', 'color: Yellow', key)
       await caches.delete(key)
     }
   }
   const results = await injectFunction(cacheStorage)
-  console.debug('results:', results)
+  // console.debug('results:', results)
   if (results?.[0]?.error) console.log(results[0].error)
 }
 
@@ -122,7 +123,7 @@ async function injectFunction<Args extends unknown[], R>(
   args: Args = [] as unknown as Args,
 ) {
   const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
-  if (!tab.id) return console.warn('no tab.id') // TODO: Determine if this should throw
+  if (!tab.id) return console.warn('no tab.id')
   return await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func,

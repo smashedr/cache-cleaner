@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { i18n } from '#imports'
+import { ref, watch } from 'vue'
 import { useOptions } from '@/composables/useOptions.ts'
 import { saveKeyValue } from '@/utils/options.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
@@ -14,7 +15,7 @@ const videoURL = ref('')
 watch(
   options,
   (opts) => {
-    console.log('BackgroundForm.vue %c watch: options:', 'color: OrangeRed', opts)
+    console.log('%cBackgroundForm.vue watch - options:', 'color: GreenYellow', opts)
     bgRef.value = options.value.radioBackground
     pictureURL.value = options.value.pictureURL
     videoURL.value = options.value.videoURL
@@ -22,17 +23,13 @@ watch(
   { deep: true },
 )
 
-function radioChange(event: Event) {
-  console.log('radioChange', event)
-  console.log('bgRef', bgRef.value)
-  saveKeyValue('radioBackground', bgRef.value)
-}
+// NOTE: This was ported from VanillaJS and may need refactoring
 </script>
 
 <template>
   <div>
     <HorizontalRule class="my-3">{{ i18n.t('options.optionsBackground') }}</HorizontalRule>
-    <form @change="radioChange">
+    <form @change="saveKeyValue('radioBackground', bgRef)">
       <div class="d-flex flex-column flex-md-row ms-1 ms-md-3">
         <div class="form-check form-check-inline mb-2 mb-md-0">
           <input

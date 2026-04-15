@@ -1,12 +1,11 @@
 import { onMounted, onUnmounted } from 'vue'
-import { getOptions } from '@/utils/options.ts'
+import { type Options, getOptions } from '@/utils/options.ts'
 
 function setBackground(options: Options) {
   // NOTE: Copied from VanillaJS. Refactor this method...
   console.log('useBackground.ts - setBackground:', options)
 
   const video = document.querySelector('video')
-  console.log('video:', video)
   if (!video) return console.error('no video element') // NOTE: Handle Error
 
   if (options.radioBackground === 'bgPicture') {
@@ -34,13 +33,13 @@ async function onChanged(changes: Record<string, any>) {
     items.oldValue.pictureURL !== items.newValue.pictureURL ||
     items.oldValue.videoURL !== items.newValue.videoURL
   ) {
-    console.log('%c Background Option Change Detected.', 'color: Yellow')
+    console.log('%c Background Option Change Detected.', 'color: LightSkyBlue')
     setBackground(items.newValue)
   }
 }
 
 export function useBackground() {
-  console.debug('%cLOADED composables/useBackground.ts', 'color: Cyan')
+  // console.log('%cLOADED composables/useBackground.ts', 'color: Cyan')
 
   if (!chrome.storage.sync.onChanged.hasListener(onChanged)) {
     chrome.storage.sync.onChanged.addListener(onChanged)

@@ -51,9 +51,9 @@ export const defaultOptions = {
     siteAll: true,
     browser: false,
     browserAll: false,
-    options: true,
     popup: true,
     sidepanel: false,
+    options: true,
   },
 }
 

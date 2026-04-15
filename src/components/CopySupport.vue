@@ -9,9 +9,7 @@ const props = defineProps<{
   tip: string
 }>()
 
-async function copySupport(event: Event) {
-  console.debug('copySupport:', event)
-  event.preventDefault()
+async function copySupport() {
   const date = new Date()
   const config = useAppConfig()
   const permissions = await chrome.permissions.getAll()
@@ -19,7 +17,7 @@ async function copySupport(event: Event) {
   const options = await getOptions()
   const local = await chrome.storage.local.get()
 
-  // options.authToken = options.authToken ? 'Set' : 'NOT SET'
+  options.pictureURL = options.pictureURL ? 'Set' : 'NOT SET'
   // delete local.results
 
   const result = [
