@@ -82,7 +82,7 @@ async function clearSiteCache(all = false) {
     : options.site
 
   if (isFirefox) {
-    if (cleanOptions.cacheStorage) await clearCacheStorage()
+    if (cleanOptions.cacheStorage) clearCacheStorage().catch(console.warn)
 
     delete cleanOptions.cacheStorage
     delete cleanOptions.fileSystems

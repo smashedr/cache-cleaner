@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { type Ref, inject } from 'vue'
+import { type Ref, inject, computed } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
 defineOptions({ inheritAttrs: false })
 
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
+
+const cacheSize = computed(() => {
+  if (typeof siteInfo?.value?.estimate?.usage !== 'number') return 'Unknown'
+  return formatBytes(siteInfo?.value?.estimate?.usage)
+})
 
 function formatBytes(bytes: number | string | undefined, decimals = 2): string {
   const numBytes = typeof bytes === 'string' ? Number.parseInt(bytes) : bytes
@@ -28,8 +33,7 @@ async function copyText(e: MouseEvent) {
 
 <template>
   <HorizontalRule v-if="siteInfo">
-    Site Cache Size:
-    <span class="text-warning-emphasis fw-bolder">{{ formatBytes(siteInfo.estimate?.usage) }}</span>
+    Site Cache Size: <span class="text-warning-emphasis fw-bolder">{{ cacheSize }}</span>
   </HorizontalRule>
   <HorizontalRule v-else>{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
 

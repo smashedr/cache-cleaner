@@ -42,7 +42,7 @@ const props = withDefaults(
     ],
     ctx: () => ['site', 'siteAll', 'browser', 'browserAll', 'popup', 'sidepanel', 'options'],
     confirm: () => ['site', 'siteAll', 'browser', 'browserAll'],
-    site: () => ['cookies', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'fileSystems'],
+    site: () => ['cookies', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'fileSystems', 'webSQL'],
     allSite: () => ['cookies', 'fileSystems', 'indexedDB', 'localStorage', 'serviceWorkers', 'cacheStorage', 'webSQL'],
     allBrowser: () => ['appcache', 'cache', 'downloads', 'formData', 'history', 'passwords', 'pluginData'],
   },
@@ -50,11 +50,30 @@ const props = withDefaults(
 
 const options = useOptions()
 
-const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
-
-const deprecated = ['passwords', 'pluginData']
+const deprecated = ['passwords', 'pluginData', 'webSQL']
 const ffExcludes = ['fileSystems', 'webSQL']
 const ffExcludesAll = [...ffExcludes, 'cacheStorage']
+
+const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
+
+const siteKeys = computed(() => {
+  return props.site.filter((item) => {
+    if (isFirefox && ffExcludes.includes(item)) return false
+    return !(!options.value.showDeprecated && deprecated.includes(item))
+  })
+})
+
+const allSiteKeys = computed(() => {
+  return props.allSite.filter((item) => {
+    if (isFirefox && ffExcludesAll.includes(item)) return false
+    return !(!options.value.showDeprecated && deprecated.includes(item))
+  })
+})
+
+const allBrowserKeys = computed(() => {
+  if (options.value.showDeprecated) return props.allBrowser
+  return props.allBrowser.filter((item) => !deprecated.includes(item))
+})
 </script>
 
 <template>
@@ -62,13 +81,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
     <template v-if="options?.site && show.includes('site')">
       <HorizontalRule v-if="heading" class="my-2">{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
       <div class="px-2">
-        <template v-for="id in site" :key="id">
-          <FormSwitch
-            v-if="!(isFirefox && ffExcludes.includes(id))"
-            v-model="(options['site'] as Record<string, boolean>)[id]"
-            :id="id"
-            subkey="site"
-          />
+        <template v-for="id in siteKeys" :key="id">
+          <FormSwitch v-model="(options['site'] as Record<string, boolean>)[id]" :id="id" subkey="site" />
         </template>
       </div>
     </template>
@@ -80,9 +94,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.allSites') }}</HorizontalRule>
 
       <div class="px-2">
-        <template v-for="id in allSite" :key="id">
+        <template v-for="id in allSiteKeys" :key="id">
           <FormSwitch
-            v-if="!(isFirefox && ffExcludesAll.includes(id))"
             v-model="(options['browser'] as Record<string, boolean>)[id]"
             :id="id"
             subkey="browser"
@@ -96,9 +109,8 @@ const ffExcludesAll = [...ffExcludes, 'cacheStorage']
       <HorizontalRule v-if="browserHeading === 'full'">{{ i18n.t('options.form.browser') }}</HorizontalRule>
 
       <div class="px-2">
-        <template v-for="id in allBrowser" :key="id">
+        <template v-for="id in allBrowserKeys" :key="id">
           <FormSwitch
-            v-if="!deprecated.includes(id) || options.showDeprecated"
             v-model="(options['browser'] as Record<string, boolean>)[id]"
             :id="id"
             subkey="browser"
