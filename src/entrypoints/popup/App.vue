@@ -12,8 +12,9 @@ import SiteView from '@/components/SiteView.vue'
 
 console.debug('%c popup/App.vue', 'color: Lime')
 
-const siteInfo = useSiteInfo()
+const { siteInfo, updateTab } = useSiteInfo()
 provide('siteInfo', siteInfo)
+provide('updateTab', updateTab)
 
 const cacheType = ref<'site' | 'browser'>('site')
 

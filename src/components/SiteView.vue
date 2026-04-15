@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { type Ref, inject, computed } from 'vue'
+import { type Ref, computed, inject } from 'vue'
 import { showToast } from '@/composables/useToast.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
@@ -33,7 +33,7 @@ async function copyText(e: MouseEvent) {
 
 <template>
   <HorizontalRule v-if="siteInfo">
-    Site Cache Size: <span class="text-warning-emphasis fw-bolder">{{ cacheSize }}</span>
+    Site Cache Size: <span class="d-inline-block text-warning-emphasis fw-bolder">{{ cacheSize }}</span>
   </HorizontalRule>
   <HorizontalRule v-else>{{ i18n.t('options.form.siteSpecific') }}</HorizontalRule>
 
