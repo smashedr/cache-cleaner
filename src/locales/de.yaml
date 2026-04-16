@@ -19,6 +19,7 @@ ui:
     requestFeature: Funktion anfragen
     openIssue: Problem melden
     noTabAccess: Kein Zugriff auf den aktuellen Tab.
+    unknown: Unbekannt
 
   cache:
     all: Alle löschen
@@ -43,31 +44,6 @@ cmd:
   clearAllSiteCache: Gesamten Website-Cache löschen
   clearBrowserCache: Browser-Cache löschen
   clearAllBrowserCache: Gesamten Browser-Cache löschen
-
-ctx:
-  # background/menus.ts
-  site:
-    label: Website-Cache löschen
-    tip: Website-Cache löschen
-  siteAll:
-    label: Gesamten Website-Cache löschen
-    tip: Gesamten Website-Cache löschen
-  browser:
-    label: Browser-Cache löschen
-    tip: Browser-Cache löschen
-  browserAll:
-    label: Gesamten Browser-Cache löschen
-    tip: Gesamten Browser-Cache löschen
-
-  options:
-    label: Einstellungen öffnen
-    tip: Einstellungen öffnen
-  popup:
-    label: Popup öffnen
-    tip: Popup öffnen
-  sidepanel:
-    label: Seitenbereich öffnen
-    tip: Seitenbereich öffnen
 
 # Entrypoints
 
@@ -123,6 +99,30 @@ theme:
   light: Hell
   auto: Automatisch
 
+ctx:
+  # background/menus.ts
+  site:
+    label: Website-Cache löschen
+    tip: Website-Cache löschen
+  siteAll:
+    label: Gesamten Website-Cache löschen
+    tip: Gesamten Website-Cache löschen
+  browser:
+    label: Browser-Cache löschen
+    tip: Browser-Cache löschen
+  browserAll:
+    label: Gesamten Browser-Cache löschen
+    tip: Gesamten Browser-Cache löschen
+  popup:
+    label: Popup öffnen
+    tip: Popup öffnen
+  sidepanel:
+    label: Seitenbereich öffnen
+    tip: Seitenbereich öffnen
+  options:
+    label: Einstellungen öffnen
+    tip: Einstellungen öffnen
+
 # Options
 
 option:
@@ -164,6 +164,9 @@ option:
       tip: Gesamter Browser-Cache
 
   site:
+    appcache:
+      label: App-Cache
+      tip: Browser-App-Cache (Veraltet)
     cacheStorage:
       label: Cache-Speicher
       tip: Website-Cache-Speicher
@@ -172,7 +175,7 @@ option:
       tip: Website-Cookies
     fileSystems:
       label: Dateisysteme
-      tip: Website-Dateisysteme
+      tip: Website-Dateisysteme (Veraltet)
     indexedDB:
       label: Index-DB
       tip: Website-Index-DB
@@ -184,12 +187,12 @@ option:
       tip: Website-Service-Worker
     webSQL:
       label: Web-SQL
-      tip: Website-Web-SQL
+      tip: Website-Web-SQL (Veraltet)
 
   browser:
     cacheStorage:
       label: Cache-Speicher
-      tip: Cache-Speicher aller Websites
+      tip: Cache-Speicher aller Websites (Veraltet)
     cookies:
       label: Cookies
       tip: Cookies aller Websites
@@ -207,7 +210,7 @@ option:
       tip: Service-Worker aller Websites
     webSQL:
       label: Web-SQL
-      tip: Web-SQL aller Websites
+      tip: Web-SQL aller Websites (Veraltet)
 
     appcache:
       label: App-Cache

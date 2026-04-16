@@ -38,7 +38,7 @@ async function onConfirm(type: ClearCacheType) {
     if (type.startsWith('site') && options.value.autoReload) return window.close()
     // NOTE: chrome.browsingData.remove clears cache asynchronously after resolving, therefore;
     //  there is no reliable way to know when to re-check the site cache size...
-    if (type.startsWith('site') && updateTab) setTimeout(updateTab, 1000)
+    if (updateTab) setTimeout(updateTab, 1000)
   } catch (e) {
     console.log(e)
     let message = i18n.t('ui.cache.error')

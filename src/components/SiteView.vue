@@ -9,16 +9,19 @@ defineOptions({ inheritAttrs: false })
 const siteInfo = inject<Ref<SiteInfo | undefined>>('siteInfo')
 
 const cacheSize = computed(() => {
-  if (typeof siteInfo?.value?.estimate?.usage !== 'number') return 'Unknown'
+  if (typeof siteInfo?.value?.estimate?.usage !== 'number') return i18n.t('ui.text.unknown')
   return formatBytes(siteInfo?.value?.estimate?.usage)
 })
 
-function formatBytes(bytes: number | string | undefined, decimals = 2): string {
-  const numBytes = typeof bytes === 'string' ? Number.parseInt(bytes) : bytes
-  if (!numBytes) return '0 Bytes'
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  const i = Math.floor(Math.log(numBytes) / Math.log(1024))
-  return `${Number.parseFloat((numBytes / Math.pow(1024, i)).toFixed(decimals))} ${sizes[i]}`
+function formatBytes(bytes: number): string {
+  const i = bytes <= 0 ? 0 : Math.floor(Math.log(bytes) / Math.log(1024))
+  const sizes = ['byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte']
+  return new Intl.NumberFormat(undefined, {
+    style: 'unit',
+    unit: sizes[i],
+    unitDisplay: 'short',
+    maximumFractionDigits: 2,
+  }).format(bytes / Math.pow(1024, i))
 }
 
 async function copyText(e: MouseEvent) {

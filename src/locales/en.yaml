@@ -19,6 +19,7 @@ ui:
     requestFeature: Request Feature
     openIssue: Open Issue
     noTabAccess: No Access to the Current Tab.
+    unknown: Unknown
 
   cache:
     all: Clear All
