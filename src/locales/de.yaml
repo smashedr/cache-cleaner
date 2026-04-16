@@ -6,19 +6,20 @@ ui:
   action:
     cancel: Abbrechen
     close: Schließen
+    extensionPanel: Erweiterungsbereich
     openPopup: Popup öffnen
     sidePanel: Seitenbereich
-    extensionPanel: Erweiterungsbereich
 
   text:
-    siteCache: Website-Cache
     browserCache: Browser-Cache
-    options: Einstellungen
     homePage: Startseite
+    hostCopied: Host in die Zwischenablage kopiert
+    noTabAccess: Kein Zugriff auf den aktuellen Tab.
+    openIssue: Problem melden
+    options: Einstellungen
     releaseNotes: Versionshinweise
     requestFeature: Funktion anfragen
-    openIssue: Problem melden
-    noTabAccess: Kein Zugriff auf den aktuellen Tab.
+    siteCache: Website-Cache
     unknown: Unbekannt
 
   cache:
