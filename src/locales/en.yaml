@@ -6,19 +6,20 @@ ui:
   action:
     cancel: Cancel
     close: Close
+    extensionPanel: Extension Panel
     openPopup: Open Popup
     sidePanel: Side Panel
-    extensionPanel: Extension Panel
 
   text:
-    siteCache: Site Cache
     browserCache: Browser Cache
-    options: Options
     homePage: Home Page
+    hostCopied: Host Copied to Clipboard
+    noTabAccess: No Access to the Current Tab.
+    openIssue: Open Issue
+    options: Options
     releaseNotes: Release Notes
     requestFeature: Request Feature
-    openIssue: Open Issue
-    noTabAccess: No Access to the Current Tab.
+    siteCache: Site Cache
     unknown: Unknown
 
   cache:

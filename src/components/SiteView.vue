@@ -30,7 +30,7 @@ async function copyText(e: MouseEvent) {
   console.log('copyText:', text)
   if (!text) return
   await navigator.clipboard.writeText(text)
-  showToast('Host Copied to Clipboard.')
+  showToast(i18n.t('ui.text.hostCopied'))
 }
 </script>
 
