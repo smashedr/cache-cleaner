@@ -1,6 +1,10 @@
 import { useAppConfig } from '#imports'
 
-export function useTitle(page: string) {
+export function useTitle(title?: string) {
   const config = useAppConfig()
-  document.title = `${config.name} ${page}`
+  if (title) {
+    document.title = `${config.name} ${title}`
+  } else {
+    document.title = `${config.name}`
+  }
 }
