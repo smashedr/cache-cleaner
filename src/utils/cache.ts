@@ -1,3 +1,5 @@
+// noinspection JSDeprecatedSymbols
+
 import { isFirefox } from '@/utils/system.ts'
 import { getOptions } from '@/utils/options.ts'
 
@@ -120,7 +122,7 @@ async function clearCacheStorage() {
       throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
     }
     const keys = await caches.keys()
-    console.log('%cCache Keys Found', 'color: Coral', keys.length)
+    console.log('%cCache Keys Found:', 'color: Coral', keys.length)
     for (const key of keys) {
       console.log('%cDeleting Cache:', 'color: Yellow', key)
       await caches.delete(key)
