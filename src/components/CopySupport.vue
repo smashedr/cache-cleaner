@@ -17,7 +17,8 @@ async function copySupport() {
   const options = await getOptions()
   const local = await chrome.storage.local.get()
 
-  options.pictureURL = options.pictureURL ? 'Set' : 'NOT SET'
+  options.pictureURL = options.pictureURL ? 'SET' : 'NOT SET'
+  options.videoURL = options.videoURL ? 'SET' : 'NOT SET'
   // delete local.results
 
   const result = [
@@ -34,9 +35,7 @@ async function copySupport() {
     `isMobile: ${isMobile}`,
   ]
   const commands = await chrome.commands?.getAll()
-  if (commands) {
-    result.push(`commands: ${JSON.stringify(commands)}`)
-  }
+  if (commands) result.push(`commands: ${JSON.stringify(commands)}`)
   await navigator.clipboard.writeText(result.join('\n'))
   showToast(props.message)
 }

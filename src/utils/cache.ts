@@ -1,6 +1,6 @@
 // noinspection JSDeprecatedSymbols
 
-import { isFirefox } from '@/utils/system.ts'
+import { isFirefox, isMobile } from '@/utils/system.ts'
 import { getOptions } from '@/utils/options.ts'
 
 export type ClearCacheType = 'site' | 'siteAll' | 'browser' | 'browserAll'
@@ -57,6 +57,12 @@ async function clearBrowserCache(all = false) {
   if (!options.showDeprecated || !options.browser.pluginData)
     delete cleanOptions.pluginData
   if (!options.showDeprecated || !options.browser.webSQL) delete cleanOptions.webSQL
+
+  // NOTE: These cause chrome.browsingData.remove to fail on Android with no error despite being listed as supported
+  //  https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/DataTypeSet#browser_compatibility
+  if (isFirefox && isMobile) delete cleanOptions.downloads
+  if (isFirefox && isMobile) delete cleanOptions.formData
+  if (isFirefox && isMobile) delete cleanOptions.history
 
   console.debug('cleanOptions:', cleanOptions)
   await chrome.browsingData.remove({}, cleanOptions)
