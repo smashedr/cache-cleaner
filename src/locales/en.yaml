@@ -146,6 +146,9 @@ option:
     contextMenu:
       label: Show Context Menu
       tip: Show right-click context menu.
+    contextAction:
+      label: Show Context on Action Icon
+      tip: Show disabled context items on action icon right-click.
     showUpdate:
       label: Show Release Notes on Update
       tip: Show update notifications.

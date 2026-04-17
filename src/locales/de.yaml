@@ -146,6 +146,9 @@ option:
     contextMenu:
       label: Kontextmenü anzeigen
       tip: Rechtsklick-Kontextmenü anzeigen.
+    contextAction:
+      label: Kontext am Aktionssymbol anzeigen
+      tip: Deaktivierte Kontextelemente bei Rechtsklick auf das Aktionssymbol anzeigen.
     showUpdate:
       label: Versionshinweise bei Aktualisierung anzeigen
       tip: Aktualisierungsbenachrichtigungen anzeigen.

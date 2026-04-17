@@ -49,7 +49,10 @@ function addContextMenuItem(
 ) {
   const ctxKey = key as keyof Options['ctx']
   // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey)
-  if (!options.contextMenu || !options.ctx[ctxKey]) value = ['action']
+  if (!options.contextMenu || !options.ctx[ctxKey]) {
+    if (!options.contextAction) return
+    value = ['action']
+  }
   contexts.push({
     id: key,
     contexts: value as chrome.contextMenus.CreateProperties['contexts'],
