@@ -15,18 +15,14 @@ const config = {
   },
 }
 
-export async function createContextMenus(ctx: Options['ctx']) {
-  console.debug('createContextMenus:', ctx)
-  if (!chrome.contextMenus) {
-    return console.debug('Skipping: chrome.contextMenus')
-  }
-
-  // await chrome.contextMenus.removeAll()
+export async function updateContextMenus(options: Options) {
+  console.debug('updateContextMenus:', options.contextMenu, options.ctx)
+  if (!chrome.contextMenus) return console.debug('Skipping: chrome.contextMenus')
 
   const contexts: chrome.contextMenus.CreateProperties[] = []
 
   for (const [key, value] of Object.entries(config['cache'])) {
-    addContextMenuItem(contexts, ctx, key, value)
+    addContextMenuItem(contexts, options, key, value)
   }
 
   if (contexts.length) contexts.push({ type: 'separator', id: crypto.randomUUID() })
@@ -34,11 +30,10 @@ export async function createContextMenus(ctx: Options['ctx']) {
 
   for (const [key, value] of Object.entries(config['extension'])) {
     // NOTE: Update this to add items to action if not enabled
-    addContextMenuItem(contexts, ctx, key, value)
+    addContextMenuItem(contexts, options, key, value)
   }
 
   if (length == contexts.length) contexts.pop()
-
   console.debug(`contexts: ${contexts.length}:`, contexts)
 
   chrome.contextMenus.removeAll().then(() => {
@@ -48,18 +43,16 @@ export async function createContextMenus(ctx: Options['ctx']) {
 
 function addContextMenuItem(
   contexts: chrome.contextMenus.CreateProperties[],
-  ctx: Options['ctx'],
+  options: Options,
   key: string,
   value: unknown,
-): boolean {
+) {
   const ctxKey = key as keyof Options['ctx']
-  // console.log('options.ctx[ctxKey]:', ctx[ctxKey])
-  if (!ctx[ctxKey]) return false
-  // console.log('%c add item:', 'color: SpringGreen', ctxKey)
+  // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey)
+  if (!options.contextMenu || !options.ctx[ctxKey]) value = ['action']
   contexts.push({
     id: key,
     contexts: value as chrome.contextMenus.CreateProperties['contexts'],
     title: i18n.t(`ctx.${key}.label` as any),
   })
-  return true
 }
