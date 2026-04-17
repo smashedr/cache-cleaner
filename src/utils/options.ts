@@ -5,6 +5,7 @@ export const defaultOptions = {
   showConfirmation: true,
   showDeprecated: false,
   contextMenu: true,
+  contextAction: false,
   showUpdate: false,
 
   radioBackground: 'bgPicture' as 'bgNone' | 'bgPicture' | 'bgVideo',

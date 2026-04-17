@@ -55,13 +55,16 @@ function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
   const newValue = changes.options?.newValue as Options | undefined
   if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
 
-  if (oldValue?.contextMenu !== newValue.contextMenu) {
+  if (
+    oldValue?.contextMenu !== newValue.contextMenu ||
+    oldValue?.contextAction !== newValue.contextAction
+  ) {
     updateContextMenus(newValue).catch(console.warn)
   }
 
   if (JSON.stringify(oldValue.ctx) !== JSON.stringify(newValue.ctx)) {
     console.log('%c Updating contextMenu...', 'color: Yellow')
-    if (newValue.contextMenu) updateContextMenus(newValue).catch(console.warn)
+    updateContextMenus(newValue).catch(console.warn)
   }
 }
 

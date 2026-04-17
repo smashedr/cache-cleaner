@@ -37,6 +37,7 @@ const props = withDefaults(
       'popupBrowser',
       'showConfirmation',
       'contextMenu',
+      'contextAction',
       'showDeprecated',
       'showUpdate',
     ],

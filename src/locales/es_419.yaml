@@ -146,6 +146,9 @@ option:
     contextMenu:
       label: Mostrar menú contextual
       tip: Muestra el menú al hacer clic derecho.
+    contextAction:
+      label: Mostrar contexto en el icono de acción
+      tip: Mostrar elementos de contexto desactivados al hacer clic derecho en el icono de acción.
     showUpdate:
       label: Mostrar notas al actualizar
       tip: Muestra notificaciones de actualización.
