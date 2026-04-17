@@ -50,7 +50,7 @@ function addContextMenuItem(
   const ctxKey = key as keyof Options['ctx']
   // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey)
   if (!options.contextMenu || !options.ctx[ctxKey]) {
-    if (!options.contextAction) return
+    if (!options.contextAction && Object.keys(config.cache).includes(key)) return
     value = ['action']
   }
   contexts.push({
