@@ -25,11 +25,18 @@ export async function updateContextMenus(options: Options) {
     addContextMenuItem(contexts, options, key, value, 'cache')
   }
 
-  if (contexts.length) contexts.push({ type: 'separator', id: crypto.randomUUID() })
+  if (contexts.length) {
+    const ctx =
+      options.ctx.popup || options.ctx.sidepanel || options.ctx.options ? 'all' : 'action'
+    contexts.push({
+      type: 'separator',
+      id: crypto.randomUUID(),
+      contexts: [ctx],
+    })
+  }
   let length = contexts.length
 
   for (const [key, value] of Object.entries(config['extension'])) {
-    // NOTE: Update this to add items to action if not enabled
     addContextMenuItem(contexts, options, key, value, 'extension')
   }
 
@@ -49,7 +56,7 @@ function addContextMenuItem(
   pk?: string,
 ) {
   const ctxKey = key as keyof Options['ctx']
-  // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey)
+  // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey, '- pk:', pk)
   if (!options.contextMenu || !options.ctx[ctxKey]) {
     if (!options.contextAction && pk === 'cache') return
     value = ['action']
