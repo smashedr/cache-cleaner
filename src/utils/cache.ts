@@ -74,6 +74,7 @@ async function clearBrowserCache(options: Options, all = false) {
 
   console.debug('cleanOptions:', cleanOptions)
   await chrome.browsingData.remove({}, cleanOptions)
+  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
 }
 
 async function clearSiteCache(options: Options, all = false) {
@@ -123,6 +124,7 @@ async function clearSiteCache(options: Options, all = false) {
     removalOptions as chrome.browsingData.RemovalOptions,
     cleanOptions,
   )
+  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
 
   if (options.autoReload) await injectFunction(() => window.location.reload())
 }
