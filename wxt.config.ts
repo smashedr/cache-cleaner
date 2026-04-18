@@ -30,22 +30,29 @@ export default defineConfig({
       description: '__MSG_description__',
 
       homepage_url: 'https://github.com/smashedr/cache-cleaner', // TODO: UPDATE BEFORE MERGE
-      permissions: ['activeTab', 'browsingData', 'contextMenus', 'scripting', 'storage'],
+      permissions: [
+        'activeTab',
+        'browsingData',
+        'contextMenus',
+        'notifications',
+        'scripting',
+        'storage',
+      ],
 
       commands: {
-        clearSiteCache: {
-          description: '__MSG_cmd_clearSiteCache__',
+        cache_site: {
+          description: '__MSG_cmd_cache_site__',
           suggested_key: { default: isFirefox ? 'F4' : 'Ctrl+Shift+4' },
         },
-        clearAllSiteCache: {
-          description: '__MSG_cmd_clearAllSiteCache__',
+        cache_siteAll: {
+          description: '__MSG_cmd_cache_siteAll__',
           suggested_key: { default: isFirefox ? 'F6' : 'Ctrl+Shift+5' },
         },
-        clearBrowserCache: {
-          description: '__MSG_cmd_clearBrowserCache__',
+        cache_browser: {
+          description: '__MSG_cmd_cache_browser__',
         },
-        clearAllBrowserCache: {
-          description: '__MSG_cmd_clearAllBrowserCache__',
+        cache_browserAll: {
+          description: '__MSG_cmd_cache_browserAll__',
         },
 
         _execute_action: {

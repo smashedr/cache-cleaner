@@ -6,6 +6,7 @@ export const defaultOptions = {
   showDeprecated: false,
   contextMenu: true,
   contextAction: false,
+  showErrorNotifications: true,
   showUpdate: false,
 
   radioBackground: 'bgPicture' as 'bgNone' | 'bgPicture' | 'bgVideo',

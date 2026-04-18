@@ -1,26 +1,34 @@
 // noinspection JSDeprecatedSymbols
 
+import { i18n } from '#imports'
 import { isFirefox, isMobile } from '@/utils/system.ts'
 import { getOptions } from '@/utils/options.ts'
-
-export type ClearCacheType = 'site' | 'siteAll' | 'browser' | 'browserAll'
+import { sendNotifications } from '@/utils/extension.ts'
+import type { Options } from '@/utils/options.ts'
 
 export async function clearCache(type: ClearCacheType) {
   const isAll = type.endsWith('All')
   console.log('%cClear Cache:', 'color: Coral', type, isAll)
-  if (type.startsWith('site')) {
-    await clearSiteCache(isAll)
-  } else {
-    await clearBrowserCache(isAll)
+  const options = await getOptions()
+  try {
+    if (type.startsWith('site')) {
+      await clearSiteCache(options, isAll)
+    } else {
+      await clearBrowserCache(options, isAll)
+    }
+  } catch (e) {
+    console.error(e)
+    if (options.showErrorNotifications) {
+      const message = e instanceof Error ? e.message : i18n.t('ui.text.unknown') // TODO: ADD Translation
+      await sendNotifications(i18n.t('ui.cache.error'), message) // TODO: ADD Translation
+    }
   }
 }
 
 // NOTE: Below functions refactored from VanillaJS
 
-async function clearBrowserCache(all = false) {
+async function clearBrowserCache(options: Options, all = false) {
   console.log('%cClear Browser Cache:', 'color: Crimson', all)
-
-  const options = await getOptions()
 
   let cleanOptions: chrome.browsingData.DataTypeSet
   if (!all) {
@@ -66,9 +74,10 @@ async function clearBrowserCache(all = false) {
 
   console.debug('cleanOptions:', cleanOptions)
   await chrome.browsingData.remove({}, cleanOptions)
+  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
 }
 
-async function clearSiteCache(all = false) {
+async function clearSiteCache(options: Options, all = false) {
   console.log('%cClear Site Cache:', 'color: Gold', all)
 
   const [tab] = await chrome.tabs.query({ currentWindow: true, active: true })
@@ -79,8 +88,6 @@ async function clearSiteCache(all = false) {
   console.debug('url:', url)
   console.debug('hostname:', url.hostname)
   console.debug('origin:', url.origin)
-
-  const options = await getOptions()
 
   const removalOptions:
     | chrome.browsingData.RemovalOptions
@@ -117,6 +124,7 @@ async function clearSiteCache(all = false) {
     removalOptions as chrome.browsingData.RemovalOptions,
     cleanOptions,
   )
+  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
 
   if (options.autoReload) await injectFunction(() => window.location.reload())
 }

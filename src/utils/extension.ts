@@ -135,3 +135,15 @@ export function clickOpen(e: Event, close = false) {
     })
     .catch(console.log)
 }
+
+export async function sendNotifications(title: string, message: string) {
+  // TODO: Add error icon...
+  const notification = await chrome.notifications.create({
+    type: 'basic',
+    iconUrl: chrome.runtime.getURL('icons/48.png'),
+    title,
+    message: message,
+  })
+
+  console.log('notification:', notification)
+}

@@ -31,7 +31,7 @@ function upgrade100(options: Options) {
     chrome.storage.sync
       .set({ options })
       .then(() => console.log('%cUpdated Options', 'color: Lime'))
-      .catch(console.error)
+      .catch(console.warn)
   }
 }
 

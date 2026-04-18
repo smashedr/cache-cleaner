@@ -41,10 +41,10 @@ cmd:
   openSidePanel: Abrir panel lateral
   openExtPanel: Abrir panel de extensión
   openOptions: Abrir opciones
-  clearSiteCache: Limpiar caché del sitio
-  clearAllSiteCache: Limpiar toda la caché del sitio
-  clearBrowserCache: Limpiar caché del navegador
-  clearAllBrowserCache: Limpiar toda la caché del navegador
+  cache_site: Limpiar caché del sitio
+  cache_siteAll: Limpiar toda la caché del sitio
+  cache_browser: Limpiar caché del navegador
+  cache_browserAll: Limpiar toda la caché del navegador
 
 # Entrypoints
 
@@ -149,6 +149,9 @@ option:
     contextAction:
       label: Mostrar contexto en el icono de acción
       tip: Mostrar elementos de contexto desactivados al hacer clic derecho en el icono de acción.
+    showErrorNotifications:
+      label: Mostrar notificaciones de error
+      tip: Para el menú contextual del botón derecho y los atajos de teclado.
     showUpdate:
       label: Mostrar notas al actualizar
       tip: Muestra notificaciones de actualización.
