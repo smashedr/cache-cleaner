@@ -8,7 +8,7 @@ import OptionsForm from '@/components/OptionsForm.vue'
 import FlushView from '@/components/FlushView.vue'
 import { openPopup } from '@/utils/extension.ts'
 
-console.debug('%c sidepanel/App.vue', 'color: Lime')
+// console.debug('%c sidepanel/App.vue', 'color: SandyBrown')
 
 provide('siteInfo', undefined)
 </script>

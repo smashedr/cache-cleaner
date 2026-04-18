@@ -16,7 +16,7 @@ const config = {
 }
 
 export async function updateContextMenus(options: Options) {
-  console.debug('updateContextMenus:', options.contextMenu, options.ctx)
+  // console.debug('updateContextMenus:', options.contextMenu, options.ctx)
   if (!chrome.contextMenus) return console.debug('Skipping: chrome.contextMenus')
 
   const contexts: chrome.contextMenus.CreateProperties[] = []
@@ -41,7 +41,7 @@ export async function updateContextMenus(options: Options) {
   }
 
   if (length == contexts.length) contexts.pop()
-  console.debug(`contexts: ${contexts.length}:`, contexts)
+  // console.debug(`contexts: ${contexts.length}:`, contexts)
 
   chrome.contextMenus.removeAll().then(() => {
     contexts.forEach((item) => chrome.contextMenus.create(item))
@@ -56,7 +56,7 @@ function addContextMenuItem(
   pk?: string,
 ) {
   const ctxKey = key as keyof Options['ctx']
-  // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey, '- pk:', pk)
+  // console.debug('%c addContextMenuItem:', 'color: SpringGreen', ctxKey, '- pk:', pk)
   if (!options.contextMenu || !options.ctx[ctxKey]) {
     if (!options.contextAction && pk === 'cache') return
     value = ['action']

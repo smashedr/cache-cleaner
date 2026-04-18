@@ -147,8 +147,8 @@ option:
       label: Kontextmenü anzeigen
       tip: Rechtsklick-Kontextmenü anzeigen.
     contextAction:
-      label: Kontext am Aktionssymbol anzeigen
-      tip: Deaktivierte Kontextelemente bei Rechtsklick auf das Aktionssymbol anzeigen.
+      label: Show All Items on Toolbar Icon
+      tip: Show all context items on toolbar icon right-click.
     showErrorNotifications:
       label: Fehlermeldungen anzeigen
       tip: Für das Rechtsklick-Kontextmenü und Tastenkombinationen.

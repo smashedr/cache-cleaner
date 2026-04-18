@@ -147,8 +147,8 @@ option:
       label: 显示右键菜单
       tip: 在右键菜单中显示相关功能。
     contextAction:
-      label: 在操作图标上显示上下文
-      tip: 右键单击操作图标时显示禁用的上下文项目。
+      label: 在工具栏图标上显示所有项目
+      tip: 右键点击工具栏图标时显示所有上下文项目。
     showErrorNotifications:
       label: 显示错误通知
       tip: 用于右键上下文菜单和键盘快捷键。

@@ -27,8 +27,8 @@ function formatBytes(bytes: number): string {
 async function copyText(e: MouseEvent) {
   const target = e.target as HTMLElement
   const text = target.textContent
-  console.log('copyText:', text)
-  if (!text) return
+  // console.log('copyText:', text)
+  if (!text) return console.log('no text:', text)
   await navigator.clipboard.writeText(text)
   showToast(i18n.t('ui.text.hostCopied'))
 }

@@ -147,8 +147,8 @@ option:
       label: Mostrar menú contextual
       tip: Muestra el menú al hacer clic derecho.
     contextAction:
-      label: Mostrar contexto en el icono de acción
-      tip: Mostrar elementos de contexto desactivados al hacer clic derecho en el icono de acción.
+      label: Mostrar todos los elementos en el icono de la barra de herramientas
+      tip: Mostrar todos los elementos contextuales al hacer clic derecho en el icono de la barra de herramientas.
     showErrorNotifications:
       label: Mostrar notificaciones de error
       tip: Para el menú contextual del botón derecho y los atajos de teclado.

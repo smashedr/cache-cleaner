@@ -10,7 +10,7 @@ import PanelFooter from '@/components/PanelFooter.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
 import FlushView from '@/components/FlushView.vue'
 
-console.debug('%c popout/App.vue', 'color: Lime')
+// console.debug('%c popout/App.vue', 'color: SandyBrown')
 
 provide('siteInfo', undefined)
 
@@ -18,7 +18,7 @@ useTitle(i18n.t('popout.title'))
 
 async function windowResize() {
   const size = { panelWidth: window.outerWidth, panelHeight: window.outerHeight }
-  console.debug('windowResize:', size)
+  // console.debug('windowResize:', size)
   await chrome.storage.local.set(size).catch((e) => console.warn(e))
 }
 
@@ -27,7 +27,7 @@ onMounted(() => {
 
   chrome.windows.getCurrent().then((window) => {
     chrome.storage.local.set({ lastPanelID: window.id }).then(() => {
-      console.debug(`%c Set lastPanelID: ${window.id}`, 'color: Aqua')
+      console.debug(`%cSet lastPanelID: ${window.id}`, 'color: PowderBlue')
     })
   })
 })
