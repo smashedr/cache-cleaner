@@ -5,10 +5,8 @@ on:
     types: [published]
 
 env:
-  PACKAGE_NAME: geoimage
-  CHROME_ID: nbkhplnnajkikghffmincdbipjalpobi
-  MOZILLA_ID: cache-cleaner@cssnr.com
-  MOZILLA_CHANNEL: listed
+  PACKAGE_NAME: cache-cleaner # can be a wild card unless the to-do's are completed
+  CHROME_ID: nbkhplnnajkikghffmincdbipjalpobi # can be defined in elsewhere and parsed
 
 jobs:
   build:
@@ -138,32 +136,12 @@ jobs:
           npx web-ext sign \
             --api-key="${{ secrets.FIREFOX_API_KEY }}" \
             --api-secret="${{ secrets.FIREFOX_API_SECRET }}" \
-            --channel="${{ env.MOZILLA_CHANNEL }}" \
+            --channel=listed --approval-timeout=0 \
             --source-dir="firefox-mv3" \
             --amo-metadata="amo-metadata.json" \
             --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
 
-      - name: "Debug Artifacts"
-        continue-on-error: true
-        run: |
-          ls -lAh web-ext-artifacts
-          echo "::group::ls ."
-          ls -lAh .
-          echo "::endgroup::"
-
-      - name: "Upload to Actions"
-        uses: actions/upload-artifact@v7
-        with:
-          name: web-ext-artifacts
-          path: web-ext-artifacts
-
-      - name: "Upload to Release"
-        uses: cssnr/upload-release-action@v1
-        with:
-          overwrite: true
-          #files: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
-          globs: web-ext-artifacts/*.xpi
-          names: "${{ env.PACKAGE_NAME }}-firefox.xpi"
+      # TODO: This only submits for review! Need automation to upload signed release...
 
   check:
     name: "Check"
@@ -183,21 +161,8 @@ jobs:
           #allowed-failures: release
           #allowed-skips: release
 
-      #- name: "Cleanup Release"
-      #  if: ${{ failure() }}
-      #  env:
-      #    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #  run: |
-      #    echo -e "\n## Cleanup Release\n\n" >> "$GITHUB_STEP_SUMMARY"
-      #    echo -e "Deleting Release and Tag: \`${{ github.ref_name }}\`\n\n" >> "$GITHUB_STEP_SUMMARY"
-      #    if gh release delete "${{ github.ref_name }}" --repo "${{ github.repository }}" --cleanup-tag;then
-      #      echo -e "✅ Cleanup Success.\n" >> "$GITHUB_STEP_SUMMARY"
-      #    else
-      #      echo -e "⛔ Cleanup Failed!\n" >> "$GITHUB_STEP_SUMMARY"
-      #    fi
-
-      - name: "Send Failure Notification"
-        if: ${{ failure() }}
+      - name: "Send Notification"
+        if: ${{ !cancelled() }}
         uses: sarisia/actions-status-discord@eb045afee445dc055c18d3d90bd0f244fd062708 # v1.16.0
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
