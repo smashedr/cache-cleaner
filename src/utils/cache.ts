@@ -8,7 +8,7 @@ import type { Options } from '@/utils/options.ts'
 
 export async function clearCache(type: ClearCacheType) {
   const isAll = type.endsWith('All')
-  console.log('%cClear Cache:', 'color: Coral', type, isAll)
+  console.log('%cClear Cache:', 'color: Coral', `${isAll ? 'All' : 'Selected'}`, type)
   const options = await getOptions()
   try {
     if (type.startsWith('site')) {
@@ -74,7 +74,7 @@ async function clearBrowserCache(options: Options, all = false) {
 
   console.debug('cleanOptions:', cleanOptions)
   await chrome.browsingData.remove({}, cleanOptions)
-  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
+  console.log('%cSuccess - chrome.browsingData.remove', 'color: SpringGreen')
 }
 
 async function clearSiteCache(options: Options, all = false) {
@@ -86,8 +86,8 @@ async function clearSiteCache(options: Options, all = false) {
 
   const url = new URL(tab.url)
   console.debug('url:', url)
-  console.debug('hostname:', url.hostname)
-  console.debug('origin:', url.origin)
+  // console.debug('hostname:', url.hostname)
+  // console.debug('origin:', url.origin)
 
   const removalOptions:
     | chrome.browsingData.RemovalOptions
@@ -124,7 +124,7 @@ async function clearSiteCache(options: Options, all = false) {
     removalOptions as chrome.browsingData.RemovalOptions,
     cleanOptions,
   )
-  console.debug('%cSUCCESS chrome.browsingData.remove', 'color: SpringGreen')
+  console.log('%cSuccess - chrome.browsingData.remove', 'color: SpringGreen')
 
   if (options.autoReload) await injectFunction(() => window.location.reload())
 }
@@ -136,7 +136,7 @@ async function clearCacheStorage() {
       throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
     }
     const keys = await caches.keys()
-    console.log('%cCache Keys Found:', 'color: Coral', keys.length)
+    console.log('%cCache Keys Found:', 'color: PowderBlue', keys.length)
     for (const key of keys) {
       console.log('%cDeleting Cache:', 'color: Yellow', key)
       await caches.delete(key)

@@ -147,8 +147,8 @@ option:
       label: Show Context Menu
       tip: Show right-click context menu.
     contextAction:
-      label: Show Context on Action Icon
-      tip: Show disabled context items on action icon right-click.
+      label: Show All Items on Toolbar Icon
+      tip: Show all context items on toolbar icon right-click.
     showErrorNotifications:
       label: Show Error Notifications
       tip: For right-click context menu and keyboard shortcuts.

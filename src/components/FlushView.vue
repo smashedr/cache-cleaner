@@ -28,7 +28,7 @@ const options = useOptions()
 const confirmModal = ref<InstanceType<typeof ConfirmModal> | null>(null)
 
 async function onConfirm(type: ClearCacheType) {
-  console.log('onConfirm:', type)
+  // console.log('onConfirm:', type)
   try {
     await clearCache(type)
     const text = i18n.t(`ui.cache.type.${type}`)
@@ -48,7 +48,7 @@ async function onConfirm(type: ClearCacheType) {
 }
 
 function clearCacheClick(type: ClearCacheType) {
-  console.log(`clearCacheClick: ${type}:`, options.value?.confirm[type])
+  // console.log(`clearCacheClick: ${type}:`, options.value?.confirm[type])
   if (options.value.showConfirmation && options.value?.confirm[type]) {
     confirmModal.value?.show(type)
   } else {

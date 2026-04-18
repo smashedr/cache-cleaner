@@ -11,7 +11,7 @@ import CopySupport from '@/components/CopySupport.vue'
 import BackgroundForm from '@/components/BackgroundForm.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
-console.debug('%c options/App.vue', 'color: Lime')
+// console.debug('%c options/App.vue', 'color: SandyBrown')
 
 useTitle(i18n.t('options.title'))
 

@@ -1,7 +1,7 @@
 // NOTE: All functions below are ported from VanillaJS
 
 export function openSidePanel(close?: boolean) {
-  console.debug('openSidePanel:', close)
+  console.debug('openSidePanel - close:', close)
   if (chrome.sidePanel) {
     console.debug('chrome.sidePanel')
     chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
@@ -48,10 +48,7 @@ export async function openExtPanel(close = false) {
   const [defaultWidth, defaultHeight] = [390, 600]
   const type = chrome.windows.CreateType.POPUP
 
-  if (!chrome.windows) {
-    console.log('Browser does not support: chrome.windows')
-    return
-  }
+  if (!chrome.windows) return console.log('Browser does not support: chrome.windows')
 
   const local = await chrome.storage.local.get([
     'lastPanelID',
@@ -86,9 +83,9 @@ export async function openExtPanel(close = false) {
   }
 
   const panelWidth = local.panelWidth as number | undefined
-  console.debug('panelWidth:', panelWidth)
+  // console.debug('panelWidth:', panelWidth)
   const panelHeight = local.panelHeight as number | undefined
-  console.debug('panelHeight:', panelHeight)
+  // console.debug('panelHeight:', panelHeight)
   const width = panelWidth || defaultWidth // NOSONAR
   const height = panelHeight || defaultHeight // NOSONAR
   console.debug(`width, height:`, width, height)
@@ -118,13 +115,13 @@ export async function activateOrOpen(url: string, open = true) {
     console.debug('%cTab not found, opening url:', 'color: Yellow', url)
     return await chrome.tabs.create({ active: true, url })
   }
-  console.warn('tab not found and open not set!')
+  console.warn('tab not found and open not set for url:', url)
 }
 
 export function clickOpen(e: Event, close = false) {
   const target = e.currentTarget as HTMLAnchorElement
   let url = target.href
-  console.log('clickOpen:', close, url)
+  console.debug('clickOpen:', close, url)
   if (!url || url === '#') return
   if (url.startsWith('/')) {
     url = chrome.runtime.getURL(url)
@@ -144,6 +141,5 @@ export async function sendNotifications(title: string, message: string) {
     title,
     message: message,
   })
-
-  console.log('notification:', notification)
+  console.debug('notification:', notification)
 }

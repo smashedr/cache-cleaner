@@ -13,7 +13,6 @@ export default defineBackground(() => {
   chrome.runtime.onInstalled.addListener(onInstalled)
   chrome.runtime.onStartup.addListener(onStartup)
   chrome.storage.sync.onChanged.addListener(onChanged)
-  chrome.runtime.onMessage.addListener(onMessage)
   chrome.commands?.onCommand.addListener(onCommand)
   chrome.contextMenus?.onClicked.addListener(onClicked)
 })
@@ -22,7 +21,7 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
   console.log('onInstalled:', details)
 
   const options = await setDefaultOptions(defaultOptions)
-  console.debug('options:', options)
+  console.log('options:', options)
   if (options.contextMenu) updateContextMenus(options).catch(console.warn)
   setUninstall().catch(console.warn)
 
@@ -44,14 +43,14 @@ async function onStartup() {
   if (isFirefox) {
     console.log('Firefox Startup Workarounds')
     const options = await getOptions()
-    console.debug('options:', options)
+    console.log('options:', options)
     if (options.contextMenu) updateContextMenus(options).catch(console.warn)
     setUninstall().catch(console.warn)
   }
 }
 
 function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
-  console.log('%c background/index.ts - onChanged:', 'color: Cyan', changes)
+  // console.log('%c background/index.ts - onChanged:', 'color: Cyan', changes)
   const oldValue = changes.options?.oldValue as Options | undefined
   const newValue = changes.options?.newValue as Options | undefined
   if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
@@ -64,24 +63,12 @@ function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
   }
 
   if (JSON.stringify(oldValue.ctx) !== JSON.stringify(newValue.ctx)) {
-    console.log('%c Updating contextMenu...', 'color: Yellow')
     updateContextMenus(newValue).catch(console.warn)
   }
 }
 
-function onMessage(
-  message: any,
-  _sender: chrome.runtime.MessageSender,
-  _sendResponse: Function,
-) {
-  console.log('onMessage:', message)
-  if (message === 'openPopup') {
-    openPopup().catch((e) => console.log(e))
-  }
-}
-
 async function onCommand(command: string, tab?: chrome.tabs.Tab) {
-  console.debug('onCommand:', command, tab)
+  console.log('onCommand:', command, tab)
   if (command === 'openOptions') {
     await chrome.runtime.openOptionsPage()
   } else if (command === 'openExtPanel') {
@@ -90,7 +77,7 @@ async function onCommand(command: string, tab?: chrome.tabs.Tab) {
     openSidePanel()
   } else if (command.startsWith('cache_')) {
     const cacheType = command.slice(6) as ClearCacheType
-    console.log('onCommand - cacheType:', cacheType)
+    // console.log('onCommand - cacheType:', cacheType)
     await clearCache(cacheType)
   } else {
     console.warn(`Unknown Command: ${command}`)
@@ -98,7 +85,7 @@ async function onCommand(command: string, tab?: chrome.tabs.Tab) {
 }
 
 async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs.Tab) {
-  console.debug('onClicked:', ctx.menuItemId, ctx, tab)
+  console.log('onClicked:', ctx.menuItemId, ctx, tab)
   if (ctx.menuItemId === 'extension-options') {
     await chrome.runtime.openOptionsPage()
   } else if (ctx.menuItemId === 'extension-popup') {
@@ -109,7 +96,7 @@ async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs
     openSidePanel()
   } else if (ctx.menuItemId.toString().startsWith('cache')) {
     const cacheType = ctx.menuItemId.toString().split('-')[1] as ClearCacheType
-    console.log('onClicked - cacheType:', cacheType)
+    // console.log('onClicked - cacheType:', cacheType)
     await clearCache(cacheType)
   } else {
     console.warn(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
@@ -130,7 +117,7 @@ async function setDefaultOptions(defaultOptions: object) {
   }
   if (changed) {
     await chrome.storage.sync.set({ options })
-    console.log('set changed options:', options)
+    // console.log('chrome.storage.sync.set:', options)
   }
   return options
 }
@@ -141,6 +128,6 @@ async function setUninstall() {
   const url = new URL(config.uninstallUrl)
   url.searchParams.append('version', config.version)
   url.searchParams.append('id', chrome.runtime.id)
-  console.log('setUninstallURL:', url.href)
+  console.log('chrome.runtime.setUninstallURL:', url.href)
   await chrome.runtime.setUninstallURL(url.href)
 }

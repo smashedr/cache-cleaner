@@ -19,19 +19,20 @@ export function processUpdate(
 }
 
 function upgrade100(options: Options) {
-  console.log('%c--- Processing v1.0.0 Upgrade ---', 'color: Yellow')
+  console.log('%c--- Processing v1.0.0 Upgrade ---', 'color: Gold')
   let changed
   if ('enable' in options.ctx) {
     console.log('Deleting: options.ctx.enable:', options.ctx.enable)
     delete options.ctx.enable
     changed = true
   }
-  console.log('changed:', changed)
   if (changed) {
     chrome.storage.sync
       .set({ options })
-      .then(() => console.log('%cUpdated Options', 'color: Lime'))
+      .then(() => console.log('%cUpgrade Successful', 'color: Lime'))
       .catch(console.warn)
+  } else {
+    console.log('%cNo Changes Detected', 'color: Magenta')
   }
 }
 

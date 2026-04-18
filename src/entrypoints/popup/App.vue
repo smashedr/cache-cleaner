@@ -10,7 +10,7 @@ import FlushSwitch from '@/components/FlushSwitch.vue'
 import FlushOptions from '@/components/FlushOptions.vue'
 import SiteView from '@/components/SiteView.vue'
 
-console.debug('%c popup/App.vue', 'color: Lime')
+// console.debug('%c popup/App.vue', 'color: SandyBrown')
 
 const { siteInfo, updateTab } = useSiteInfo()
 provide('siteInfo', siteInfo)
@@ -25,7 +25,7 @@ const width = computed(() => (isMobile ? '100%' : '360px'))
 onMounted(() => {
   console.debug('width:', width.value)
   getOptions().then((options) => {
-    console.debug('options.popupBrowser:', options.popupBrowser)
+    // console.debug('popup/App.vue - onMounted - options:', options)
     if (options.popupBrowser) cacheType.value = 'browser'
   })
 })

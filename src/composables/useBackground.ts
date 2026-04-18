@@ -3,7 +3,7 @@ import { type Options, getOptions } from '@/utils/options.ts'
 
 function setBackground(options: Options) {
   // NOTE: Copied from VanillaJS. Refactor this method...
-  console.log('useBackground.ts - setBackground:', options)
+  // console.log('useBackground.ts - setBackground:', options)
 
   const video = document.querySelector('video')
   if (!video) return console.warn('no video element') // NOTE: Handle Error
@@ -33,7 +33,7 @@ async function onChanged(changes: Record<string, any>) {
     items.oldValue.pictureURL !== items.newValue.pictureURL ||
     items.oldValue.videoURL !== items.newValue.videoURL
   ) {
-    console.log('%c Background Option Change Detected.', 'color: LightSkyBlue')
+    // console.log('%c Background Option Change Detected.', 'color: LightSkyBlue')
     setBackground(items.newValue)
   }
 }
