@@ -6,7 +6,7 @@ function setBackground(options: Options) {
   console.log('useBackground.ts - setBackground:', options)
 
   const video = document.querySelector('video')
-  if (!video) return console.error('no video element') // NOTE: Handle Error
+  if (!video) return console.warn('no video element') // NOTE: Handle Error
 
   if (options.radioBackground === 'bgPicture') {
     const url = options.pictureURL || 'https://picsum.photos/1920/1080'

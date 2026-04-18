@@ -5,6 +5,7 @@ import { openExtPanel, openPopup, openSidePanel } from '@/utils/extension.ts'
 import { type Options, defaultOptions, getOptions } from '@/utils/options.ts'
 import { updateContextMenus } from './menus.ts'
 import { processUpdate } from './upgrade.ts'
+import { clearCache } from '@/utils/cache.ts'
 
 export default defineBackground(() => {
   console.log(`Loaded: %c${chrome.runtime.id}`, 'Color: Cyan')
@@ -87,23 +88,31 @@ async function onCommand(command: string, tab?: chrome.tabs.Tab) {
     await openExtPanel()
   } else if (command === 'openSidePanel') {
     openSidePanel()
+  } else if (command.startsWith('cache_')) {
+    const cacheType = command.slice(6) as ClearCacheType
+    console.log('onCommand - cacheType:', cacheType)
+    await clearCache(cacheType)
   } else {
     console.warn(`Unknown Command: ${command}`)
   }
 }
 
 async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs.Tab) {
-  console.debug('onClicked:', ctx, tab)
-  if (ctx.menuItemId === 'options') {
+  console.debug('onClicked:', ctx.menuItemId, ctx, tab)
+  if (ctx.menuItemId === 'extension-options') {
     await chrome.runtime.openOptionsPage()
-  } else if (ctx.menuItemId === 'popup') {
+  } else if (ctx.menuItemId === 'extension-popup') {
     await openPopup()
-  } else if (ctx.menuItemId === 'popout') {
+  } else if (ctx.menuItemId === 'extension-popout') {
     await openExtPanel()
-  } else if (ctx.menuItemId === 'sidepanel') {
+  } else if (ctx.menuItemId === 'extension-sidepanel') {
     openSidePanel()
+  } else if (ctx.menuItemId.toString().startsWith('cache')) {
+    const cacheType = ctx.menuItemId.toString().split('-')[1] as ClearCacheType
+    console.log('onClicked - cacheType:', cacheType)
+    await clearCache(cacheType)
   } else {
-    console.error(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
+    console.warn(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
   }
 }
 

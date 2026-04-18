@@ -22,7 +22,7 @@ export async function updateContextMenus(options: Options) {
   const contexts: chrome.contextMenus.CreateProperties[] = []
 
   for (const [key, value] of Object.entries(config['cache'])) {
-    addContextMenuItem(contexts, options, key, value)
+    addContextMenuItem(contexts, options, key, value, 'cache')
   }
 
   if (contexts.length) contexts.push({ type: 'separator', id: crypto.randomUUID() })
@@ -30,7 +30,7 @@ export async function updateContextMenus(options: Options) {
 
   for (const [key, value] of Object.entries(config['extension'])) {
     // NOTE: Update this to add items to action if not enabled
-    addContextMenuItem(contexts, options, key, value)
+    addContextMenuItem(contexts, options, key, value, 'extension')
   }
 
   if (length == contexts.length) contexts.pop()
@@ -46,15 +46,16 @@ function addContextMenuItem(
   options: Options,
   key: string,
   value: unknown,
+  pk?: string,
 ) {
   const ctxKey = key as keyof Options['ctx']
   // console.log('%c addContextMenuItem:', 'color: SpringGreen', ctxKey)
   if (!options.contextMenu || !options.ctx[ctxKey]) {
-    if (!options.contextAction && Object.keys(config.cache).includes(key)) return
+    if (!options.contextAction && pk === 'cache') return
     value = ['action']
   }
   contexts.push({
-    id: key,
+    id: pk ? `${pk}-${key}` : key,
     contexts: value as chrome.contextMenus.CreateProperties['contexts'],
     title: i18n.t(`ctx.${key}.label` as any),
   })

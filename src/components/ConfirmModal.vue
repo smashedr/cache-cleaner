@@ -2,7 +2,6 @@
 import { i18n } from '#imports'
 import { ref } from 'vue'
 import { Modal } from 'bootstrap'
-import type { ClearCacheType } from '@/utils/cache.ts'
 
 const emit = defineEmits(['confirm'])
 

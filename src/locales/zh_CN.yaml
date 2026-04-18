@@ -41,10 +41,10 @@ cmd:
   openSidePanel: 打开侧边栏
   openExtPanel: 打开扩展面板
   openOptions: 打开选项
-  clearSiteCache: 清除网站缓存
-  clearAllSiteCache: 清除所有网站缓存
-  clearBrowserCache: 清除浏览器缓存
-  clearAllBrowserCache: 清除所有浏览器缓存
+  cache_site: 清除网站缓存
+  cache_siteAll: 清除所有网站缓存
+  cache_browser: 清除浏览器缓存
+  cache_browserAll: 清除所有浏览器缓存
 
 # Entrypoints
 
@@ -149,6 +149,9 @@ option:
     contextAction:
       label: 在操作图标上显示上下文
       tip: 右键单击操作图标时显示禁用的上下文项目。
+    showErrorNotifications:
+      label: 显示错误通知
+      tip: 用于右键上下文菜单和键盘快捷键。
     showUpdate:
       label: 更新后显示日志
       tip: 显示版本更新通知。

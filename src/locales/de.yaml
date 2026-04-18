@@ -41,10 +41,10 @@ cmd:
   openSidePanel: Seitenbereich öffnen
   openExtPanel: Erweiterungsbereich öffnen
   openOptions: Einstellungen öffnen
-  clearSiteCache: Website-Cache löschen
-  clearAllSiteCache: Gesamten Website-Cache löschen
-  clearBrowserCache: Browser-Cache löschen
-  clearAllBrowserCache: Gesamten Browser-Cache löschen
+  cache_site: Website-Cache löschen
+  cache_siteAll: Gesamten Website-Cache löschen
+  cache_browser: Browser-Cache löschen
+  cache_browserAll: Gesamten Browser-Cache löschen
 
 # Entrypoints
 
@@ -149,6 +149,9 @@ option:
     contextAction:
       label: Kontext am Aktionssymbol anzeigen
       tip: Deaktivierte Kontextelemente bei Rechtsklick auf das Aktionssymbol anzeigen.
+    showErrorNotifications:
+      label: Fehlermeldungen anzeigen
+      tip: Für das Rechtsklick-Kontextmenü und Tastenkombinationen.
     showUpdate:
       label: Versionshinweise bei Aktualisierung anzeigen
       tip: Aktualisierungsbenachrichtigungen anzeigen.
