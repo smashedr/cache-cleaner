@@ -32,7 +32,7 @@
     "vue": "^3.5.32"
   },
   "devDependencies": {
-    "@catppuccin/vitepress": "^0.1.2",
+    "@catppuccin/vitepress": "github:catppuccin/vitepress#c8a6edc2a050899552f86e01b1301a547c84820f",
     "@cssnr/vitepress-plugin-contributors": "^0.1.0",
     "@types/bootstrap": "^5.2.10",
     "@types/chrome": "^0.1.40",
