@@ -7,7 +7,7 @@ const settings = {
     short: 'Cache Cleaner Web Extension and Browser Addon.',
     long: 'Easily clear selected cache items for the current site or whole browser with a single key press, right-click menu, or popup icon.',
   },
-  image: '/images/logo.svg',
+  image: '/images/logo.png',
   color: '#d9925f',
   source_repo: 'https://github.com/cssnr/cache-cleaner',
   chrome_url: 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi',
