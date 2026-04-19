@@ -26,6 +26,7 @@ jobs:
     permissions:
       contents: read
     with:
+      install: "npm ci --legacy-peer-deps"
       build: "npm run docs:deploy"
       path: "docs/.vitepress/dist"
       pages: true
