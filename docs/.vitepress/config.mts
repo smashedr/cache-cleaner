@@ -61,8 +61,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: 'Get Started',
-        link: '/guides/get-started',
-        activeMatch: '/guides/',
+        link: '/install',
+        activeMatch: '/install',
       },
       { text: 'Support', link: '/support', activeMatch: '/support' },
       {
@@ -92,18 +92,12 @@ export default defineConfig({
     ],
 
     sidebar: [
-      // { text: 'Get Started', link: '/guides/get-started' },
-      // {
-      //   text: 'Guides',
-      //   base: '/guides',
-      //   items: [{ text: 'Get Started', link: '/get-started' }],
-      // },
       {
-        text: 'Guides',
-        base: '/guides',
+        text: 'Get Started',
+        // base: '/guides',
         // collapsed: false,
         items: [
-          { text: 'Get Started', link: '/get-started' },
+          { text: 'Install', link: '/install' },
           { text: 'Usage', link: '/usage' },
           { text: 'Options', link: '/options' },
         ],

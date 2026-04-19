@@ -9,6 +9,17 @@
         #fa6d62 100%
     );
     --vp-home-hero-image-filter: blur(56px);
+
+    --vp-button-alt-bg: var(--vp-c-default-1);
+}
+
+/* NOTE: This is a "fix" for the search modal content shift */
+@supports (scrollbar-gutter: stable) {
+    @media (min-width: 769px) {
+        html {
+            scrollbar-gutter: stable;
+        }
+    }
 }
 
 body {
@@ -25,15 +36,6 @@ table th {
 
 .search-keywords {
     display: none;
-}
-
-/* NOTE: This is a "fix" for the search modal content shift */
-@supports (scrollbar-gutter: stable) {
-    @media (min-width: 769px) {
-        html {
-            scrollbar-gutter: stable;
-        }
-    }
 }
 
 .vp-doc a > img {

@@ -1,7 +1,7 @@
 ---
 next:
   text: 'Get Started'
-  link: '/guides/get-started'
+  link: '/install'
 ---
 
 # Support

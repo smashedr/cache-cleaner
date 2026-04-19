@@ -27,9 +27,15 @@ prev:
 
 </div>
 
-To get started [install](#install) the extension for your browser.
+To get started [install the extension](#install) for your browser.
 
 You can also check out the [features](#features), [usage](usage.md), and [options](options.md).
+
+<div class="info custom-block" style="padding-top: 8px;">
+
+:grey_question: If you need help getting started, [support is available](support.md).
+
+</div>
 
 ## Install
 
@@ -40,11 +46,13 @@ Available for all major browsers including [Firefox Android](https://addons.mozi
 <BrowserIcons animation="animate__rotateIn" />
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-- [Mozilla Addons](https://addons.mozilla.org/addon/cache-cleaner-addon)
+- [Mozilla Firefox Addons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-[![QR Code Mozilla](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/docs/qr/mozilla.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+For more details see the [usage guide](usage.md) and review the [options](options.md).
 
-[![QR Code Google](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/docs/qr/google.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![QR Code Firefox](/images/qr/firefox.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+
+[![QR Code Chrome](/images/qr/chrome.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 
 ## Features
 
@@ -53,6 +61,10 @@ Available for all major browsers including [Firefox Android](https://addons.mozi
 - Clear cache for a specific site or the whole browser
 - Option to clear Cache Storage in Firefox for individual sites
 - Works in both Firefox and Chromium based browsers
+
+::: info :rocket: Feature Request
+Missing a feature? Let us know [what features](https://github.com/cssnr/cache-cleaner/issues/new?template=1-feature.yaml) you want to see...
+:::
 
 ### Languages
 
@@ -66,3 +78,7 @@ The extension is localized in the following languages:
 - Korean - 한국어
 - Japanese - 日本語
 - Chinese (China) - 中文（简体）
+
+::: info :bulb: Changing Languages
+The only way to change your language in a web extension, is to change your browser's language, then restart the browser.
+:::

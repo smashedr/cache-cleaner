@@ -11,19 +11,22 @@ hero:
     alt: Cache Cleaner
   actions:
     - text: Get Started
-      link: /guides/get-started
+      link: /install
       theme: brand
     - text: Usage
-      link: /guides/usage
+      link: /usage
+      theme: alt
+    - text: Options
+      link: /options
       theme: alt
     - text: Support
       link: /support
       theme: alt
 
 features:
-  - title: Install and Setup
-    details: View Install and Setup Guides
-    link: /guides/get-started
+  - title: Install and Usage
+    details: View Install and Usage Guides
+    link: /install
   - title: Support
     details: Get Help with Anything
     link: /support
