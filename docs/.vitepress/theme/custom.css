@@ -40,8 +40,12 @@ table th {
 
 .vp-doc a > img {
     display: inline-block;
-    margin-right: 4px;
+    margin: 0;
 }
+
 .badges p {
-    line-height: 1.1em;
+    line-height: 1.2em;
+}
+.badges img {
+    margin-right: 4px !important;
 }
