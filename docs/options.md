@@ -135,6 +135,10 @@ Automatically opens the Release Notes page when the extension is updated to a ne
 
 Disable this if you prefer to check for updates manually.
 
+#### Options Page Background
+
+The Options page can be set to an Image URL, Video URL or None.
+
 ## Keyboard Shortcuts
 
 Manage the keyboard shortcuts used to trigger cache-clearing actions and open extension panels directly from the browser, without needing to open any UI.
