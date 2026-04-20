@@ -68,11 +68,6 @@ jobs:
 #        with:
 #          name: artifacts
 #
-#      - name: "Install PBE"
-#        run: |
-#          npm i -g publish-browser-extension
-#          npx publish-extension --version
-#
 #      - name: "Validate"
 #        run: |
 #          ls -lAh .
@@ -84,6 +79,11 @@ jobs:
 #          echo "::group::cat chrome-mv3/manifest.json"
 #          cat chrome-mv3/manifest.json
 #          echo -e "\n::endgroup::"
+#
+#      - name: "Install PBE"
+#        run: |
+#          npm i -g publish-browser-extension
+#          npx publish-extension --version
 #
 #      # NOTE: This does not support Firefox amo-metadata
 #      - name: "Publish Extension"
