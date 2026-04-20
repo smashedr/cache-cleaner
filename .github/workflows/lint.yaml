@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches: [master]
+    paths-ignore: &paths
+      - "docs/**"
   pull_request:
     branches: [master]
+    paths-ignore: *paths
 
 jobs:
   lint:
