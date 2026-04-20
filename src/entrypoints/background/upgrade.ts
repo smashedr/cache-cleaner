@@ -1,3 +1,4 @@
+import { getAppConfig } from '#imports'
 import { type Options } from '@/utils/options.ts'
 
 export function processUpdate(
@@ -8,6 +9,7 @@ export function processUpdate(
   console.log('processUpdate:', options)
   console.log('version:', version)
   console.log('previous:', previous)
+  const config = getAppConfig()
 
   if (
     previous !== undefined &&
@@ -15,6 +17,10 @@ export function processUpdate(
     compareSemver(version, '1.0.0') >= 0
   ) {
     upgrade100(options)
+    // TODO: Determine strategy to set updateUrl path...
+    const url = `${config.updateUrl}/v1.0`
+    console.log('url:', url)
+    chrome.tabs.create({ active: false, url }).catch(console.warn)
   }
 }
 
