@@ -46,11 +46,11 @@ Available for all major browsers including [Firefox Android](https://addons.mozi
 
 For more details see the [usage guide](usage.md) and review the [options](options.md).
 
-[![QR Code Firefox](/images/qr/firefox.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![QR Code Firefox](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/qr/firefox.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
 &nbsp;
 
-[![QR Code Chrome](/images/qr/chrome.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![QR Code Chrome](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/qr/chrome.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 
 ## Features
 

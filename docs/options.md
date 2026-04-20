@@ -10,16 +10,16 @@ This page is not yet complete...
 
 Cache Options
 
-![Cache](/images/options/cache.jpg)
+![Cache](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/options/cache.jpg)
 
 ## Extension
 
 Extension Options
 
-![Site](/images/options/extension.jpg)
+![Site](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/options/extension.jpg)
 
 ## Keyboard
 
 Keyboard Shortcuts
 
-![Site](/images/options/keyboard.jpg)
+![Site](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/options/keyboard.jpg)
