@@ -44,13 +44,13 @@ Available for all major browsers including [Firefox Android](https://addons.mozi
 - [Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 - [Mozilla Firefox Addons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
+For more details see the [usage guide](usage.md) and review the [options](options.md).
+
 [![QR Code Firefox](/images/qr/firefox.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
 &nbsp;
 
 [![QR Code Chrome](/images/qr/chrome.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-
-For more details see the [usage guide](usage.md) and review the [options](options.md).
 
 ## Features
 

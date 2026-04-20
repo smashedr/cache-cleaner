@@ -10,8 +10,8 @@ import Contributors from '@cssnr/vitepress-plugin-contributors'
 import '@cssnr/vitepress-plugin-contributors/style.css'
 import contributors from '../contributors.json'
 
-// import VPSwiper from '@cssnr/vitepress-swiper'
-// import '@cssnr/vitepress-swiper/style.css'
+import VPSwiper from '@cssnr/vitepress-swiper'
+import '@cssnr/vitepress-swiper/style.css'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -25,6 +25,6 @@ export default {
     app.component('Contributors', Contributors)
     app.config.globalProperties.$contributors = contributors
 
-    // app.component('VPSwiper', VPSwiper)
+    app.component('VPSwiper', VPSwiper)
   },
 } satisfies Theme

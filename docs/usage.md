@@ -14,7 +14,15 @@ You may need to pin the icon to the toolbar depending on your browser.
 The popup can also be activated via a [keyboard shortcut](#keyboard-shortcuts),
 the [context menu](#context-menu), or the [side panel](#side-panel).
 
-![Site](/images/usage/site.jpg)
+<VPSwiper
+:slides="[
+'/images/usage/site.jpg',
+'/images/usage/browser.jpg',
+'/images/usage/options.jpg',
+]"
+:pagination="{ clickable: true }"
+height="360px"
+/>
 
 **Popup Features**
 
@@ -31,7 +39,7 @@ For more details see the [options page](options.md#extension-options).
 The right-click context menu can be enabled/disabled from the [options page](options.md#extension).
 You can also choose which items show up on the context menu.
 
-![Context Menu](/images/usage/context.jpg)
+![Context Menu](/images/usage/ctx.jpg)
 
 :bulb: If you choose only 1 item to be displayed, there won't be a submenu to navigate.
 
