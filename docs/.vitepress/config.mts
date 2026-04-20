@@ -7,7 +7,8 @@ const settings = {
     short: 'Cache Cleaner Web Extension and Browser Addon.',
     long: 'Easily clear selected cache items for the current site or whole browser with a single key press, right-click menu, or popup icon.',
   },
-  image: '/images/logo.png',
+  base: '/cache-cleaner/',
+  image: '/cache-cleaner/images/logo.png',
   color: '#d9925f',
   source_repo: 'https://github.com/cssnr/cache-cleaner',
   chrome_url: 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi',
@@ -18,7 +19,7 @@ const settings = {
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   // srcDir: './docs',
-  base: '/cache-cleaner/',
+  base: settings.base,
   vite: {
     server: {
       allowedHosts: true,
@@ -28,8 +29,11 @@ export default defineConfig({
   title: settings.title,
   description: settings.description.short,
   head: [
-    ['link', { rel: 'icon', href: '/images/logo.svg', type: 'image/svg+xml' }],
-    ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
+    [
+      'link',
+      { rel: 'icon', href: `${settings.base}/images/logo.svg`, type: 'image/svg+xml' },
+    ],
+    ['link', { rel: 'icon', href: `${settings.base}/favicon.ico`, type: 'image/x-icon' }],
     ['link', { rel: 'apple-touch-icon', sizes: '512x512', href: settings.image }],
 
     ['meta', { name: 'darkreader-lock' }],
