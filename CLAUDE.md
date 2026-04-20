@@ -1,21 +1,26 @@
 # Cache Cleaner
 
-This is a Web Extension for Chrome and Firefox using the WXT Framework, TypeScript, and Vue3.
+Project - This is a Web Extension for Chrome and Firefox using the WXT Framework, TypeScript, and Vue3.
 The documentation uses VitePress.
 
+Application - The primary purpose is to allow the user to clear site or browser cache.
+The user can select which items are cleared when clearing the cache, or clear everything.
+
 ## Terminology
+
+### Cache Items
 
 Selected (items) - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/DataTypeSet
 Selected Site - Site specific, user selected items
 All Site - All site items, regardless of selections
 Selected Browser - Browser + All Site, use selected items
 All Browser - All browser + All Site, regardless of selections
+
+### Other
+
 Popout - Extension Panel
 
 ## Application Overview
-
-Allow the user to clear site or browser cache.
-The user can select which items are cleared when clearing the cache
 
 There are 4 primary options to clear cache:
 
