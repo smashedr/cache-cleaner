@@ -34,7 +34,7 @@ For more details see the [options page](options.md#extension-options).
 
 ## Context Menu
 
-The right-click context menu can be enabled/disabled from the [options page](options.md#extension).
+The right-click context menu can be enabled/disabled from the [options page](options.md#show-context-menu).
 You can also choose which items show up on the context menu.
 
 ![Context Menu](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/usage/ctx.jpg)
@@ -52,7 +52,7 @@ This varies based on your browser.
 - Google Chrome: `chrome://extensions/shortcuts`
 - Mozilla Firefox: https://mzl.la/3Qwp5QQ
 
-For more details see the [options page](options.md#keyboard).
+For more details see the [options page](options.md#keyboard-shortcuts).
 
 ## Side Panel
 
