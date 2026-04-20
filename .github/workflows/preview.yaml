@@ -36,7 +36,8 @@ jobs:
       contents: read
     with:
       name: "preview"
-      url: "https://dev-static.cssnr.com/"
+      url: "https://dev-static.cssnr.com/cache-cleaner/"
+      path: "cache-cleaner"
       robots: true
     secrets:
       host: ${{ secrets.DEV_DEPLOY_HOST }}

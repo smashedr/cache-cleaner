@@ -18,7 +18,7 @@ const settings = {
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   // srcDir: './docs',
-  // base: '/path/',
+  base: '/cache-cleaner/',
   vite: {
     server: {
       allowedHosts: true,
