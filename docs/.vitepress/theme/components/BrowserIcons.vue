@@ -1,17 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import 'animate.css'
 
-// Variables
-const chrome_url = 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi'
-const firefox_url = 'https://addons.mozilla.org/addon/cache-cleaner-addon'
-
-// Props
 const props = defineProps({
   animation: { type: String, default: null },
   centered: { type: Boolean, default: false },
   margin: { type: String, default: null },
   size: { type: String, default: '48' }, // 16,24,32,48,64,128,256,512
 })
+
+// Variables
+const chrome_url = 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi'
+const firefox_url = 'https://addons.mozilla.org/addon/cache-cleaner-addon'
 
 // Browsers
 const baseUrl = 'https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1'
@@ -24,17 +23,11 @@ const browsers = [
   // { name: 'Chromium', url: chrome_url, img: 'chromium/chromium' },
 ]
 
-// Class
 const imageClass = props.animation ? `animate__animated ${props.animation}` : null
-
-// Style
-const iconStyle = { minHeight: `${props.size}px` }
-if (props.centered) iconStyle.textAlign = 'center'
-if (props.margin) iconStyle.margin = props.margin
 </script>
 
 <template>
-  <div class="browser-icons" :style="iconStyle">
+  <div class="browser-icons" :style="{ minHeight: `${props.size}px` }">
     <a
       v-for="browser in browsers"
       :key="browser.name"

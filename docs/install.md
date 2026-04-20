@@ -39,7 +39,7 @@ If you need help getting started, [support is available](support.md).
 
 Available for all major browsers including [Firefox Android](https://addons.mozilla.org/addon/cache-cleaner-addon).
 
-<BrowserIcons animation="animate__rotateIn" />
+<BrowserIcons animation="animate__rotateIn animate__slow" />
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 - [Mozilla Firefox Addons](https://addons.mozilla.org/addon/cache-cleaner-addon)

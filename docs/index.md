@@ -36,9 +36,8 @@ features:
 ---
 
 <BrowserIcons
-animation="animate__rotateIn  animate__slow"
-:centered="true"
-margin="40px 0 0 0"
+animation="animate__rotateIn animate__slow"
+style="text-align: center; margin: 40px 0 0 0;"
 size="64"
 />
 

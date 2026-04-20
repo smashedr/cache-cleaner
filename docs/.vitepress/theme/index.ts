@@ -1,4 +1,5 @@
 import DefaultTheme, { VPBadge } from 'vitepress/theme'
+import type { Theme } from 'vitepress'
 import './custom.css'
 
 import '@catppuccin/vitepress/theme/mocha/peach.css'
@@ -14,16 +15,16 @@ import contributors from '../contributors.json'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-    ...DefaultTheme,
+  ...DefaultTheme,
 
-    enhanceApp({ app }) {
-        app.component('Badge', VPBadge)
+  enhanceApp({ app }) {
+    app.component('Badge', VPBadge)
 
-        app.component('BrowserIcons', BrowserIcons)
+    app.component('BrowserIcons', BrowserIcons)
 
-        app.component('Contributors', Contributors)
-        app.config.globalProperties.$contributors = contributors
+    app.component('Contributors', Contributors)
+    app.config.globalProperties.$contributors = contributors
 
-        // app.component('VPSwiper', VPSwiper)
-    },
-}
+    // app.component('VPSwiper', VPSwiper)
+  },
+} satisfies Theme
