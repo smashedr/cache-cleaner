@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
 import { type Options, getOptions, saveKeyValue } from '@/utils/options.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
@@ -8,31 +8,29 @@ const bgRef = ref<'bgNone' | 'bgPicture' | 'bgVideo'>('bgNone')
 const pictureURL = ref('')
 const videoURL = ref('')
 
+const video = useTemplateRef('videoEl')
+
 function setBackground(options: Options) {
-  // NOTE: Copied from VanillaJS. Refactor this method...
   console.log('setBackground:', options.radioBackground)
+  if (!video.value) return console.warn('no video element')
 
   bgRef.value = options.radioBackground
   pictureURL.value = options.pictureURL
   videoURL.value = options.videoURL
 
-  // TODO: Use a ref
-  const video = document.querySelector('video')
-  // TODO: Handle error
-  if (!video) return console.warn('no video element')
-
+  // NOTE: Copied from VanillaJS. Refactor this method...
   if (options.radioBackground === 'bgPicture') {
     const url = options.pictureURL || 'https://picsum.photos/1920/1080'
     document.body.style.background = `url('${url}') no-repeat center fixed`
     document.body.style.backgroundSize = 'cover'
-    video.classList.add('d-none')
+    video.value.classList.add('d-none')
   } else if (options.radioBackground === 'bgVideo') {
-    video.src = options.videoURL
-    video.classList.remove('d-none')
+    video.value.src = options.videoURL
+    video.value.classList.remove('d-none')
     document.body.style.cssText = ''
   } else {
     document.body.style.cssText = ''
-    video.classList.add('d-none')
+    video.value.classList.add('d-none')
   }
 }
 
@@ -156,7 +154,7 @@ onUnmounted(() => chrome.storage.sync.onChanged.removeListener(onChanged))
     </div>
   </div>
   <Teleport to="body">
-    <video class="d-none" playsinline autoplay muted loop></video>
+    <video ref="videoEl" class="d-none" playsinline autoplay muted loop></video>
   </Teleport>
 </template>
 
