@@ -84,7 +84,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: settings.source_repo },
       { icon: 'googlechrome', link: settings.chrome_url },
-      { icon: 'mozilla', link: settings.mozilla_url },
+      { icon: 'firefoxbrowser', link: settings.mozilla_url },
       { icon: 'discord', link: 'https://discord.gg/wXy6m2X8wY' },
       { icon: 'kofi', link: 'https://ko-fi.com/cssnr' },
       {
@@ -143,4 +143,7 @@ export default defineConfig({
     externalLinkIcon: true,
     outline: 'deep',
   },
+  // markdown: {
+  //   toc: { level: [2, 3] },
+  // },
 })

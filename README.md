@@ -7,6 +7,8 @@
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github)](https://github.com/cssnr/cache-cleaner/releases/latest)
 [![GitHub Locales](https://img.shields.io/github/directory-file-count/smashedr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/smashedr/cache-cleaner/tree/master/src/locales)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
+[![Deployment Docs](https://img.shields.io/github/deployments/smashedr/cache-cleaner/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/smashedr/cache-cleaner/deployments/docs)
+[![Deployment Preview](https://img.shields.io/github/deployments/smashedr/cache-cleaner/preview?logo=vitepress&logoColor=white&label=preview)](https://github.com/smashedr/cache-cleaner/deployments/preview)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/cssnr/cache-cleaner/actions/workflows/build.yaml)
 [![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/lint.yaml?logo=norton&logoColor=white&label=lint)](https://github.com/cssnr/cache-cleaner/actions/workflows/lint.yaml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/cache-cleaner?logo=listenhub&label=updated)](https://github.com/cssnr/cache-cleaner/pulse)
