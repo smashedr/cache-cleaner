@@ -157,3 +157,9 @@ Shortcuts can be customized through your browser's built-in extension shortcut m
 | Open Options            | <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> |
 
 Note: Shortcuts marked _Not Set_ can be assigned in your browser's extension shortcut settings. In Chrome, visit `chrome://extensions/shortcuts`. In Firefox, visit `about:addons` and click the gear icon.
+
+<div class="info custom-block" style="padding-top: 8px; margin-top: 64px;">
+
+:bulb: If you need help using the extension, [support](support.md) is available...
+
+</div>

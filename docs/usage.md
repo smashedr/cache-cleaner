@@ -6,10 +6,10 @@ There are many ways to use the extension depending on your preference.
 
 ## Toolbar Popup
 
-The popup is accessible from your browsers extension toolbar icon.
+The popup is accessible from your browsers extension **toolbar icon**.
 You may need to pin the icon to the toolbar depending on your browser.
 
-The popup can also be activated via a [keyboard shortcut](#keyboard-shortcuts),
+The popup can also be shown using a [keyboard shortcut](#keyboard-shortcuts),
 the [context menu](#context-menu), or the [side panel](#side-panel).
 
 <VPSwiper
@@ -58,6 +58,7 @@ For more details see the [options page](options.md#keyboard-shortcuts).
 
 While you can't view or clear the site cache directly,
 you can toggle the [popup](#toolbar-popup) to manage site cache.
+The side panel can be toggled a [keyboard shortcut](#keyboard-shortcuts), or the [context menu](#context-menu).
 
 Otherwise, this includes all other features in the [popup](#toolbar-popup).
 
@@ -66,5 +67,12 @@ Otherwise, this includes all other features in the [popup](#toolbar-popup).
 ## Extension Panel
 
 This is a pop-out panel in its own window that lets you manage browser cache only.
+The extension panel can be toggled a [keyboard shortcut](#keyboard-shortcuts), or the [context menu](#context-menu).
 
 ![Extension Panel](https://raw.githubusercontent.com/smashedr/repo-images/master/cache-cleaner/docs/usage/panel.jpg)
+
+<div class="info custom-block" style="padding-top: 8px; margin-top: 64px;">
+
+:bulb: If you need help using the extension, [support](support.md) is available...
+
+</div>
