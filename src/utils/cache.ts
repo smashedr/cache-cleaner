@@ -19,8 +19,8 @@ export async function clearCache(type: ClearCacheType) {
   } catch (e) {
     console.error(e)
     if (options.showErrorNotifications) {
-      const message = e instanceof Error ? e.message : i18n.t('ui.text.unknown') // TODO: ADD Translation
-      await sendNotifications(i18n.t('ui.cache.error'), message) // TODO: ADD Translation
+      const message = e instanceof Error ? e.message : i18n.t('ui.text.unknown')
+      await sendNotifications(i18n.t('ui.cache.error'), message)
     }
   }
 }
