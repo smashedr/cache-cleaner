@@ -1,29 +1,60 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { ref, watch } from 'vue'
-import { useOptions } from '@/composables/useOptions.ts'
-import { saveKeyValue } from '@/utils/options.ts'
+import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
+import { type Options, getOptions, saveKeyValue } from '@/utils/options.ts'
 import HorizontalRule from '@/components/HorizontalRule.vue'
 
-const options = useOptions()
-
 const bgRef = ref<'bgNone' | 'bgPicture' | 'bgVideo'>('bgNone')
-
 const pictureURL = ref('')
 const videoURL = ref('')
 
-watch(
-  options,
-  (opts) => {
-    // console.log('%cBackgroundForm.vue watch - options:', 'color: GreenYellow', opts)
-    bgRef.value = opts.radioBackground
-    pictureURL.value = opts.pictureURL
-    videoURL.value = opts.videoURL
-  },
-  { deep: true },
-)
+const video = useTemplateRef('videoEl')
 
-// NOTE: This was ported from VanillaJS and may need refactoring
+function setBackground(options: Options) {
+  console.log('setBackground:', options.radioBackground)
+  if (!video.value) return console.warn('no video element')
+
+  bgRef.value = options.radioBackground
+  pictureURL.value = options.pictureURL
+  videoURL.value = options.videoURL
+
+  // NOTE: Copied from VanillaJS. Refactor this method...
+  if (options.radioBackground === 'bgPicture') {
+    const url = options.pictureURL || 'https://picsum.photos/1920/1080'
+    document.body.style.background = `url('${url}') no-repeat center fixed`
+    document.body.style.backgroundSize = 'cover'
+    video.value.classList.add('d-none')
+  } else if (options.radioBackground === 'bgVideo') {
+    video.value.src = options.videoURL
+    video.value.classList.remove('d-none')
+    document.body.style.cssText = ''
+  } else {
+    document.body.style.cssText = ''
+    video.value.classList.add('d-none')
+  }
+}
+
+async function onChanged(changes: Record<string, any>) {
+  // console.log('BackgroundForm.vue - onChanged:', changes)
+  const items = changes.options // NOTE: Lazy Typing...
+  // console.log('items:', items)
+  if (!items?.oldValue || !items?.newValue) return
+  if (
+    items.oldValue.radioBackground !== items.newValue.radioBackground ||
+    items.oldValue.pictureURL !== items.newValue.pictureURL ||
+    items.oldValue.videoURL !== items.newValue.videoURL
+  ) {
+    // console.log('%c Background Option Change Detected.', 'color: LightSkyBlue')
+    setBackground(items.newValue)
+  }
+}
+
+if (!chrome.storage.sync.onChanged.hasListener(onChanged)) {
+  chrome.storage.sync.onChanged.addListener(onChanged)
+}
+
+onMounted(() => getOptions().then(setBackground).catch(console.warn))
+onUnmounted(() => chrome.storage.sync.onChanged.removeListener(onChanged))
 </script>
 
 <template>
@@ -122,4 +153,19 @@ watch(
       </div>
     </div>
   </div>
+  <Teleport to="body">
+    <video ref="videoEl" class="d-none" playsinline autoplay muted loop></video>
+  </Teleport>
 </template>
+
+<style scoped>
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+</style>

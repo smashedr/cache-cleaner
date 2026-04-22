@@ -1,11 +1,7 @@
 import { getAppConfig } from '#imports'
 import { type Options } from '@/utils/options.ts'
 
-export function processUpdate(
-  options: Options,
-  version: string,
-  previous: string | undefined,
-) {
+export function processUpdate(options: Options, version: string, previous?: string) {
   console.log('processUpdate:', options)
   console.log('version:', version)
   console.log('previous:', previous)
@@ -38,7 +34,7 @@ function upgrade100(options: Options) {
       .then(() => console.log('%cUpgrade Successful', 'color: Lime'))
       .catch(console.warn)
   } else {
-    console.log('%cNo Changes Detected', 'color: Magenta')
+    console.log('%cNo Changes Detected', 'color: SpringGreen')
   }
 }
 

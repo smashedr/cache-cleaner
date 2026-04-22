@@ -3,9 +3,9 @@ import { isFirefox } from '@/utils/system.ts'
 import { defineBackground } from 'wxt/utils/define-background'
 import { openExtPanel, openPopup, openSidePanel } from '@/utils/extension.ts'
 import { type Options, defaultOptions, getOptions } from '@/utils/options.ts'
+import { clearCache } from '@/utils/cache.ts'
 import { updateContextMenus } from './menus.ts'
 import { processUpdate } from './upgrade.ts'
-import { clearCache } from '@/utils/cache.ts'
 
 export default defineBackground(() => {
   console.log(`Loaded: %c${chrome.runtime.id}`, 'Color: Cyan')

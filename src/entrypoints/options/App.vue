@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
 import { useTitle } from '@/composables/useTitle.ts'
-import { useBackground } from '@/composables/useBackground.ts'
 import BackToTop from '@/components/BackToTop.vue'
 import ToastAlerts from '@/components/ToastAlerts.vue'
 import OptionsForm from '@/components/OptionsForm.vue'
@@ -14,8 +13,6 @@ import PageHeader from '@/components/PageHeader.vue'
 // console.debug('%c options/App.vue', 'color: SandyBrown')
 
 useTitle(i18n.t('options.title'))
-
-useBackground()
 </script>
 
 <template>
