@@ -9,6 +9,7 @@ import PageFooter from '@/components/PageFooter.vue'
 import CopySupport from '@/components/CopySupport.vue'
 import BackgroundForm from '@/components/BackgroundForm.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import UseBackground from '@/components/UseBackground.vue'
 
 // console.debug('%c options/App.vue', 'color: SandyBrown')
 
@@ -43,6 +44,7 @@ useTitle(i18n.t('options.title'))
 
   <ToastAlerts />
   <BackToTop />
+  <UseBackground />
 </template>
 
 <style scoped>
