@@ -30,7 +30,7 @@
     "@fortawesome/fontawesome-free": "^7.2.0",
     "bootstrap": "^5.3.8",
     "bootswatch": "^5.3.8",
-    "vue": "^3.5.32"
+    "vue": "^3.5.33"
   },
   "devDependencies": {
     "@catppuccin/vitepress": "github:catppuccin/vitepress#c8a6edc2a050899552f86e01b1301a547c84820f",
