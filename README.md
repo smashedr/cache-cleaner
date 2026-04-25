@@ -27,7 +27,7 @@
 
 # Cache Cleaner
 
-<a title="Cache Cleaner" href="https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme" target="_blank">
+<a title="Cache Cleaner" href="https://smashedr.github.io/cache-cleaner/" target="_blank">
 <img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/cache-cleaner/refs/heads/master/src/images/logo128.png"></a>
 
 - [Install](#install)
@@ -51,13 +51,12 @@ This is almost complete and ready for testing.
 - [Google Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
 - [Mozilla Firefox Add-ons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-[![Chrome](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chrome_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Firefox](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/firefox_48.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![Edge](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/edge_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Brave](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Opera](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Chromium](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Yandex](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/yandex_48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/firefox/firefox_48x48.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
 
 All **Chromium** Based Browsers can install the extension from
 the [Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).

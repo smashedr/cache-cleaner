@@ -3,7 +3,7 @@
 - [Application](#application)
   - [Developing](#developing)
   - [Building](#building)
-  - [WXT Framework](#wxt-framework)
+  - [WXT](#wxt)
 - [Documentation](#documentation)
 
 # Application
@@ -97,7 +97,7 @@ To build and create an archive in the `.output` directory.
 npm run zip:ff
 ```
 
-## WXT Framework
+## WXT
 
 This project uses the WXT framework.
 

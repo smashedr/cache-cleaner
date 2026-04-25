@@ -7,6 +7,8 @@ TODO list before commit.
 - Complete ALL `TODO: UPDATE` comments
 - Update logo [src/assets/icon.svg](src/assets/icon.svg)
 - Update [README.md](README.md)
+- Cleanup [.github/assets](.github/assets)
+- Update [.github/workflows/release.yaml](.github/workflows/release.yaml)
 
 ## Docs
 
