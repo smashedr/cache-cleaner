@@ -44,7 +44,7 @@ This is almost complete and ready for testing.
 
 [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
-> TODO: UPDATE
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
 ## Install
 
@@ -68,6 +68,8 @@ Mobile browser support available for
 [Kiwi](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
 
 [![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/auto-auth)
+
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
 ## Features
 
@@ -94,6 +96,8 @@ Mobile browser support available for
 > **Don't see your issue here?**
 > Open a [New Issues](https://github.com/cssnr/cache-cleaner/issues).
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+
 ## Support
 
 Logs can be found inspecting the page (Ctrl+Shift+I), clicking on the Console, and;
@@ -113,7 +117,7 @@ If you run into any issues or need help getting started, please do one of the fo
 
 ## Contributing
 
-See the [CONTRIBUTING.md](#contributing-ov-file) for more details.
+For instructions on building the extension or documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
 
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.

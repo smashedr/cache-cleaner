@@ -1,12 +1,11 @@
-# Contributing
+- [Application](#application)
+  - [Building](#building)
+  - [WXT Framework](#wxt-framework)
+    - [Browser Opening](#browser-opening)
+    - [Loading Temporary/Unpacked](#loading-temporaryunpacked)
+- [Documentation](#documentation)
 
-- [Development](#development)
-- [Building](#building)
-- [WXT Framework](#wxt-framework)
-  - [Browser Opening](#browser-opening)
-  - [Loading Temporary/Unpacked](#loading-temporaryunpacked)
-
-## Development
+# Application
 
 Install dependencies:
 
@@ -15,7 +14,7 @@ npm i
 ```
 
 Note: WXT launches a browser by default when you run `dev`.
-See [Browser Opening](#browser-opening) modify the browser or disable this.
+See [Browser Opening](#browser-opening) modify the browser or disable this behavior.
 
 ### Chrome
 
@@ -23,7 +22,7 @@ See [Browser Opening](#browser-opening) modify the browser or disable this.
 npm run dev
 ```
 
-Open Chrome and navigate to `chrome://extensions/`, enable "Developer mode",
+**Manually,** open Chrome and navigate to `chrome://extensions/`, enable "Developer mode",
 and load the unpacked extension from the `.output` directory.
 
 ### Firefox
@@ -32,7 +31,7 @@ and load the unpacked extension from the `.output` directory.
 npm run dev:ff
 ```
 
-Open Firefox and navigate to `about:debugging#/runtime/this-firefox`, then click "Load Temporary Add-on..."
+**Manually,** open Firefox and navigate to `about:debugging#/runtime/this-firefox`, then click "Load Temporary Add-on..."
 and load the unpacked extension from the `.output` directory.
 
 ### Android
@@ -127,3 +126,19 @@ Additional notes on loading temporary/unpacked extensions.
 - [Mozilla Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 - [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions/getting-started/extension-sideloading#locally-installing-and-running-an-extension)
+
+# Documentation
+
+The docs are built using VitePress and deployed to GitHub Pages.
+
+To get started, clone the repository and run `npm i` then `npm run dev`.
+
+```shell
+npm i
+npm run docs:dev
+```
+
+The site should now be available at: <http://localhost:5173/>
+
+- [VitePress CLI Reference](https://vitepress.dev/reference/cli)
+- [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)
