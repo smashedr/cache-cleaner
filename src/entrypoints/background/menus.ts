@@ -57,10 +57,12 @@ function addContextMenuItem(
 ) {
   const ctxKey = key as keyof Options['ctx']
   // console.debug('%c addContextMenuItem:', 'color: SpringGreen', ctxKey, '- pk:', pk)
+  // console.debug(`%c ${pk}/${ctxKey}:`, 'color: SpringGreen', value)
   if (!options.contextMenu || !options.ctx[ctxKey]) {
     if (!options.contextAction && pk === 'cache') return
     value = ['action']
   }
+  // console.debug(`%c ${pk}/${ctxKey}:`, 'color: LightSalmon', value)
   contexts.push({
     id: pk ? `${pk}-${key}` : key,
     contexts: value as chrome.contextMenus.CreateProperties['contexts'],
