@@ -2,10 +2,9 @@
 
 - [Development](#development)
 - [Building](#building)
-- [WXT](#wxt)
-
-> [!WARNING]  
-> This guide is not complete and just the bare minimum.
+- [WXT Framework](#wxt-framework)
+  - [Browser Opening](#browser-opening)
+  - [Loading Temporary/Unpacked](#loading-temporaryunpacked)
 
 ## Development
 
@@ -14,6 +13,9 @@ Install dependencies:
 ```shell
 npm i
 ```
+
+Note: WXT launches a browser by default when you run `dev`.
+See [Browser Opening](#browser-opening) modify the browser or disable this.
 
 ### Chrome
 
@@ -93,22 +95,35 @@ To build and create an archive in the `.output` directory.
 npm run zip:ff
 ```
 
-## WXT
+## WXT Framework
 
 This project uses the WXT framework.
 
 - <https://wxt.dev/>
 
+### Browser Opening
+
 To customize the config for development add a `web-ext.config.ts` to the project root.
 
-```ts
+The binaries allow you to pick which browser opens. To disable auto-opening set `disabled: true`.
+
+```typescript
 // web-ext.config.ts
 import { defineWebExtConfig } from 'wxt'
 
 export default defineWebExtConfig({
   binaries: {
     firefox: 'C:/Program Files/Firefox Developer Edition/firefox.exe',
+    chrome: 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe',
   },
-  disabled: false,
+  // disabled: true,
 })
 ```
+
+### Loading Temporary/Unpacked
+
+Additional notes on loading temporary/unpacked extensions.
+
+- [Mozilla Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+- [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
+- [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions/getting-started/extension-sideloading#locally-installing-and-running-an-extension)
