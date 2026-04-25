@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { i18n } from '#imports'
-import { onMounted, provide } from 'vue'
+import { onMounted, onUnmounted, provide } from 'vue'
 import { debounce } from '@/utils'
 import { useTitle } from '@/composables/useTitle.ts'
 import ToastAlerts from '@/components/ToastAlerts.vue'
@@ -13,24 +13,27 @@ import FlushView from '@/components/FlushView.vue'
 // console.debug('%c popout/App.vue', 'color: SandyBrown')
 
 provide('siteInfo', undefined)
+provide('updateTab', undefined)
 
 useTitle(i18n.t('popout.title'))
 
 async function windowResize() {
   const size = { panelWidth: window.outerWidth, panelHeight: window.outerHeight }
   // console.debug('windowResize:', size)
-  await chrome.storage.local.set(size).catch((e) => console.warn(e))
+  await chrome.storage.local.set(size).catch(console.warn)
 }
 
-onMounted(() => {
-  window.addEventListener('resize', debounce(windowResize))
+const debounceWindowResize = debounce(windowResize, 600)
 
+onMounted(() => {
+  window.addEventListener('resize', debounceWindowResize)
   chrome.windows.getCurrent().then((window) => {
     chrome.storage.local.set({ lastPanelID: window.id }).then(() => {
-      console.debug(`%cSet lastPanelID: ${window.id}`, 'color: PowderBlue')
+      console.debug('%cSet lastPanelID:', 'color: SpringGreen', window.id)
     })
   })
 })
+onUnmounted(() => window.removeEventListener('resize', debounceWindowResize))
 </script>
 
 <template>

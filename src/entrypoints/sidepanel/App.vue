@@ -11,6 +11,7 @@ import { openPopup } from '@/utils/extension.ts'
 // console.debug('%c sidepanel/App.vue', 'color: SandyBrown')
 
 provide('siteInfo', undefined)
+provide('updateTab', undefined)
 </script>
 
 <template>
