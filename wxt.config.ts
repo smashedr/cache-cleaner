@@ -88,11 +88,9 @@ export default defineConfig({
     }
   },
 
-  // https://wxt.dev/guide/essentials/config/browser-startup.html
-  // NOTE: Override with web-ext.config.ts
-  // webExt: {
-  //   disabled: true,
-  // },
+  // // https://wxt.dev/guide/essentials/config/browser-startup.html
+  // // NOTE: Configured in web-ext.config.ts
+  // webExt: { disabled: true },
 
   // https://wxt.dev/guide/essentials/config/hooks
   hooks: {
