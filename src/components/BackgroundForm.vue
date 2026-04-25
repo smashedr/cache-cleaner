@@ -14,10 +14,10 @@ const videoURL = ref('')
 watch(
   options,
   (opts) => {
-    console.log('%cBackgroundForm.vue watch - options:', 'color: GreenYellow', opts)
-    bgRef.value = options.value.radioBackground
-    pictureURL.value = options.value.pictureURL
-    videoURL.value = options.value.videoURL
+    // console.log('%cBackgroundForm.vue watch - options:', 'color: GreenYellow', opts)
+    bgRef.value = opts.radioBackground
+    pictureURL.value = opts.pictureURL
+    videoURL.value = opts.videoURL
   },
   { deep: true },
 )
