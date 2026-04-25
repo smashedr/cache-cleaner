@@ -1,16 +1,18 @@
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white&label=users)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Users](https://img.shields.io/amo/users/cache-cleaner-addon?logo=mozilla&label=users)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Users](https://img.shields.io/amo/users/cache-cleaner-addon?logo=firefox&logoColor=white&label=users)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/cache-cleaner-addon?logo=mozilla&logoColor=white)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/cache-cleaner-addon?logo=firefox&logoColor=white)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/nbkhplnnajkikghffmincdbipjalpobi?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefoxbrowser)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github)](https://github.com/cssnr/cache-cleaner/releases/latest)
 [![GitHub Locales](https://img.shields.io/github/directory-file-count/smashedr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/smashedr/cache-cleaner/tree/master/src/locales)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
+[![Deployment Chrome](https://img.shields.io/github/deployments/cssnr/cache-cleaner/chrome?logo=googlechrome&logoColor=white&label=chrome)](https://github.com/cssnr/cache-cleaner/deployments/chrome)
+[![Deployment Mozilla](https://img.shields.io/github/deployments/cssnr/cache-cleaner/mozilla?logo=firefox&logoColor=white&label=mozilla)](https://github.com/cssnr/cache-cleaner/deployments/mozilla)
 [![Deployment Docs](https://img.shields.io/github/deployments/smashedr/cache-cleaner/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/smashedr/cache-cleaner/deployments/docs)
-[![Deployment Preview](https://img.shields.io/github/deployments/smashedr/cache-cleaner/preview?logo=vitepress&logoColor=white&label=preview)](https://github.com/smashedr/cache-cleaner/deployments/preview)
+[![Deployment Preview](https://img.shields.io/github/deployments/smashedr/cache-cleaner/preview?logo=docker&logoColor=white&label=preview)](https://github.com/smashedr/cache-cleaner/deployments/preview)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/cssnr/cache-cleaner/actions/workflows/build.yaml)
 [![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/lint.yaml?logo=norton&logoColor=white&label=lint)](https://github.com/cssnr/cache-cleaner/actions/workflows/lint.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/cache-cleaner?logo=listenhub&label=updated)](https://github.com/cssnr/cache-cleaner/pulse)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/cache-cleaner?logo=buffer&label=repo%20size)](https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/cache-cleaner?logo=devbox)](https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme)
@@ -25,11 +27,14 @@
 
 # Cache Cleaner
 
-<a title="Cache Cleaner" href="https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme" target="_blank">
+<a title="Cache Cleaner" href="https://smashedr.github.io/cache-cleaner/" target="_blank">
 <img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/cache-cleaner/refs/heads/master/src/images/logo128.png"></a>
 
 - [Install](#install)
-- [Development](#development)
+- [Features](#features)
+  - [Upcoming features](#upcoming-features)
+  - [Known issues](#known-issues)
+- [Support](#support)
 - [Contributing](#contributing)
 
 > [!CAUTION]  
@@ -39,24 +44,70 @@ This is almost complete and ready for testing.
 
 [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+
 ## Install
 
-First, Download a [GitHub release](https://github.com/smashedr/cache-cleaner/releases) for your browser.
+- [Google Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+- [Mozilla Firefox Add-ons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-Then, Install it locally by completing these additional steps.
+[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/firefox/firefox_48x48.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
 
-- [Mozilla Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
-- [Google Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
-- [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions/getting-started/extension-sideloading#locally-installing-and-running-an-extension)
+All **Chromium** Based Browsers can install the extension from
+the [Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
 
-## Development
+Mobile browser support available for
+[Firefox](https://addons.mozilla.org/addon/cache-cleaner-addon),
+[Yandex](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi) and
+[Kiwi](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
 
-[![Framework](https://img.shields.io/badge/framework-wxt-darkgreen?style=for-the-badge&logo=wxt)](https://github.com/wxt-dev/wxt)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/cache-cleaner?style=for-the-badge&logo=devbox)](https://github.com/smashedr/cache-cleaner/tree/master/src)
+[![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/auto-auth)
 
-To get started, see the [CONTRIBUTING.md](#contributing-ov-file).
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
-Additionally, you can request features, report issues, start discussions and chat with us on Discord.
+## Features
+
+- Clear cache and reload site with a single key or button press
+- Choose which cache items to clear or clear all data
+- Clear cache for a specific site or the whole browser
+- Option to clear **Cache Storage** in Firefox for individual sites
+- Works in both Firefox and Chromium based browsers
+
+### Upcoming Features
+
+- Custom time frames to clear supported caches
+- Chrome only, option to exclude specified origins
+
+> [!TIP]  
+> **Don't see your feature here?**
+> Submit a [Feature Request](https://github.com/cssnr/cache-cleaner/issues/new?template=1-feature.yaml).
+
+### Known Issues
+
+- No major issues detected at the moment...
+
+> [!TIP]  
+> **Don't see your issue here?**
+> Open a [New Issues](https://github.com/cssnr/cache-cleaner/issues).
+
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+
+## Support
+
+Logs can be found inspecting the page (Ctrl+Shift+I), clicking on the Console, and;
+Firefox: toggling Debug logs, Chrome: toggling Verbose from levels dropdown.
+
+If you run into any issues or need help getting started, please do one of the following:
+
+- Report an Issue: <https://github.com/cssnr/cache-cleaner/issues>
+- Q&A Discussion: <https://github.com/cssnr/cache-cleaner/discussions/categories/q-a>
+- Request a Feature: <https://github.com/cssnr/cache-cleaner/issues/new?template=1-feature.yaml>
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
 
 [![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/cssnr/cache-cleaner/issues/new?template=1-feature.yaml)
 [![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/cache-cleaner/issues)
@@ -65,12 +116,35 @@ Additionally, you can request features, report issues, start discussions and cha
 
 ## Contributing
 
-See the [CONTRIBUTING.md](#contributing-ov-file) for more details.
+For instructions on building the extension or documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
 
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
+
+Additionally, you can give a 5-star rating
+on [Google](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+or [Mozilla](https://addons.mozilla.org/addon/cache-cleaner-addon) and star this project on GitHub.
+
+Other Web Extensions I have created and published:
+
+- [Link Extractor](https://github.com/cssnr/link-extractor?tab=readme-ov-file#readme)
+- [Open Links in New Tab](https://github.com/cssnr/open-links-in-new-tab?tab=readme-ov-file#readme)
+- [Auto Auth](https://github.com/cssnr/auto-auth?tab=readme-ov-file#readme)
+- [Cache Cleaner](https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme)
+- [HLS Video Downloader](https://github.com/cssnr/hls-video-downloader?tab=readme-ov-file#readme)
+- [Zipline Extension](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+- [Obtainium Extension](https://github.com/cssnr/obtainium-extension?tab=readme-ov-file#readme)
+- [SMWC Web Extension](https://github.com/cssnr/smwc-web-extension?tab=readme-ov-file#readme)
+- [PlayDrift Extension](https://github.com/cssnr/playdrift-extension?tab=readme-ov-file#readme)
+- [ASN Plus](https://github.com/cssnr/asn-plus?tab=readme-ov-file#readme)
+- [Aviation Tools](https://github.com/cssnr/aviation-tools?tab=readme-ov-file#readme)
+- [Text Formatter](https://github.com/cssnr/text-formatter?tab=readme-ov-file#readme)
+- [GeoImage](https://github.com/cssnr/geo-image?tab=readme-ov-file#readme)
+- [New Tab](https://github.com/cssnr/new-tab?tab=readme-ov-file#readme)
+
+For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
 
 <a href="https://github.com/cssnr/cache-cleaner/stargazers">
  <picture>

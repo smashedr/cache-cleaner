@@ -22,7 +22,7 @@ async function onInstalled(details: chrome.runtime.InstalledDetails) {
 
   const options = await setDefaultOptions(defaultOptions)
   console.log('options:', options)
-  if (options.contextMenu) updateContextMenus(options).catch(console.warn)
+  updateContextMenus(options).catch(console.warn)
   setUninstall().catch(console.warn)
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
@@ -44,26 +44,28 @@ async function onStartup() {
     console.log('Firefox Startup Workarounds')
     const options = await getOptions()
     console.log('options:', options)
-    if (options.contextMenu) updateContextMenus(options).catch(console.warn)
+    updateContextMenus(options).catch(console.warn)
     setUninstall().catch(console.warn)
   }
 }
 
 function onChanged(changes: Record<string, chrome.storage.StorageChange>) {
   // console.log('%c background/index.ts - onChanged:', 'color: Cyan', changes)
-  const oldValue = changes.options?.oldValue as Options | undefined
-  const newValue = changes.options?.newValue as Options | undefined
-  if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
+  if (changes?.options) {
+    const oldValue = changes.options?.oldValue as Options | undefined
+    const newValue = changes.options?.newValue as Options | undefined
+    if (!oldValue || !newValue) return console.log('missing oldValue or newValue')
 
-  if (
-    oldValue?.contextMenu !== newValue.contextMenu ||
-    oldValue?.contextAction !== newValue.contextAction
-  ) {
-    updateContextMenus(newValue).catch(console.warn)
-  }
+    if (
+      oldValue?.contextMenu !== newValue.contextMenu ||
+      oldValue?.contextAction !== newValue.contextAction
+    ) {
+      updateContextMenus(newValue).catch(console.warn)
+    }
 
-  if (JSON.stringify(oldValue.ctx) !== JSON.stringify(newValue.ctx)) {
-    updateContextMenus(newValue).catch(console.warn)
+    if (JSON.stringify(oldValue.ctx) !== JSON.stringify(newValue.ctx)) {
+      updateContextMenus(newValue).catch(console.warn)
+    }
   }
 }
 
