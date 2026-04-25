@@ -1,8 +1,9 @@
+# Contributing
+
 - [Application](#application)
+  - [Developing](#developing)
   - [Building](#building)
   - [WXT Framework](#wxt-framework)
-    - [Browser Opening](#browser-opening)
-    - [Loading Temporary/Unpacked](#loading-temporaryunpacked)
 - [Documentation](#documentation)
 
 # Application
@@ -12,6 +13,8 @@ Install dependencies:
 ```shell
 npm i
 ```
+
+## Developing
 
 Note: WXT launches a browser by default when you run `dev`.
 See [Browser Opening](#browser-opening) modify the browser or disable this behavior.
@@ -119,7 +122,7 @@ export default defineWebExtConfig({
 })
 ```
 
-### Loading Temporary/Unpacked
+### Loading Unpacked
 
 Additional notes on loading temporary/unpacked extensions.
 
