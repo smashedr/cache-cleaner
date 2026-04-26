@@ -82,15 +82,14 @@ jobs:
           cat chrome-mv3/manifest.json
           echo -e "\n::endgroup::"
 
-      ## TODO: UPDATE
-      #- name: "Web Store Publish"
-      #  uses: cssnr/webstore-publish-action@master
-      #  with:
-      #    extension_id: ${{ env.CHROME_ID }}
-      #    publisher_id: ${{env.PUBLISHER_ID}}
-      #    json_data: ${{ secrets.WEBSTORE_JSON }}
-      #    zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
-      #    submit: false
+      - name: "Web Store Publish"
+        uses: cssnr/webstore-publish-action@master
+        with:
+          extension_id: ${{ env.CHROME_ID }}
+          publisher_id: ${{env.PUBLISHER_ID}}
+          json_data: ${{ secrets.WEBSTORE_JSON }}
+          zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
+          submit: false
 
       # TODO: This only submits for review! Need automation to upload signed release...
 
@@ -142,16 +141,15 @@ jobs:
           cat amo-metadata.json
           echo -e "\n::endgroup::"
 
-      ## TODO: UPDATE
-      #- name: "Sign Mozilla Addon"
-      #  run: |
-      #    npx web-ext sign \
-      #      --api-key="${{ secrets.FIREFOX_API_KEY }}" \
-      #      --api-secret="${{ secrets.FIREFOX_API_SECRET }}" \
-      #      --channel=listed --approval-timeout=0 \
-      #      --source-dir="firefox-mv3" \
-      #      --amo-metadata="amo-metadata.json" \
-      #      --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
+      - name: "Sign Mozilla Addon"
+        run: |
+          npx web-ext sign \
+            --api-key="${{ secrets.FIREFOX_API_KEY }}" \
+            --api-secret="${{ secrets.FIREFOX_API_SECRET }}" \
+            --channel=listed --approval-timeout=0 \
+            --source-dir="firefox-mv3" \
+            --amo-metadata="amo-metadata.json" \
+            --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
 
       # TODO: This only submits for review! Need automation to upload signed release...
 

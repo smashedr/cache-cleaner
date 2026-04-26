@@ -5,11 +5,11 @@
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/nbkhplnnajkikghffmincdbipjalpobi?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefoxbrowser)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github)](https://github.com/cssnr/cache-cleaner/releases/latest)
-[![GitHub Locales](https://img.shields.io/github/directory-file-count/smashedr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/smashedr/cache-cleaner/tree/master/src/locales)
+[![GitHub Locales](https://img.shields.io/github/directory-file-count/cssnr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/cssnr/cache-cleaner/tree/master/src/locales)
 [![Deployment Chrome](https://img.shields.io/github/deployments/cssnr/cache-cleaner/chrome?logo=googlechrome&logoColor=white&label=chrome)](https://github.com/cssnr/cache-cleaner/deployments/chrome)
 [![Deployment Mozilla](https://img.shields.io/github/deployments/cssnr/cache-cleaner/mozilla?logo=firefox&logoColor=white&label=mozilla)](https://github.com/cssnr/cache-cleaner/deployments/mozilla)
-[![Deployment Docs](https://img.shields.io/github/deployments/smashedr/cache-cleaner/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/smashedr/cache-cleaner/deployments/docs)
-[![Deployment Preview](https://img.shields.io/github/deployments/smashedr/cache-cleaner/preview?logo=docker&logoColor=white&label=preview)](https://github.com/smashedr/cache-cleaner/deployments/preview)
+[![Deployment Docs](https://img.shields.io/github/deployments/cssnr/cache-cleaner/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/cssnr/cache-cleaner/deployments/docs)
+[![Deployment Preview](https://img.shields.io/github/deployments/cssnr/cache-cleaner/preview?logo=docker&logoColor=white&label=preview)](https://github.com/cssnr/cache-cleaner/deployments/preview)
 [![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/cssnr/cache-cleaner/actions/workflows/build.yaml)
 [![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/cache-cleaner/lint.yaml?logo=norton&logoColor=white&label=lint)](https://github.com/cssnr/cache-cleaner/actions/workflows/lint.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
@@ -27,7 +27,7 @@
 
 # Cache Cleaner
 
-<a title="Cache Cleaner" href="https://smashedr.github.io/cache-cleaner/" target="_blank">
+<a title="Cache Cleaner" href="https://cssnr.github.io/cache-cleaner/" target="_blank">
 <img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/cache-cleaner/refs/heads/master/src/images/logo128.png"></a>
 
 - [Install](#install)
@@ -37,11 +37,6 @@
   - [Known issues](#known-issues)
 - [Support](#support)
 - [Contributing](#contributing)
-
-> [!CAUTION]  
-> Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).
->
-> [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
 Modern Chrome Web Extension and Firefox Browser Addon to easily clean selected cache items specific sites or the whole
 browser with a single key press, from the right-click context menu or via the toolbar icon popup. Cache cleaner is also
@@ -54,13 +49,14 @@ clearing the cache. Now after making a change to a site with a service worker, a
 keybind to clear cache) to clear the cache and refresh the site. Additionally, the browsing data API differs on Firefox
 and Chrome so logic was added to allow the extension to run on both browsers.
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/cache-cleaner/)
+
 More information on the individual APIs
 for [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData)
 and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsingData).
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
-
-> Note: This is the new TypeScript+Vue3 codebase.  
+> [!TIP]  
+> This is the new TypeScript+Vue branch.  
 > For the original JavaScript version, see the [legacy](https://github.com/cssnr/cache-cleaner/tree/legacy) branch.
 
 ## Install
@@ -83,9 +79,9 @@ Mobile browser support available for
 [Yandex](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi) and
 [Kiwi](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi).
 
-[![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/auto-auth)
+[![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/cache-cleaner/)
 
 ## Features
 
@@ -93,6 +89,7 @@ Mobile browser support available for
 - Choose which cache items to clear or clear all data
 - Clear cache for a specific site or the whole browser
 - Option to clear **Cache Storage** in Firefox for individual sites
+- UI includes a Popup, Side Panel, and an Extension Panel
 - Works in both Firefox and Chromium based browsers
 
 ### Languages
@@ -117,7 +114,6 @@ For more information on the translations, see the related file in the [src/local
 - Custom time frames to clear supported caches
 - Chrome only, option to exclude specified origins
 
-> [!TIP]  
 > **Don't see your feature here?**
 > Submit a [Feature Request](https://github.com/cssnr/cache-cleaner/issues/new?template=1-feature.yaml).
 
@@ -125,11 +121,10 @@ For more information on the translations, see the related file in the [src/local
 
 - No major issues detected at the moment...
 
-> [!TIP]  
 > **Don't see your issue here?**
 > Open a [New Issues](https://github.com/cssnr/cache-cleaner/issues).
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/cache-cleaner/)
 
 ## Support
 

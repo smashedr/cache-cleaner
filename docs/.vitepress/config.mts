@@ -7,8 +7,8 @@ const settings = {
     short: 'Cache Cleaner Web Extension and Browser Addon.',
     long: 'Easily clear selected cache items for the current site or whole browser with a single key press, right-click menu, or popup icon.',
   },
-  base: '/cache-cleaner/',
-  image: '/cache-cleaner/images/logo.png',
+  base: '/cache-cleaner/', // set to empty string for no base path
+  og_image: '/cache-cleaner/images/logo.png', // must be full path
   color: '#d9925f',
   source_repo: 'https://github.com/cssnr/cache-cleaner',
   chrome_url: 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi',
@@ -31,10 +31,31 @@ export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'icon', href: `${settings.base}/images/logo.svg`, type: 'image/svg+xml' },
+      {
+        rel: 'icon',
+        sizes: 'any',
+        href: `${settings.base}/images/logo.svg`,
+        type: 'image/svg+xml',
+      },
     ],
-    ['link', { rel: 'icon', href: `${settings.base}/favicon.ico`, type: 'image/x-icon' }],
-    ['link', { rel: 'apple-touch-icon', sizes: '512x512', href: settings.image }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        sizes: '16x16 32x32 64x64 128x128',
+        href: `${settings.base}/favicon.ico`,
+        type: 'image/x-icon',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'apple-touch-icon',
+        sizes: '512x512',
+        href: settings.og_image,
+        type: 'image/png',
+      },
+    ],
 
     ['meta', { name: 'darkreader-lock' }],
 
@@ -45,14 +66,14 @@ export default defineConfig({
     ['meta', { property: 'og:site_name', content: settings.name }],
     ['meta', { property: 'og:title', content: settings.title }],
     ['meta', { property: 'og:description', content: settings.description.short }],
-    ['meta', { property: 'og:image', content: settings.image }],
+    ['meta', { property: 'og:image', content: settings.og_image }],
     ['meta', { property: 'og:image:alt', content: settings.title }],
 
     ['meta', { property: 'twitter:card', content: 'summary' }],
     ['meta', { property: 'twitter:site', content: settings.name }],
     ['meta', { property: 'twitter:title', content: settings.title }],
     ['meta', { property: 'twitter:description', content: settings.description.short }],
-    ['meta', { property: 'twitter:image', content: settings.image }],
+    ['meta', { property: 'twitter:image', content: settings.og_image }],
     ['meta', { property: 'twitter:image:alt', content: settings.title }],
   ],
 
