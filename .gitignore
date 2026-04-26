@@ -14,3 +14,5 @@ stats.html
 stats-*.json
 .wxt
 web-ext.config.ts
+# VitePress
+contributors.json
