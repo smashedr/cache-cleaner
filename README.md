@@ -32,6 +32,7 @@
 
 - [Install](#install)
 - [Features](#features)
+  - [Languages](#languages)
   - [Upcoming features](#upcoming-features)
   - [Known issues](#known-issues)
 - [Support](#support)
@@ -93,6 +94,23 @@ Mobile browser support available for
 - Clear cache for a specific site or the whole browser
 - Option to clear **Cache Storage** in Firefox for individual sites
 - Works in both Firefox and Chromium based browsers
+
+### Languages
+
+The extension is localized in the following languages:
+
+- Chinese (China) `zh_CN` - 中文（简体）
+- English `en` - English
+- French `fr` - Français
+- German `de` - Deutsch
+- Japanese `ja` - 日本語
+- Korean `ko` - 한국어
+- Portuguese (Brazil) `pt_BR` - Português (Brasil)
+- Russian `ru` - Русский
+- Spanish `es_419` - Español
+
+The only way to change the language is to change your browser's language and restart the browser.
+For more information on the translations, see the related file in the [src/locales](src/locales) directory.
 
 ### Upcoming Features
 
