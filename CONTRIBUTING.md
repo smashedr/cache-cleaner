@@ -6,6 +6,8 @@
   - [WXT](#wxt)
 - [Documentation](#documentation)
 
+For workflow instructions, see the main [CSSNR CONTRIBUTING.md](https://github.com/cssnr/.github/blob/master/.github/CONTRIBUTING.md).
+
 # Application
 
 Install dependencies:

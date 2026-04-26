@@ -64,23 +64,23 @@ and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsing
 
 ## Install
 
-- [Google Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+- [Google Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 - [Mozilla Firefox Add-ons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/firefox/firefox_48x48.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 
 All **Chromium** Based Browsers can install the extension from
-the [Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
+the [Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi).
 
 Mobile browser support available for
 [Firefox](https://addons.mozilla.org/addon/cache-cleaner-addon),
-[Yandex](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi) and
-[Kiwi](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
+[Yandex](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi) and
+[Kiwi](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi).
 
 [![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/auto-auth)
 
@@ -140,7 +140,7 @@ and [additional](https://cssnr.com/) open source projects.
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
 Additionally, you can give a 5-star rating
-on [Google](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+on [Google](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 or [Mozilla](https://addons.mozilla.org/addon/cache-cleaner-addon) and star this project on GitHub.
 
 Other Web Extensions I have created and published:
