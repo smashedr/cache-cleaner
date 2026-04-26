@@ -32,6 +32,7 @@
 
 - [Install](#install)
 - [Features](#features)
+  - [Languages](#languages)
   - [Upcoming features](#upcoming-features)
   - [Known issues](#known-issues)
 - [Support](#support)
@@ -39,32 +40,48 @@
 
 > [!CAUTION]  
 > Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).
+>
+> [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
-This is almost complete and ready for testing.
+Modern Chrome Web Extension and Firefox Browser Addon to easily clean selected cache items specific sites or the whole
+browser with a single key press, from the right-click context menu or via the toolbar icon popup. Cache cleaner is also
+available for mobile browsers, see [Install](#install) below.
 
-[![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
+Firefox does not have an API to clear cache storage, the cache created by service workers. Furthermore, it has no
+option to bypass the service worker for network when testing. This extension resolves that issue by using a custom
+function to clear **Cache Storage** when clearing site cache plus has an option automatically reload the page after
+clearing the cache. Now after making a change to a site with a service worker, all you have to do is press `F4` (default
+keybind to clear cache) to clear the cache and refresh the site. Additionally, the browsing data API differs on Firefox
+and Chrome so logic was added to allow the extension to run on both browsers.
+
+More information on the individual APIs
+for [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData)
+and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsingData).
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
+> Note: This is the new TypeScript+Vue3 codebase.  
+> For the original JavaScript version, see the [legacy](https://github.com/cssnr/cache-cleaner/tree/legacy) branch.
+
 ## Install
 
-- [Google Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+- [Google Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 - [Mozilla Firefox Add-ons](https://addons.mozilla.org/addon/cache-cleaner-addon)
 
-[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chrome](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 [![Firefox](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/firefox/firefox_48x48.png)](https://addons.mozilla.org/addon/cache-cleaner-addon)
-[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
-[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+[![Edge](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/edge/edge_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Brave](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/brave/brave_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Opera](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/opera/opera_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
+[![Chromium](https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1/chromium/chromium_48x48.png)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 
 All **Chromium** Based Browsers can install the extension from
-the [Chrome Web Store](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
+the [Chrome Web Store](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi).
 
 Mobile browser support available for
 [Firefox](https://addons.mozilla.org/addon/cache-cleaner-addon),
-[Yandex](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi) and
-[Kiwi](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi).
+[Yandex](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi) and
+[Kiwi](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi).
 
 [![QR Code GitHub](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/cache-cleaner/qr-code-firefox.png)](https://addons.mozilla.org/addon/auto-auth)
 
@@ -77,6 +94,23 @@ Mobile browser support available for
 - Clear cache for a specific site or the whole browser
 - Option to clear **Cache Storage** in Firefox for individual sites
 - Works in both Firefox and Chromium based browsers
+
+### Languages
+
+The extension is localized in the following languages:
+
+- Chinese (China) `zh_CN` - 中文（简体）
+- English `en` - English
+- French `fr` - Français
+- German `de` - Deutsch
+- Japanese `ja` - 日本語
+- Korean `ko` - 한국어
+- Portuguese (Brazil) `pt_BR` - Português (Brasil)
+- Russian `ru` - Русский
+- Spanish `es_419` - Español
+
+The only way to change the language is to change your browser's language and restart the browser.
+For more information on the translations, see the related file in the [src/locales](src/locales) directory.
 
 ### Upcoming Features
 
@@ -124,7 +158,7 @@ and [additional](https://cssnr.com/) open source projects.
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
 Additionally, you can give a 5-star rating
-on [Google](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+on [Google](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
 or [Mozilla](https://addons.mozilla.org/addon/cache-cleaner-addon) and star this project on GitHub.
 
 Other Web Extensions I have created and published:

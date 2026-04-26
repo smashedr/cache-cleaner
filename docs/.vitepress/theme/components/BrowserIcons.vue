@@ -2,28 +2,24 @@
 import 'animate.css'
 
 const props = defineProps({
-  animation: { type: String, default: null },
-  centered: { type: Boolean, default: false },
-  margin: { type: String, default: null },
+  animation: String,
   size: { type: String, default: '48' }, // 16,24,32,48,64,128,256,512
+  chrome: { type: String, required: true },
+  firefox: { type: String, required: true },
 })
-
-// Variables
-const chrome_url = 'https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi'
-const firefox_url = 'https://addons.mozilla.org/addon/cache-cleaner-addon'
 
 // Browsers
 const baseUrl = 'https://cdnjs.cloudflare.com/ajax/libs/browser-logos/75.0.1'
 const browsers = [
-  { name: 'Chrome', url: chrome_url, img: 'chrome/chrome' },
-  { name: 'Firefox', url: firefox_url, img: 'firefox/firefox' },
-  { name: 'Edge', url: chrome_url, img: 'edge/edge' },
-  { name: 'Opera', url: chrome_url, img: 'opera/opera' },
-  { name: 'Brave', url: chrome_url, img: 'brave/brave' },
-  // { name: 'Chromium', url: chrome_url, img: 'chromium/chromium' },
+  { name: 'Chrome', url: props.chrome, img: 'chrome/chrome' },
+  { name: 'Firefox', url: props.firefox, img: 'firefox/firefox' },
+  { name: 'Edge', url: props.chrome, img: 'edge/edge' },
+  { name: 'Opera', url: props.chrome, img: 'opera/opera' },
+  { name: 'Brave', url: props.chrome, img: 'brave/brave' },
+  // { name: 'Chromium', url: props.chrome, img: 'chromium/chromium' },
 ]
 
-const imageClass = props.animation ? `animate__animated ${props.animation}` : null
+const imageClass = props.animation ? `animate__animated ${props.animation}` : undefined
 </script>
 
 <template>

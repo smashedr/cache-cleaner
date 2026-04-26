@@ -14,6 +14,7 @@ TODO list before commit.
 
 After README.md:
 
+- Delete [robots.txt](docs/public/robots.txt)
 - Update [install.md](docs/install.md)
 - Update [support.md](docs/support.md)
 - Verify QR codes in [install.md](docs/install.md)

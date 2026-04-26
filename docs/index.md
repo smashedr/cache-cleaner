@@ -36,8 +36,10 @@ features:
 ---
 
 <BrowserIcons
-animation="animate__rotateIn animate__slow"
 style="text-align: center; margin: 40px 0 0 0;"
+chrome="https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi"
+firefox="https://addons.mozilla.org/addon/cache-cleaner-addon"
+animation="animate__rotateIn animate__slow"
 size="64"
 />
 
