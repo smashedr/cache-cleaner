@@ -9,11 +9,11 @@ prev:
 <div class="badges">
 
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white&label=users)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Users](https://img.shields.io/amo/users/cache-cleaner-addon?logo=mozilla&label=users)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Users](https://img.shields.io/amo/users/cache-cleaner-addon?logo=firefox&logoColor=white&label=users)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/nbkhplnnajkikghffmincdbipjalpobi?logo=google&logoColor=white)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/cache-cleaner-addon?logo=mozilla&logoColor=white)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/cache-cleaner-addon?logo=firefox&logoColor=white)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/nbkhplnnajkikghffmincdbipjalpobi?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/nbkhplnnajkikghffmincdbipjalpobi)
-[![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/cache-cleaner-addon)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/cache-cleaner-addon?label=firefox&logo=firefoxbrowser)](https://addons.mozilla.org/addon/cache-cleaner-addon)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/cache-cleaner?logo=github)](https://github.com/cssnr/cache-cleaner/releases/latest)
 [![GitHub Locales](https://img.shields.io/github/directory-file-count/smashedr/cache-cleaner/src/locales?type=file&extension=yaml&logo=libretranslate&label=locales)](https://github.com/smashedr/cache-cleaner/tree/master/src/locales)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_cache-cleaner&metric=alert_status&label=quality)](https://sonarcloud.io/summary/overall?id=cssnr_cache-cleaner)
@@ -24,6 +24,7 @@ prev:
 [![GitHub Issues](https://img.shields.io/github/issues/cssnr/cache-cleaner?logo=codeforces&logoColor=white)](https://github.com/cssnr/cache-cleaner/issues)
 [![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/cache-cleaner?logo=theconversation)](https://github.com/cssnr/cache-cleaner/discussions)
 [![GitHub Forks](https://img.shields.io/github/forks/cssnr/cache-cleaner?style=flat&logo=forgejo&logoColor=white)](https://github.com/cssnr/cache-cleaner/forks)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/cache-cleaner?style=flat&logo=gleam&logoColor=white)](https://github.com/cssnr/cache-cleaner/stargazers)
 
 </div>
 
