@@ -73,14 +73,15 @@ Missing a feature? Let us know [what features](https://github.com/cssnr/cache-cl
 
 The extension is localized in the following languages:
 
-- German - Deutsch
-- French - Français
-- Spanish - Español
-- Portuguese (Brazil) - Português (Brasil)
-- Russian - Русский
-- Korean - 한국어
-- Japanese - 日本語
-- Chinese (China) - 中文（简体）
+- Chinese (China) `zh_CN` - 中文（简体）
+- English `en` - English
+- French `fr` - Français
+- German `de` - Deutsch
+- Japanese `ja` - 日本語
+- Korean `ko` - 한국어
+- Portuguese (Brazil) `pt_BR` - Português (Brasil)
+- Russian `ru` - Русский
+- Spanish `es_419` - Español
 
 ::: info :bulb: Changing Languages
 The only way to change your language in a web extension, is to change your browser's language, then restart the browser.
