@@ -57,10 +57,10 @@ More information on the individual APIs
 for [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData)
 and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsingData).
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+
 > Note: This is the new TypeScript+Vue3 codebase.  
 > For the original JavaScript version, see the [legacy](https://github.com/cssnr/cache-cleaner/tree/legacy) branch.
-
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
 ## Install
 
