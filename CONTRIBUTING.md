@@ -10,10 +10,10 @@ For workflow instructions, see the main [CSSNR CONTRIBUTING.md](https://github.c
 
 # Application
 
-Install dependencies:
+To get started clone the project and install the dependencies.
 
 ```shell
-npm i
+npm install
 ```
 
 ## Developing
@@ -136,7 +136,7 @@ Additional notes on loading temporary/unpacked extensions.
 
 The docs are built using VitePress and deployed to GitHub Pages.
 
-To get started, clone the repository and run `npm i` then `npm run dev`.
+To get started, clone the repository and run.
 
 ```shell
 npm i
@@ -147,3 +147,9 @@ The site should now be available at: <http://localhost:5173/>
 
 - [VitePress CLI Reference](https://vitepress.dev/reference/cli)
 - [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)
+
+To generate an up-to-date [contributors.json](docs/.vitepress/contributors.json) run.
+
+```shell
+npm run get-contributors
+```

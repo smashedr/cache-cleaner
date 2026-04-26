@@ -1,6 +1,6 @@
 # TODO
 
-TODO list before commit.
+TODO list before commit/push.
 
 ## App
 
