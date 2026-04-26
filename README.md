@@ -42,8 +42,6 @@
 >
 > [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
-
 Modern Chrome Web Extension and Firefox Browser Addon to easily clean selected cache items specific sites or the whole
 browser with a single key press, from the right-click context menu or via the toolbar icon popup. Cache cleaner is also
 available for mobile browsers, see [Install](#install) below.
@@ -61,6 +59,8 @@ and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsing
 
 > Note: This is the new TypeScript+Vue3 codebase.  
 > For the original JavaScript version, see the [legacy](https://github.com/cssnr/cache-cleaner/tree/legacy) branch.
+
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
 
 ## Install
 
