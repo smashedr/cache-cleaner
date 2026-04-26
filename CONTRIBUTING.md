@@ -27,7 +27,7 @@ See [Browser Opening](#browser-opening) modify the browser or disable this behav
 npm run dev
 ```
 
-**Manually,** open Chrome and navigate to `chrome://extensions/`, enable "Developer mode",
+**To Load Manually,** open Chrome and navigate to `chrome://extensions/`, enable "Developer mode",
 and load the unpacked extension from the `.output` directory.
 
 ### Firefox
@@ -36,7 +36,7 @@ and load the unpacked extension from the `.output` directory.
 npm run dev:ff
 ```
 
-**Manually,** open Firefox and navigate to `about:debugging#/runtime/this-firefox`, then click "Load Temporary Add-on..."
+**To Load Manually,** open Firefox and navigate to `about:debugging#/runtime/this-firefox`, then click "Load Temporary Add-on..."
 and load the unpacked extension from the `.output` directory.
 
 ### Android
@@ -145,11 +145,11 @@ npm run docs:dev
 
 The site should now be available at: <http://localhost:5173/>
 
-- [VitePress CLI Reference](https://vitepress.dev/reference/cli)
-- [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)
-
 To generate an up-to-date [contributors.json](docs/.vitepress/contributors.json) run.
 
 ```shell
 npm run get-contributors
 ```
+
+- [VitePress CLI Reference](https://vitepress.dev/reference/cli)
+- [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)
