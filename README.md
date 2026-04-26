@@ -39,12 +39,28 @@
 
 > [!CAUTION]  
 > Development version of [cssnr/cache-cleaner](https://github.com/cssnr/cache-cleaner).
-
-This is almost complete and ready for testing.
-
-[![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
+>
+> [![Latest Release](https://img.shields.io/github/v/release/smashedr/cache-cleaner?style=for-the-badge&logo=github&color=brightgreen&label=download%20latest%20release)](https://github.com/smashedr/cache-cleaner/releases/latest)
 
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://smashedr.github.io/cache-cleaner/)
+
+Modern Chrome Web Extension and Firefox Browser Addon to easily clean selected cache items specific sites or the whole
+browser with a single key press, from the right-click context menu or via the toolbar icon popup. Cache cleaner is also
+available for mobile browsers, see [Install](#install) below.
+
+Firefox does not have an API to clear cache storage, the cache created by service workers. Furthermore, it has no
+option to bypass the service worker for network when testing. This extension resolves that issue by using a custom
+function to clear **Cache Storage** when clearing site cache plus has an option automatically reload the page after
+clearing the cache. Now after making a change to a site with a service worker, all you have to do is press `F4` (default
+keybind to clear cache) to clear the cache and refresh the site. Additionally, the browsing data API differs on Firefox
+and Chrome so logic was added to allow the extension to run on both browsers.
+
+More information on the individual APIs
+for [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData)
+and [Chrome](https://developer.chrome.com/docs/extensions/reference/api/browsingData).
+
+> Note: This is the new TypeScript+Vue3 codebase.  
+> For the original JavaScript version, see the [legacy](https://github.com/cssnr/cache-cleaner/tree/legacy) branch.
 
 ## Install
 
