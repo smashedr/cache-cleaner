@@ -70,29 +70,29 @@ const props = withDefaults(
 
 const options = useOptions()
 
-const deprecated = ['appcache', 'passwords', 'pluginData', 'webSQL']
-const ffExcludes = ['appcache', 'fileSystems', 'webSQL']
-const ffExcludesAll = [...ffExcludes, 'cacheStorage']
+const deprecated = new Set(['appcache', 'passwords', 'pluginData', 'webSQL'])
+const ffExcludes = new Set(['appcache', 'fileSystems', 'webSQL'])
+const ffExcludesAll = new Set([...ffExcludes, 'cacheStorage'])
 
 const extensionKeys = computed(() => props.extension.filter((ext) => ext !== 'contextMenu' || !!chrome?.contextMenus))
 
 const siteKeys = computed(() => {
   return props.site.filter((item) => {
-    if (isFirefox && ffExcludes.includes(item)) return false
-    return !(!options.value.showDeprecated && deprecated.includes(item))
+    if (isFirefox && ffExcludes.has(item)) return false
+    return !(!options.value.showDeprecated && deprecated.has(item))
   })
 })
 
 const allSiteKeys = computed(() => {
   return props.allSite.filter((item) => {
-    if (isFirefox && ffExcludesAll.includes(item)) return false
-    return !(!options.value.showDeprecated && deprecated.includes(item))
+    if (isFirefox && ffExcludesAll.has(item)) return false
+    return !(!options.value.showDeprecated && deprecated.has(item))
   })
 })
 
 const allBrowserKeys = computed(() => {
   if (options.value.showDeprecated) return props.allBrowser
-  return props.allBrowser.filter((item) => !deprecated.includes(item))
+  return props.allBrowser.filter((item) => !deprecated.has(item))
 })
 </script>
 
