@@ -91,7 +91,7 @@ jobs:
           zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
           submit: false
 
-      # TODO: This only submits for review! Need automation to upload signed release...
+      # NOTE: This only submits for review! Need automation to upload signed release...
 
   publish-mozilla:
     # https://mozilla.github.io/addons-server/topics/api/index.html
@@ -154,7 +154,7 @@ jobs:
             --amo-metadata="amo-metadata.json" \
             --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
 
-      # TODO: This only submits for review! Need automation to upload signed release...
+      # NOTE: This only submits for review! Need automation to upload signed release...
 
   check:
     name: "Check"
