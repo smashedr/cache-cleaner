@@ -24,7 +24,7 @@ const config = useAppConfig()
       v-if="homePage"
       class="link-body-emphasis text-decoration-none d-inline-block"
       rel="noopener"
-      :href="config.githubUrl"
+      :href="config.homepageUrl"
       target="_blank"
       @click.prevent="clickOpen"
       >{{ i18n.t('ui.text.homePage') }}</a

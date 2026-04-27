@@ -144,7 +144,7 @@ jobs:
 
       # NOTE: The web-ext sign command uploads and submits for review
 
-      #- name: "Sign Mozilla Addon"
+      #- name: "Mozilla AMO Publish"
       #  env:
       #    FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
       #    FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}

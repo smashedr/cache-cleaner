@@ -36,7 +36,7 @@ const config = useAppConfig()
         <a
           :title="i18n.t('ui.text.homePage')"
           class="link-body-emphasis text-decoration-none fs-4"
-          :href="config.githubUrl"
+          :href="config.homepageUrl"
           target="_blank"
           @click.prevent="clickOpen($event, closeWindow)"
         >

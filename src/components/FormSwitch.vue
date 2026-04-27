@@ -30,13 +30,15 @@ const onChange = () => saveKeyValue(props.id, model.value, props.subkey)
       type="checkbox"
       role="switch"
     />
-    <label class="form-check-label" :for="id + (subkey || 'toggle')">{{ labelText }}</label>
-    <i
-      v-if="!isMobile && tooltipText"
-      class="fa-solid fa-circle-info ms-2"
-      data-bs-toggle="tooltip"
-      :data-bs-title="tooltipText"
-      v-bs
-    ></i>
+    <label class="form-check-label" :for="id + (subkey || 'toggle')"
+      >{{ labelText }}
+      <i
+        v-if="!isMobile && tooltipText"
+        class="fa-solid fa-circle-info ms-2 d-none d-sm-inline-block"
+        data-bs-toggle="tooltip"
+        :data-bs-title="tooltipText"
+        v-bs
+      ></i
+    ></label>
   </div>
 </template>
