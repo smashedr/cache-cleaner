@@ -114,6 +114,7 @@ jobs:
         with:
           name: artifacts
 
+      # TODO: Generate localized release notes...
       - name: "Generate Release Notes"
         id: notes
         run: |
