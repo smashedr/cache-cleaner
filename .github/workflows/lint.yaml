@@ -53,14 +53,14 @@ jobs:
           jq . firefox-mv3/manifest.json
           echo "::endgroup::"
 
+      - name: "web-ext"
+        if: ${{ !cancelled() }}
+        run: npm run web-ext
+
       #- name: "eslint"
       #  if: ${{ !cancelled() }}
       #  run: |
       #    npm run lint
-
-      - name: "web-ext"
-        if: ${{ !cancelled() }}
-        run: npm run lint:web-ext
 
       - name: "prettier"
         if: ${{ !cancelled() }}
