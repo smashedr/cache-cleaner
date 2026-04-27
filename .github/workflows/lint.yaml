@@ -34,6 +34,29 @@ jobs:
         if: ${{ !cancelled() }}
         run: npm run package
 
+      - name: "Validate"
+        working-directory: .output
+        run: |
+          ls -lAh .
+
+          stat *-chrome.zip
+          stat *-firefox.zip
+          stat *-sources.zip
+
+          echo "::group::chrome-mv3"
+          ls -lAh chrome-mv3
+          echo "::endgroup::"
+          echo "::group::firefox-mv3"
+          ls -lAh firefox-mv3
+          echo "::endgroup::"
+
+          echo "::group::chrome-mv3/manifest.json"
+          jq . chrome-mv3/manifest.json
+          echo "::endgroup::"
+          echo "::group::firefox-mv3/manifest.json"
+          jq . firefox-mv3/manifest.json
+          echo "::endgroup::"
+
       #- name: "eslint"
       #  if: ${{ !cancelled() }}
       #  run: |
