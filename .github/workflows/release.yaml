@@ -141,6 +141,8 @@ jobs:
           cat amo-metadata.json
           echo -e "\n::endgroup::"
 
+      # NOTE: The web-ext sign command uploads and submits for review
+
       - name: "Sign Mozilla Addon"
         env:
           FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
