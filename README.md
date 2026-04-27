@@ -42,14 +42,14 @@ Modern Chrome Web Extension and Firefox Browser Addon to easily clean selected c
 browser with a single key press, from the right-click context menu or via the toolbar icon popup. Cache cleaner is also
 available for mobile browsers, see [Install](#install) below.
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/cache-cleaner/)
+
 Firefox does not have an API to clear cache storage, the cache created by service workers. Furthermore, it has no
 option to bypass the service worker for network when testing. This extension resolves that issue by using a custom
 function to clear **Cache Storage** when clearing site cache plus has an option automatically reload the page after
 clearing the cache. Now after making a change to a site with a service worker, all you have to do is press `F4` (default
 keybind to clear cache) to clear the cache and refresh the site. Additionally, the browsing data API differs on Firefox
 and Chrome so logic was added to allow the extension to run on both browsers.
-
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://cssnr.github.io/cache-cleaner/)
 
 More information on the individual APIs
 for [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData)
