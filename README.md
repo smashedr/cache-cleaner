@@ -28,7 +28,7 @@
 # Cache Cleaner
 
 <a title="Cache Cleaner" href="https://cssnr.github.io/cache-cleaner/" target="_blank">
-<img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/cache-cleaner/refs/heads/master/src/images/logo128.png"></a>
+<img alt="Cache Cleaner" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/cache-cleaner/refs/heads/master/.github/assets/logo.svg"></a>
 
 - [Install](#install)
 - [Features](#features)

@@ -6,6 +6,8 @@ TODO list before commit/push.
 
 - Complete ALL `TODO: UPDATE` comments
 - Update [.github/workflows/release.yaml](.github/workflows/release.yaml)
+- Update [README.md](README.md)
+  - Icon img src url
 
 ## Docs
 
