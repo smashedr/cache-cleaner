@@ -23,7 +23,7 @@ async function windowResize() {
   await chrome.storage.local.set(size).catch(console.warn)
 }
 
-const debounceWindowResize = debounce(windowResize, 600)
+const debounceWindowResize = debounce(windowResize, 500)
 
 onMounted(() => {
   window.addEventListener('resize', debounceWindowResize)

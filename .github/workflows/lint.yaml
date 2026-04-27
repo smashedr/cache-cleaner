@@ -58,10 +58,10 @@ jobs:
         if: ${{ !cancelled() }}
         run: npm run web-ext
 
-      #- name: "eslint"
-      #  if: ${{ !cancelled() }}
-      #  run: |
-      #    npm run lint
+      - name: "eslint"
+        if: ${{ !cancelled() }}
+        run: |
+          npm run lint
 
       - name: "prettier"
         if: ${{ !cancelled() }}

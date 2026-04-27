@@ -34,7 +34,7 @@ export async function updateContextMenus(options: Options) {
       contexts: [ctx],
     })
   }
-  let length = contexts.length
+  const length = contexts.length
 
   for (const [key, value] of Object.entries(config['extension'])) {
     addContextMenuItem(contexts, options, key, value, 'extension')

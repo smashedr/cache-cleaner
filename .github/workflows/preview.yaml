@@ -64,6 +64,11 @@ jobs:
         id: install
         run: npm ci
 
+      - name: "eslint"
+        if: ${{ !cancelled() }}
+        run: |
+          npm run lint
+
       - name: "prettier"
         if: ${{ !cancelled() }}
         run: npm run prettier:check

@@ -155,3 +155,10 @@ For more details about VitePress see.
 
 - [VitePress CLI Reference](https://vitepress.dev/reference/cli)
 - [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)
+
+| Location                                                 | Description                          |
+| -------------------------------------------------------- | ------------------------------------ |
+| [docs](docs)                                             | Documentation Root (Markdown files). |
+| [docs/public](docs/public)                               | Static Root (copied to docs root).   |
+| [docs/.vitepress](docs/.vitepress)                       | VitePress Configuration Root.        |
+| [docs/.vitepress/config.mts](docs/.vitepress/config.mts) | VitePress Configuration File.        |

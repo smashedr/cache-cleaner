@@ -18,10 +18,12 @@ export default {
   ...DefaultTheme,
 
   enhanceApp({ app }) {
+    // eslint-disable-next-line vue/multi-word-component-names
     app.component('Badge', VPBadge)
 
     app.component('BrowserIcons', BrowserIcons)
 
+    // eslint-disable-next-line vue/multi-word-component-names
     app.component('Contributors', Contributors)
     app.config.globalProperties.$contributors = contributors
 
