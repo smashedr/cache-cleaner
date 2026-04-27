@@ -24,7 +24,7 @@ export const defaultOptions = {
     appcache: false, // deprecated
     cacheStorage: true,
     cookies: false,
-    fileSystems: false, // deprecated
+    fileSystems: true,
     indexedDB: true,
     localStorage: true,
     serviceWorkers: true,
