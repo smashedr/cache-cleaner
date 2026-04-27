@@ -61,7 +61,8 @@ async function clearBrowserCache(options: Options, all = false) {
   }
 
   if (!options.showDeprecated || !options.browser.appcache) delete cleanOptions.appcache
-  if (!options.showDeprecated || !options.browser.passwords) delete cleanOptions.passwords
+  if ((!options.showDeprecated && !isFirefox) || !options.browser.passwords)
+    delete cleanOptions.passwords
   if (!options.showDeprecated || !options.browser.pluginData)
     delete cleanOptions.pluginData
   if (!options.showDeprecated || !options.browser.webSQL) delete cleanOptions.webSQL

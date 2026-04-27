@@ -70,7 +70,8 @@ const props = withDefaults(
 
 const options = useOptions()
 
-const deprecated = new Set(['appcache', 'passwords', 'pluginData', 'webSQL'])
+const deprecated = new Set(['appcache', 'pluginData', 'webSQL'])
+if (!isFirefox) ['passwords'].forEach((item) => deprecated.add(item))
 const ffExcludes = new Set(['appcache', 'fileSystems', 'webSQL'])
 const ffExcludesAll = new Set([...ffExcludes, 'cacheStorage'])
 
