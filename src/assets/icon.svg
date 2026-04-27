@@ -1,25 +1,8 @@
-<svg width="100%" height="100%" viewBox="-0.6 -1.4 124 124" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="color-1" gradientUnits="userSpaceOnUse">
-      <stop style="stop-color: rgb(217, 146, 95);"/>
-    </linearGradient>
-    <linearGradient id="color-2">
-      <stop style="stop-color: #fdc830;" offset="0"/>
-      <stop style="stop-color: #f37335;" offset="1"/>
-    </linearGradient>
-    <linearGradient id="color-2-0" href="#color-2" gradientUnits="userSpaceOnUse" x1="39.657" y1="45.031" x2="39.657" y2="120.02"/>
-    <linearGradient id="color-0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.06811, 0, 0, 1, -0.000002, 0.000001)">
-      <stop style="stop-color: rgb(250, 109, 98);"/>
-    </linearGradient>
-  </defs>
-  <g style="" transform="matrix(1.120362, 0, 0, 1.120362, -14.789827, 0.00014)">
-    <path class="st0" d="M 110.97 1.27 L 70.02 42.73 L 80.69 53.09 L 121.94 11.53 C 125.58 3.7 117.92 -2.85 110.97 1.27 Z" style="paint-order: fill; fill: url(&quot;#color-1&quot;);"/>
-  </g>
-  <g>
-    <path class="st0" d="M 54.04 46.81 C 54.44 46.5 54.85 46.23 55.26 46 L 55.41 45.92 C 57.76 44.64 60.22 44.68 62.8 46.45 L 69.97 53.43 L 70.08 53.54 L 76.68 59.96 C 79.41 62.74 80.02 65.84 78.51 69.27 L 59.16 120.02 C 24.02 112.99 -0.34 87.94 0 49.73 C 19.23 55.35 37.75 57.19 54.04 46.81 Z" style="paint-order: fill; fill: url(&quot;#color-2-0&quot;);"/>
-  </g>
-  <!-- NOTE: wxt-dev/auto-icons can NOT render this rect properly -->
-  <!--<g style="" transform="matrix(1.120362, 0, 0, 1.120362, 0.283325, -7.149945)">-->
-  <!--  <rect x="85.3" y="8.204" width="14.873" height="26.812" style="fill: url(&quot;#color-0&quot;); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.70486, 0.709346, -0.702999, 0.711248, -8.887851, 10.547202)"/>-->
-  <!--</g>-->
+<svg viewBox="1.834 5.965 16 16" xmlns="http://www.w3.org/2000/svg">
+  <title/>
+  <path style="fill:#d9925f" d="M 7.526 17.887 L 6.112 16.473 L 15.905 6.68 C 16.295 6.289 16.928 6.289 17.319 6.68 C 17.709 7.07 17.709 7.703 17.319 8.094 L 7.526 17.887 Z" />
+  <path style="fill:#ffd58c" d="M8.9401,21.8125a.64322.64322,0,0,1-.2441-.0476,10.17571,10.17571,0,0,1-6.6936-8.7213.65316.65316,0,0,1,.7944-.6914,6.87393,6.87393,0,0,0,4.8854-.6583l.0093-.0051,1.1261-.6201a.653.653,0,0,1,.7391.0757l3.6726,3.135a.65159.65159,0,0,1,.1726.7604c-.0102.0238-.3181.6932-.5435,1.1831l-.2313.5026a17.80309,17.80309,0,0,1-3.2158,4.8863A.65293.65293,0,0,1,8.9401,21.8125Z" />
+  <path style="fill:#fa6d62" d="M13.1177,15.6958,8.5858,11.1639l1.4242-.7121a1.612,1.612,0,0,1,1.8607.3019l1.6571,1.6572a1.612,1.612,0,0,1,.302,1.8607Z" />
+  <rect style="fill: rgb(250, 109, 98);" height="2" transform="matrix(0.707102, -0.707112, 0.707112, 0.707102, 2.95206, 11.405952)" width="3.43" x="8.102" y="5.818" />
+  <path style="fill:#d9925f" d="M4.8766,19.2816A13.60612,13.60612,0,0,0,8,16a12.94665,12.94665,0,0,1-4.8299.9969A9.80421,9.80421,0,0,0,4.8766,19.2816Z" />
 </svg>

@@ -50,8 +50,8 @@ const props = withDefaults(
       'localStorage',
       'serviceWorkers',
       'cacheStorage',
-      'appcache',
       'fileSystems',
+      'appcache',
       'webSQL',
     ],
     allSite: () => [

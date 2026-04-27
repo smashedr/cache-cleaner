@@ -151,5 +151,7 @@ To generate an up-to-date [contributors.json](docs/.vitepress/contributors.json)
 npm run get-contributors
 ```
 
+For more details about VitePress see.
+
 - [VitePress CLI Reference](https://vitepress.dev/reference/cli)
 - [VitePress Markdown Reference](https://vitepress.dev/guide/markdown)

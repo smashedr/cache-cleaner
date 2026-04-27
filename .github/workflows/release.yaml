@@ -23,7 +23,7 @@ jobs:
   release:
     name: "Release"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     needs: [build]
 
     permissions:
@@ -57,7 +57,7 @@ jobs:
     name: "Publish Chrome"
     if: ${{ !github.event.release.prerelease }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     needs: [build]
 
     environment:
@@ -78,11 +78,10 @@ jobs:
           echo "::group::ls chrome-mv3"
           ls -lAh chrome-mv3
           echo "::endgroup::"
-          echo "::group::cat chrome-mv3/manifest.json"
-          cat chrome-mv3/manifest.json
+          echo "::group::chrome-mv3/manifest.json"
+          jq . chrome-mv3/manifest.json || cat chrome-mv3/manifest.json
           echo -e "\n::endgroup::"
 
-      ## TODO: UPDATE
       #- name: "Web Store Publish"
       #  uses: cssnr/webstore-publish-action@master
       #  with:
@@ -92,14 +91,14 @@ jobs:
       #    zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
       #    submit: false
 
-      # TODO: This only submits for review! Need automation to upload signed release...
+      # NOTE: This only submits for review! Need automation to upload signed release...
 
   publish-mozilla:
     # https://mozilla.github.io/addons-server/topics/api/index.html
     name: "Publish Mozilla"
     if: ${{ !github.event.release.prerelease }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 15
     needs: [build]
 
     permissions:
@@ -115,6 +114,7 @@ jobs:
         with:
           name: artifacts
 
+      # TODO: Generate localized release notes...
       - name: "Generate Release Notes"
         id: notes
         run: |
@@ -135,25 +135,29 @@ jobs:
           echo "::group::ls firefox-mv3"
           ls -lAh firefox-mv3
           echo "::endgroup::"
-          echo "::group::cat firefox-mv3/manifest.json"
-          cat firefox-mv3/manifest.json
+          echo "::group::firefox-mv3/manifest.json"
+          jq . firefox-mv3/manifest.json || cat firefox-mv3/manifest.json
           echo -e "\n::endgroup::"
-          echo "::group::cat amo-metadata.json"
-          cat amo-metadata.json
+          echo "::group::amo-metadata.json"
+          jq . amo-metadata.json || cat amo-metadata.json
           echo -e "\n::endgroup::"
 
-      ## TODO: UPDATE
+      # NOTE: The web-ext sign command uploads and submits for review
+
       #- name: "Sign Mozilla Addon"
+      #  env:
+      #    FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+      #    FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
       #  run: |
       #    npx web-ext sign \
-      #      --api-key="${{ secrets.FIREFOX_API_KEY }}" \
-      #      --api-secret="${{ secrets.FIREFOX_API_SECRET }}" \
+      #      --api-key="${FIREFOX_API_KEY}" \
+      #      --api-secret="${FIREFOX_API_SECRET}" \
       #      --channel=listed --approval-timeout=0 \
       #      --source-dir="firefox-mv3" \
       #      --amo-metadata="amo-metadata.json" \
       #      --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
 
-      # TODO: This only submits for review! Need automation to upload signed release...
+      # NOTE: This only submits for review! Need automation to upload signed release...
 
   check:
     name: "Check"

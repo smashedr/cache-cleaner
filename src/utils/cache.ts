@@ -132,9 +132,9 @@ async function clearSiteCache(options: Options, all = false) {
 async function clearCacheStorage() {
   async function cacheStorage() {
     // console.debug('cacheStorage: isSecureContext:', self.isSecureContext)
-    if (!self.isSecureContext) {
-      throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
-    }
+    // if (!self.isSecureContext) {
+    //   throw new Error('Cache Storage API requires a secure context (HTTPS or localhost)')
+    // }
     const keys = await caches.keys()
     console.log('%cCache Keys Found:', 'color: PowderBlue', keys.length)
     for (const key of keys) {
