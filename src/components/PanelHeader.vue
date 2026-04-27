@@ -91,7 +91,7 @@ const config = useAppConfig()
         ></a>
       </div>
 
-      <OptionsModal class="btn btn-sm btn-outline-success ms-1">
+      <OptionsModal :close-window="closeWindow" class="btn btn-sm btn-outline-success ms-1">
         <i class="fa-solid fa-sliders"></i>
       </OptionsModal>
     </div>

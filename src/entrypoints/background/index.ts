@@ -15,6 +15,8 @@ export default defineBackground(() => {
   chrome.storage.sync.onChanged.addListener(onChanged)
   chrome.commands?.onCommand.addListener(onCommand)
   chrome.contextMenus?.onClicked.addListener(onClicked)
+
+  chrome.notifications.onClicked.addListener(notificationsOnClicked)
 })
 
 async function onInstalled(details: chrome.runtime.InstalledDetails) {
@@ -103,6 +105,11 @@ async function onClicked(ctx: chrome.contextMenus.OnClickData, tab?: chrome.tabs
   } else {
     console.warn(`Unknown ctx.menuItemId: ${ctx.menuItemId}`)
   }
+}
+
+async function notificationsOnClicked(notificationId: string) {
+  console.log('notificationsOnClicked:', notificationId)
+  await chrome.notifications.clear(notificationId)
 }
 
 async function setDefaultOptions(defaultOptions: object) {

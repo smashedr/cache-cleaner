@@ -45,7 +45,7 @@ onUnmounted(() => window.removeEventListener('resize', debounceWindowResize))
   </header>
 
   <main class="flex-grow-1 overflow-auto">
-    <OptionsForm :close-window="true" :compact="true" />
+    <OptionsForm :compact="true" />
   </main>
 
   <footer class="flex-shrink-0">
