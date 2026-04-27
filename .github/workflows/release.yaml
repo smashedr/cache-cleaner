@@ -75,12 +75,12 @@ jobs:
           ls -lAh .
           stat "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
           yq -e '.version | test("${{ github.event.release.tag_name }}")' chrome-mv3/manifest.json
-          echo "::group::ls chrome-mv3"
+          echo "::group::chrome-mv3"
           ls -lAh chrome-mv3
           echo "::endgroup::"
           echo "::group::chrome-mv3/manifest.json"
-          jq . chrome-mv3/manifest.json || cat chrome-mv3/manifest.json
-          echo -e "\n::endgroup::"
+          jq . chrome-mv3/manifest.json
+          echo "::endgroup::"
 
       #- name: "Web Store Publish"
       #  uses: cssnr/webstore-publish-action@master
@@ -114,33 +114,38 @@ jobs:
         with:
           name: artifacts
 
-      # TODO: Generate localized release notes...
       - name: "Generate Release Notes"
-        id: notes
+        env:
+          RELEASE_NOTES: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }}
         run: |
-          notes="Full Release Notes: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }}"
-          echo "notes=$notes" >> "$GITHUB_OUTPUT"
-
-      - name: "Write AMO Metadata"
-        uses: jsdaniell/create-json@b8e77fa01397ca39cc4a6198cc29a3be5481afef # v1.2.3
-        with:
-          name: "amo-metadata.json"
-          json: '{"version": {"release_notes": {"en-US": "${{ steps.notes.outputs.notes }}"}}}'
+          cat > amo-metadata.json << EOF
+          {"version": {"release_notes": {
+            "de":    "Vollständige Versionshinweise: $RELEASE_NOTES",
+            "en-US": "Full Release Notes: $RELEASE_NOTES",
+            "es":    "Notas de versión completas: $RELEASE_NOTES",
+            "fr":    "Notes de version complètes : $RELEASE_NOTES",
+            "ja":    "完全なリリースノート: $RELEASE_NOTES",
+            "ko":    "전체 릴리스 노트: $RELEASE_NOTES",
+            "pt-BR": "Notas de versão completas: $RELEASE_NOTES",
+            "ru":    "Полные примечания к выпуску: $RELEASE_NOTES",
+            "zh-CN": "完整发行说明：$RELEASE_NOTES"
+          }}}
+          EOF
 
       - name: "Validate"
         run: |
           ls -lAh .
           stat "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
           yq -e '.version | test("${{ github.event.release.tag_name }}")' firefox-mv3/manifest.json
-          echo "::group::ls firefox-mv3"
+          echo "::group::firefox-mv3"
           ls -lAh firefox-mv3
           echo "::endgroup::"
           echo "::group::firefox-mv3/manifest.json"
-          jq . firefox-mv3/manifest.json || cat firefox-mv3/manifest.json
-          echo -e "\n::endgroup::"
+          jq . firefox-mv3/manifest.json
+          echo "::endgroup::"
           echo "::group::amo-metadata.json"
-          jq . amo-metadata.json || cat amo-metadata.json
-          echo -e "\n::endgroup::"
+          jq . amo-metadata.json
+          echo "::endgroup::"
 
       # NOTE: The web-ext sign command uploads and submits for review
 
