@@ -21,26 +21,26 @@ export const defaultOptions = {
   },
 
   site: {
-    appcache: true, // deprecated
+    appcache: false, // deprecated
     cacheStorage: true,
     cookies: false,
-    fileSystems: true, // deprecated
+    fileSystems: false, // deprecated
     indexedDB: true,
     localStorage: true,
     serviceWorkers: true,
-    webSQL: true, // deprecated
+    webSQL: false, // deprecated
   },
 
   browser: {
     // all site
-    appcache: true, // deprecated
+    appcache: false, // deprecated
     cacheStorage: true,
     cookies: false,
     fileSystems: true,
     indexedDB: true,
     localStorage: false,
     serviceWorkers: true,
-    webSQL: true, // deprecated
+    webSQL: false, // deprecated
     // all browser
     cache: true,
     downloads: true,
