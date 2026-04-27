@@ -29,7 +29,7 @@ export default defineConfig({
       short_name: '__MSG_short_name__',
       description: '__MSG_description__',
 
-      homepage_url: 'https://github.com/cssnr/cache-cleaner',
+      homepage_url: 'https://smashedr.github.io/cache-cleaner/', // TODO: UPDATE
       permissions: [
         'activeTab',
         'browsingData',

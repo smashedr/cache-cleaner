@@ -22,8 +22,8 @@ export default defineAppConfig({
   name: manifest.name,
   shortName: manifest.short_name || manifest.name, // NOSONAR
   version: manifest.version,
-  githubUrl: manifest.homepage_url ?? '',
-  homepageUrl: manifest.homepage_url ?? '',
+  githubUrl: 'https://github.com/smashedr/cache-cleaner', // TODO: UPDATE
+  homepageUrl: 'https://smashedr.github.io/cache-cleaner/', // TODO: UPDATE
   updateUrl: 'https://smashedr.github.io/cache-cleaner/updates', // TODO: UPDATE
   uninstallUrl: 'https://cssnr.github.io/feedback/?name=cache-cleaner',
 })
