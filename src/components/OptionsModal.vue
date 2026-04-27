@@ -4,6 +4,10 @@ import { openOptions } from '@/utils/extension.ts'
 import OptionsForm from '@/components/OptionsForm.vue'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 
+defineProps({
+  closeWindow: { type: Boolean, default: false },
+})
+
 defineOptions({ inheritAttrs: false })
 
 const extensionOptions = ['autoReload', 'showAllButtons', 'popupBrowser', 'showDeprecated', 'showConfirmation']
@@ -33,7 +37,7 @@ const extensionOptions = ['autoReload', 'showAllButtons', 'popupBrowser', 'showD
         </div>
 
         <div class="modal-footer p-0 flex-column align-items-start flex-sm-row align-items-sm-center">
-          <button type="button" class="btn btn-sm btn-primary me-auto" @click="openOptions(true)">
+          <button type="button" class="btn btn-sm btn-primary me-auto" @click="openOptions(closeWindow)">
             <i class="fa-solid fa-gears me-2"></i> {{ i18n.t('options.moreOptions') }}
           </button>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">

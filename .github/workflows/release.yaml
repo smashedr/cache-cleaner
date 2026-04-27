@@ -78,18 +78,18 @@ jobs:
           echo "::group::ls chrome-mv3"
           ls -lAh chrome-mv3
           echo "::endgroup::"
-          echo "::group::cat chrome-mv3/manifest.json"
-          cat chrome-mv3/manifest.json
+          echo "::group::chrome-mv3/manifest.json"
+          jq . chrome-mv3/manifest.json || cat chrome-mv3/manifest.json
           echo -e "\n::endgroup::"
 
-      - name: "Web Store Publish"
-        uses: cssnr/webstore-publish-action@master
-        with:
-          extension_id: ${{ env.CHROME_ID }}
-          publisher_id: ${{env.PUBLISHER_ID}}
-          json_data: ${{ secrets.WEBSTORE_JSON }}
-          zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
-          submit: false
+      #- name: "Web Store Publish"
+      #  uses: cssnr/webstore-publish-action@master
+      #  with:
+      #    extension_id: ${{ env.CHROME_ID }}
+      #    publisher_id: ${{env.PUBLISHER_ID}}
+      #    json_data: ${{ secrets.WEBSTORE_JSON }}
+      #    zip_file: "${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-chrome.zip"
+      #    submit: false
 
       # NOTE: This only submits for review! Need automation to upload signed release...
 
@@ -134,27 +134,27 @@ jobs:
           echo "::group::ls firefox-mv3"
           ls -lAh firefox-mv3
           echo "::endgroup::"
-          echo "::group::cat firefox-mv3/manifest.json"
-          cat firefox-mv3/manifest.json
+          echo "::group::firefox-mv3/manifest.json"
+          jq . firefox-mv3/manifest.json || cat firefox-mv3/manifest.json
           echo -e "\n::endgroup::"
-          echo "::group::cat amo-metadata.json"
-          cat amo-metadata.json
+          echo "::group::amo-metadata.json"
+          jq . amo-metadata.json || cat amo-metadata.json
           echo -e "\n::endgroup::"
 
       # NOTE: The web-ext sign command uploads and submits for review
 
-      - name: "Sign Mozilla Addon"
-        env:
-          FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
-          FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
-        run: |
-          npx web-ext sign \
-            --api-key="${FIREFOX_API_KEY}" \
-            --api-secret="${FIREFOX_API_SECRET}" \
-            --channel=listed --approval-timeout=0 \
-            --source-dir="firefox-mv3" \
-            --amo-metadata="amo-metadata.json" \
-            --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
+      #- name: "Sign Mozilla Addon"
+      #  env:
+      #    FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+      #    FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
+      #  run: |
+      #    npx web-ext sign \
+      #      --api-key="${FIREFOX_API_KEY}" \
+      #      --api-secret="${FIREFOX_API_SECRET}" \
+      #      --channel=listed --approval-timeout=0 \
+      #      --source-dir="firefox-mv3" \
+      #      --amo-metadata="amo-metadata.json" \
+      #      --upload-source-code="${{ env.PACKAGE_NAME }}-${{ github.event.release.tag_name }}-sources.zip"
 
       # NOTE: This only submits for review! Need automation to upload signed release...
 
